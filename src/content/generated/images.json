@@ -1,4 +1,49 @@
 {
+  "bars/aqua/01": {
+    "dir": "bars/aqua/",
+    "name": "01",
+    "hash": "0b352c58",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAwABABoJZgCdACgpJ4gAPdwc2GCvjmMadgcGTvS/BskG0QAAA=="
+  },
+  "bars/aqua/02": {
+    "dir": "bars/aqua/",
+    "name": "02",
+    "hash": "8f4415c5",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQAAwABABoJZgCdADuvQTAAADZxGZaPxzt8E+QlXpo/64uV/IAAA=="
+  },
+  "bars/aqua/03": {
+    "dir": "bars/aqua/",
+    "name": "03",
+    "hash": "5da81fb9",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAwABABoJYgCdACynEqxAAD3cxAPXUvqIporApzKvV5lVhhEYgAA"
+  },
   "bars/aqua/cover": {
     "dir": "bars/aqua/",
     "name": "cover",
@@ -13,6 +58,51 @@
       1600
     ],
     "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAwABABoJaACdAENMx+yAAD+jsN97UrGDcHUEWTdh36q0tEuAAAA"
+  },
+  "bars/beach/01": {
+    "dir": "bars/beach/",
+    "name": "01",
+    "hash": "70b07b8b",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAwABABoJZACdACQ/IAAAMnEuBfpzJlO1Noy6sSyQGxb1EAAAA=="
+  },
+  "bars/beach/02": {
+    "dir": "bars/beach/",
+    "name": "02",
+    "hash": "1eecd0ec",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAwABABoJZgCdACRotQAAPnD88/lpcqaB16u6T9T5GItjAA="
+  },
+  "bars/beach/03": {
+    "dir": "bars/beach/",
+    "name": "03",
+    "hash": "f1637443",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQAAwABABoJZgCdAC9EbJAAADJ31uKoaK6/KXeVc3Sfqf5ffAAAA=="
   },
   "bars/beach/cover": {
     "dir": "bars/beach/",
@@ -29,6 +119,51 @@
     ],
     "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAwABABoJZACdAEI3WogAAD92DOLU0kkN7sxA5pBltsVEYTHLwAA"
   },
+  "bars/coffee-house/01": {
+    "dir": "bars/coffee-house/",
+    "name": "01",
+    "hash": "2bd47b9b",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAADQAQCdASoQAAwABABoJZgCdADzbyNgAAD8WlrhsWvmNxNwaBP26UzYgAA="
+  },
+  "bars/coffee-house/02": {
+    "dir": "bars/coffee-house/",
+    "name": "02",
+    "hash": "dc0dc258",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAADQAQCdASoQAAwABABoJaACdADzbyhgAAD3JrVeSY55jcTcGyRTGtkPYAA="
+  },
+  "bars/coffee-house/03": {
+    "dir": "bars/coffee-house/",
+    "name": "03",
+    "hash": "f491b591",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAwABABoJaACdADzbycAAP5Xe6OkSrO0uwb9cXNkPLKAAAA="
+  },
   "bars/coffee-house/cover": {
     "dir": "bars/coffee-house/",
     "name": "cover",
@@ -43,6 +178,51 @@
       1600
     ],
     "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQAAwABABoJZACdAEOtfmPAAD+Vv+Ii96is7LQjCaSdDZP7MAAAA=="
+  },
+  "bars/disco/01": {
+    "dir": "bars/disco/",
+    "name": "01",
+    "hash": "91187919",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAwABABoJZACdACQ/IAAAKt3kbu1XoJeiUbo5z8HnY6m1AAAAA=="
+  },
+  "bars/disco/02": {
+    "dir": "bars/disco/",
+    "name": "02",
+    "hash": "d712a4e9",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAwABABoJZgCdACyPY2AAOsW6+JhFVYsfYMtTv90n6GBAAA="
+  },
+  "bars/disco/03": {
+    "dir": "bars/disco/",
+    "name": "03",
+    "hash": "b9f42549",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoQAAwABABoJZgCdAEJEsaMAPdoo0+QfKI41gYCMjKaJNwJKxtQAAAA"
   },
   "bars/disco/cover": {
     "dir": "bars/disco/",
@@ -59,6 +239,51 @@
     ],
     "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAwABABoJZACdAEQ8OXWAAD8bp9R6MQhcmzTuysrRWUv4MttggAA"
   },
+  "bars/lobby/01": {
+    "dir": "bars/lobby/",
+    "name": "01",
+    "hash": "1fb920de",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAQCdASoQAAwABABoJaACdAEOtWXAAP3OVGGVEVneHLM4V15IxwAA"
+  },
+  "bars/lobby/02": {
+    "dir": "bars/lobby/",
+    "name": "02",
+    "hash": "646a926b",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAADQAQCdASoQAAwABABoJagCdAEOtfjjQAD9zqo8wZ8zePo69aWzYbAAAAA="
+  },
+  "bars/lobby/03": {
+    "dir": "bars/lobby/",
+    "name": "03",
+    "hash": "d744cd4d",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAwABABoJaACw7EOtWpgAP6OwRw9StaXicnH9eqWuOngAAA="
+  },
   "bars/lobby/cover": {
     "dir": "bars/lobby/",
     "name": "cover",
@@ -73,6 +298,51 @@
       1600
     ],
     "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAwABABoJZgCdAEJEtBAAP6MT2C5lfHTMnr2fLM4IYXsH4AAAA=="
+  },
+  "bars/passion/01": {
+    "dir": "bars/passion/",
+    "name": "01",
+    "hash": "5c6e07ab",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAwABABoJaACw7CQ/IAAAMnEuBfpzJlM8AnefWuVqvwAAAA="
+  },
+  "bars/passion/02": {
+    "dir": "bars/passion/",
+    "name": "02",
+    "hash": "f8de3183",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAQCdASoQAAwABABoJaAAAbgHSm8AAOsW69whJR4R8d/1rz9hvwAA"
+  },
+  "bars/passion/03": {
+    "dir": "bars/passion/",
+    "name": "03",
+    "hash": "556bdc7a",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAwABABoJaAC7ACyPUfAANyIcOsVbFe4I/373/y47s7RT+UAAA=="
   },
   "bars/passion/cover": {
     "dir": "bars/passion/",
@@ -89,6 +359,51 @@
     ],
     "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQAAwABABoJaACdAEQ89CDQAD91w83GmQcUkZgaBz8CZ+wuQAAAA=="
   },
+  "bars/patisserie/01": {
+    "dir": "bars/patisserie/",
+    "name": "01",
+    "hash": "2630a531",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAADQAQCdASoQAAwABABoJYgCdAD0LxTOAADZw/62ZH/oXXxhNJOhsn9mAAA="
+  },
+  "bars/patisserie/02": {
+    "dir": "bars/patisserie/",
+    "name": "02",
+    "hash": "1cb93a69",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAwABABoJZACdADuuSYAANq6lU9r1Mxz+FyyMRQKU24YAAA="
+  },
+  "bars/patisserie/03": {
+    "dir": "bars/patisserie/",
+    "name": "03",
+    "hash": "fdf87473",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAwABABoJZgCdADzbysAAP3ZZDwph71MyDw08szghhewCwAAAA=="
+  },
   "bars/patisserie/cover": {
     "dir": "bars/patisserie/",
     "name": "cover",
@@ -104,6 +419,51 @@
     ],
     "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADwAQCdASoQAAwABABoJZACdAEQ81WDnAAA/lZ8gbvdmCniCl7SXQz3g123YAAA"
   },
+  "bars/pier/01": {
+    "dir": "bars/pier/",
+    "name": "01",
+    "hash": "9cdcb099",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAwABABoJZgCdACg3WLAAPChYvYrpYdVOoxyz5HO7+fW6PAAAA=="
+  },
+  "bars/pier/02": {
+    "dir": "bars/pier/",
+    "name": "02",
+    "hash": "48a1f56f",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAADQAQCdASoQAAwABABoJaACdACRV4BpAAD9FwRA3P4I6nAD+R2ELPI6MAA="
+  },
+  "bars/pier/03": {
+    "dir": "bars/pier/",
+    "name": "03",
+    "hash": "4789d829",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQAAwABABoJaACw7C9QNKpAADwyGuWcvgmgpJX62+RzvSl0AAAAA=="
+  },
   "bars/pier/cover": {
     "dir": "bars/pier/",
     "name": "cover",
@@ -118,6 +478,51 @@
       1600
     ],
     "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQAAwABABoJZACdAENU8iAAAD915YAbGSfylXIqdWWn2X8HkZAAA=="
+  },
+  "bars/pool/01": {
+    "dir": "bars/pool/",
+    "name": "01",
+    "hash": "f11fcde2",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoQAAwABABoJYgCdAB1agcAANyHxN/hf0Nmy5QPIVWk0i83uWHdAAAA"
+  },
+  "bars/pool/02": {
+    "dir": "bars/pool/",
+    "name": "02",
+    "hash": "a00d75c7",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAwABABoJZACdACgpJgAAOsW69whJTtcAr26OfyuVIcIjAA="
+  },
+  "bars/pool/03": {
+    "dir": "bars/pool/",
+    "name": "03",
+    "hash": "6becbdda",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAwABABoJZACdAC9QLegAADciHDkRee0XtiXzWh3SfoYx8m4wAAA"
   },
   "bars/pool/cover": {
     "dir": "bars/pool/",
@@ -1694,6 +2099,51 @@
     ],
     "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAwCdASoQABUAPxFysFAsJqSisAgBgCIJZACdMoR3ABYHaxMa9WAA4MWO9I67B8UEYFXNOUbzkl/4Gw6EEsOLXBAAAA=="
   },
+  "restaurants/aqua-snack/01": {
+    "dir": "restaurants/aqua-snack/",
+    "name": "01",
+    "hash": "3d0b8704",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQAAwABABoJZgCdADzbyNgAAD3cGEZDOI7fZvhKbcVfXFyv5AAAA=="
+  },
+  "restaurants/aqua-snack/02": {
+    "dir": "restaurants/aqua-snack/",
+    "name": "02",
+    "hash": "cc9b9708",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAwABABoJZACdACQ/LCAAMLNVYlfa4+DrPVLDBltsVGuFqEAAA=="
+  },
+  "restaurants/aqua-snack/03": {
+    "dir": "restaurants/aqua-snack/",
+    "name": "03",
+    "hash": "459a8bfa",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAwABABoJYgCdAC9EZjAAAD3cxAPXUvbQtdowIjtlAnrfFwmXgAA"
+  },
   "restaurants/aqua-snack/cover": {
     "dir": "restaurants/aqua-snack/",
     "name": "cover",
@@ -1708,6 +2158,51 @@
       1600
     ],
     "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAwABABoJZgCdAEOtW2wAP6Ol/CYgD5cmLOayd6X4Nkg2iAAAA=="
+  },
+  "restaurants/far-east/01": {
+    "dir": "restaurants/far-east/",
+    "name": "01",
+    "hash": "69c933a5",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAwABABoJagCdADzbyIAAPxxo5N1GOeY3Me+V4d3NrmIAAA="
+  },
+  "restaurants/far-east/02": {
+    "dir": "restaurants/far-east/",
+    "name": "02",
+    "hash": "ddad2f0f",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQAAwABABoJagCdADzco1tAAD3JrWOe16mYTzFBXY/h3c2uYgAAA=="
+  },
+  "restaurants/far-east/03": {
+    "dir": "restaurants/far-east/",
+    "name": "03",
+    "hash": "e4ec0825",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoQAAwABABoJaACdACymPAAAP3ZZQAb8MlYOzWp51hSbsO/VVPNSIAA"
   },
   "restaurants/far-east/cover": {
     "dir": "restaurants/far-east/",
@@ -1724,6 +2219,51 @@
     ],
     "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQAAwABABoJaAC7AENMCG+AAD+jsN9B5cr0U8TvhhU8O7m158AAA=="
   },
+  "restaurants/fish/01": {
+    "dir": "restaurants/fish/",
+    "name": "01",
+    "hash": "91edd9d7",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAwABABoJZACdACQ/LCAAMne2nnBWkeXKCcYfwH/fqzYYQuAAA=="
+  },
+  "restaurants/fish/02": {
+    "dir": "restaurants/fish/",
+    "name": "02",
+    "hash": "40fdf159",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAwABABoJZgCdACgpJgAAOsW8Bnf1hNEH7sCSsbohGFvgAA="
+  },
+  "restaurants/fish/03": {
+    "dir": "restaurants/fish/",
+    "name": "03",
+    "hash": "5765e453",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADwAQCdASoQAAwABABoJZgCdAC9F1FJAAAAyd9bmQNm0P+Si0wbpP1PkYV/gAAA"
+  },
   "restaurants/fish/cover": {
     "dir": "restaurants/fish/",
     "name": "cover",
@@ -1738,6 +2278,51 @@
       1600
     ],
     "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAwABABoJZACdAENUftgAP5Ws6CFRjvskTZiDLbYqIwmOXgAAA=="
+  },
+  "restaurants/italian/01": {
+    "dir": "restaurants/italian/",
+    "name": "01",
+    "hash": "9251eeea",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAwABABoJaACdACQ/VJQAPClYnqFT2UzmenqI+tefsLkAAA="
+  },
+  "restaurants/italian/02": {
+    "dir": "restaurants/italian/",
+    "name": "02",
+    "hash": "462fb8ad",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAwABABoJaACdACyPUAAAOsW6+Jgq/0wbrSIQfkc7vzwAAA="
+  },
+  "restaurants/italian/03": {
+    "dir": "restaurants/italian/",
+    "name": "03",
+    "hash": "7cf03a57",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAwABABoJZACdADuuSx6AAD3cvxkJDK4ttWwcigjDRruk/QwIAAA"
   },
   "restaurants/italian/cover": {
     "dir": "restaurants/italian/",
@@ -1754,6 +2339,51 @@
     ],
     "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADwAQCdASoQAAwABABoJagCdAEQ8QiP6AAA/G6fU65IbDcAjnHWtWbtU0wAAA=="
   },
+  "restaurants/main/01": {
+    "dir": "restaurants/main/",
+    "name": "01",
+    "hash": "7559e7ca",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAQCdASoQAAwABABoJZgCdAEOtWXAAPxS5RZgtq3YNcXM/bRMsoAA"
+  },
+  "restaurants/main/02": {
+    "dir": "restaurants/main/",
+    "name": "02",
+    "hash": "953142e0",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQAAwABABoJaACdADzbySgAAD8XIaj2fjcmI6b69Utcf94VAAAAA=="
+  },
+  "restaurants/main/03": {
+    "dir": "restaurants/main/",
+    "name": "03",
+    "hash": "bcb32621",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAwABABoJaACdADzbyIAAP6PDuAz+kFPmhMA+HbmyHkEgAA="
+  },
   "restaurants/main/cover": {
     "dir": "restaurants/main/",
     "name": "cover",
@@ -1768,6 +2398,51 @@
       1600
     ],
     "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAwABABoJZACdAEOtWpgAP6LyECkD7cNE6vxiw3WdbK+EAA="
+  },
+  "restaurants/mexican/01": {
+    "dir": "restaurants/mexican/",
+    "name": "01",
+    "hash": "81016a9b",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAwABABoJZACdADzbycAAPce4i95zg+aR6+vBoE/bpV6WkAAAA=="
+  },
+  "restaurants/mexican/02": {
+    "dir": "restaurants/mexican/",
+    "name": "02",
+    "hash": "b44ced2d",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAwABABoJZgCdADzbyIAAPcmop3I0NLsCDblmcEML2D8AAA="
+  },
+  "restaurants/mexican/03": {
+    "dir": "restaurants/mexican/",
+    "name": "03",
+    "hash": "2034e6a6",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAwABABoJZgCdADzbyIAAP5Xe6OkSrO0u3Y++qqevxrwPQAAAA=="
   },
   "restaurants/mexican/cover": {
     "dir": "restaurants/mexican/",
@@ -1784,6 +2459,51 @@
     ],
     "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAwABABoJYgCdAEQ+/twAAD+Vv8c3SGbRCtCCivctFIoq9M/AAAA"
   },
+  "restaurants/turkish/01": {
+    "dir": "restaurants/turkish/",
+    "name": "01",
+    "hash": "73d00b2a",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAwABABoJZACdACQ/IqAANnJIx1LoStLsCVGE0jAYD/bsAAAAA=="
+  },
+  "restaurants/turkish/02": {
+    "dir": "restaurants/turkish/",
+    "name": "02",
+    "hash": "4a7183da",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAwABABoJZACdADuuSYAANnEX4KII/8uFHXC2WBLZP7MAAA="
+  },
+  "restaurants/turkish/03": {
+    "dir": "restaurants/turkish/",
+    "name": "03",
+    "hash": "1b8f3ff0",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAwABABoJZACdAD0LxlEAP3ZTEFdIyP/Vvi9cLZYDqKJ+AAAAA=="
+  },
   "restaurants/turkish/cover": {
     "dir": "restaurants/turkish/",
     "name": "cover",
@@ -1798,5 +2518,261 @@
       1600
     ],
     "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADwAQCdASoQAAwABABoJZACdAEQ89EkaAAA/dg7/HMJGbbhhE3tsQsPO1aPgAAA"
+  },
+  "rooms/deluxe-family-room/01": {
+    "dir": "rooms/deluxe-family-room/",
+    "name": "01",
+    "hash": "4e9c6853",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1920,
+      2400
+    ],
+    "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAsABABoJZgCdACheGUMgAD3cHNhhqgwRmrLAo+vcsQQ6qp5qRAA"
+  },
+  "rooms/deluxe-family-room/02": {
+    "dir": "rooms/deluxe-family-room/",
+    "name": "02",
+    "hash": "21ec5c08",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1920,
+      2400
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAsABABoJaACdACRIi6QANnKivMFFaq9KP9i9ZEPDtzPx4AAAA=="
+  },
+  "rooms/deluxe-family-room/03": {
+    "dir": "rooms/deluxe-family-room/",
+    "name": "03",
+    "hash": "6fae6afc",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1920,
+      2400
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADwAQCdASoQAAsABABoJZgCdAEN8GFcuKAA/dg0YTSEQqMKWILRubVVPNSIAA=="
+  },
+  "rooms/deluxe-family-room/cover": {
+    "dir": "rooms/deluxe-family-room/",
+    "name": "cover",
+    "hash": "02d0d171",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1920,
+      2400
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAADQAQCdASoQAAsABABoJZgCdAEOtfk2AAD+jpf9GDDNh2pOHoIXvSyugAA="
+  },
+  "rooms/family-suite/01": {
+    "dir": "rooms/family-suite/",
+    "name": "01",
+    "hash": "7b19cb66",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1920,
+      2400
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQAAsABABoJZACdACgtBgQAADJxLtNe7XYRZ+uwudjqZhXrJ7AAA=="
+  },
+  "rooms/family-suite/02": {
+    "dir": "rooms/family-suite/",
+    "name": "02",
+    "hash": "7232834f",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1920,
+      2400
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAADQAQCdASoQAAsABABoJZACdAC9AfoQIADrFvAYrViAJ3AkrG6IRbGAAAA="
+  },
+  "rooms/family-suite/03": {
+    "dir": "rooms/family-suite/",
+    "name": "03",
+    "hash": "0282b05a",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1920,
+      2400
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAADQAQCdASoQAAsABABoJZgCdAD0MdO7sADJ306stAFzKvYElY3RBX+AAAA="
+  },
+  "rooms/family-suite/cover": {
+    "dir": "rooms/family-suite/",
+    "name": "cover",
+    "hash": "45c913d8",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1920,
+      2400
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQAAsABABoJYgCdAENUp+gAAD+VrOhfbwNMIpYWVemwPpLoU+AAA=="
+  },
+  "rooms/standard-room/01": {
+    "dir": "rooms/standard-room/",
+    "name": "01",
+    "hash": "f05b6a60",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1920,
+      2400
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAsABABoJZgCdAEOtWXAAPxS6I+vDQTHP7vVVPNXyyHsAAA="
+  },
+  "rooms/standard-room/02": {
+    "dir": "rooms/standard-room/",
+    "name": "02",
+    "hash": "e58e3433",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1920,
+      2400
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAADQAQCdASoQAAsABABoJaACdAD0MKdFeAD8XIaxP8ibUtjZ1xcz9tEyygA="
+  },
+  "rooms/standard-room/03": {
+    "dir": "rooms/standard-room/",
+    "name": "03",
+    "hash": "0f20c966",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1920,
+      2400
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADwAQCdASoQAAsABABoJaACdAD0RwmfOYAA/ld7o6gLU1b/dSuvVLLK0BAAAA=="
+  },
+  "rooms/standard-room/cover": {
+    "dir": "rooms/standard-room/",
+    "name": "cover",
+    "hash": "cbbf5925",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1920,
+      2400
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAADQAQCdASoQAAsABABoJZACdAENXxqekAD+jpcxQXPMhQtnvSywHVfsPAA="
+  },
+  "rooms/superior-family-room/01": {
+    "dir": "rooms/superior-family-room/",
+    "name": "01",
+    "hash": "4060f360",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1920,
+      2400
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAADQAQCdASoQAAsABABoJaAC7ADwGKCwAADJwa+fb/LoyQkS5da5WOMQAAA="
+  },
+  "rooms/superior-family-room/02": {
+    "dir": "rooms/superior-family-room/",
+    "name": "02",
+    "hash": "67cd4fa3",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1920,
+      2400
+    ],
+    "blur": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAADQAQCdASoQAAsABABoJagCdAC9AfoQIADqv/pLK1PmB8jsIWcoAAAA"
+  },
+  "rooms/superior-family-room/03": {
+    "dir": "rooms/superior-family-room/",
+    "name": "03",
+    "hash": "8c237666",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1920,
+      2400
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAsABABoJaACdACySmDIANyIcORF5/qaV6WCa5gda5WOMQAAAA=="
+  },
+  "rooms/superior-family-room/cover": {
+    "dir": "rooms/superior-family-room/",
+    "name": "cover",
+    "hash": "6631d824",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1920,
+      2400
+    ],
+    "blur": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAQCdASoQAAsABABoJaAAAuatFGyAAP3Xl/GEMsTB3bf3SwgktAAA"
   }
 }

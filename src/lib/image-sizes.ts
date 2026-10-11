@@ -33,8 +33,10 @@ export const SIZES = {
   galleryCardWide: '(min-width: 1024px) 44vw, calc(100vw - 4rem)',
   /** Galeri küçük görseli (l: 2/12 = 208 px · s: 4/12 · mobil 3/6) */
   galleryThumb: '(min-width: 1024px) 14.6vw, (min-width: 650px) 31vw, calc(50vw - 2.4rem)',
-  /** Lightbox — site-max içinde object-contain */
+  /** Lightbox ve tam genişlik slider — site-max içinde */
   lightbox: '(min-width: 650px) 93.33vw, calc(100vw - 4rem)',
+  /** İlgili kartlar carousel'i: s: 3'lü (431 px @1440), mobil calc(100% − 5,4rem) */
+  relatedCard: '(min-width: 650px) 30vw, calc(100vw - 7.4rem)',
 } as const;
 
 export type SizeKey = keyof typeof SIZES;

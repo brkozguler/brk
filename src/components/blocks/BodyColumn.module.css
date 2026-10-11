@@ -1,0 +1,39 @@
+.section {
+  padding-top: 8rem;
+}
+
+.body {
+  grid-column: 1 / span 6;
+  color: var(--color-ink-body);
+}
+
+/* Mākena: <br><br> — bir satır (23,04 px) boşluk */
+.paragraph + .paragraph {
+  margin-top: 2.4rem;
+}
+
+.specs {
+  margin-top: 4.2rem;
+}
+
+.rule {
+  grid-column: 1 / span 6;
+  height: 1px;
+  margin-top: 8rem;
+  background-color: var(--color-brand);
+  opacity: 0.2;
+}
+
+@media (min-width: 650px) {
+  .body,
+  .rule {
+    grid-column: 2 / span 10;
+  }
+}
+
+@media (min-width: 1024px) {
+  .body,
+  .rule {
+    grid-column: 3 / span 8;
+  }
+}

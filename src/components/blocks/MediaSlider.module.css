@@ -1,0 +1,76 @@
+.block {
+  overflow: hidden;
+  user-select: none;
+}
+
+.inner {
+  padding-block: 4rem;
+}
+
+.track {
+  position: relative;
+  display: flex;
+  width: 100%;
+  aspect-ratio: 1.335;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+.track:active {
+  cursor: grabbing;
+}
+
+.slide {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  column-gap: 4rem;
+  margin-top: 3.2rem;
+}
+
+/* Altyazı mobilde gizli (Mākena max-s:!hidden) — metin değil, görsel başlığı */
+.caption {
+  display: none;
+  color: var(--color-ink-body);
+}
+
+.counter {
+  position: relative;
+  margin-left: auto;
+  color: var(--color-ink-body);
+}
+
+.bar {
+  color: var(--color-rule);
+}
+
+@media (min-width: 650px) {
+  .inner {
+    padding-block: 8rem;
+  }
+
+  .track {
+    aspect-ratio: 1.776;
+  }
+
+  .nav {
+    margin-top: 4.4rem;
+  }
+
+  .caption {
+    display: block;
+  }
+}

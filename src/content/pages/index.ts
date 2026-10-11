@@ -4,8 +4,9 @@ import type { LocalizedPage, PageContent, PublishedMatrix } from '../types';
 import { gallery, galleryCategories } from './gallery';
 import { home } from './home';
 import { notFound } from './not-found';
+import { roomDetails } from './room-details';
 import { rooms } from './rooms';
-import { bars, restaurants } from './venues';
+import { bars, restaurants, venueDetails } from './venues';
 
 /**
  * Sayfa kayıt defteri. Bir sayfa burada ve ilgili dilde içeriği varsa üretilir;
@@ -15,8 +16,10 @@ import { bars, restaurants } from './venues';
 export const pages: Partial<Record<PageKey, LocalizedPage>> = {
   home,
   rooms,
+  ...roomDetails,
   restaurants,
   bars,
+  ...venueDetails,
   gallery,
   ...galleryCategories,
   'not-found': notFound,

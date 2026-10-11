@@ -86,33 +86,9 @@
   color: var(--color-ink-body);
 }
 
-/* Özellik aralığı "biraz daha dar": Vogue 56 → 1,6 + ✦ .8 + 1,6rem = 38 px */
+/* Özellik satırı: ui/SpecRow (✦ ayraç, Vogue 56 → 38 px aralık) */
 .specs {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.8rem 1.6rem;
   margin-top: 3.2rem;
-  font-weight: 500;
-  line-height: 1.5;
-  color: var(--color-ink-soft);
-}
-
-.spec {
-  display: flex;
-  align-items: center;
-}
-
-/* ✦ ayraç — Vogue: 8×8 svg, önceki öğeden 24 px sonra (toplam aralık 56) */
-.spec + .spec::before {
-  content: '';
-  display: inline-block;
-  flex-shrink: 0;
-  width: 0.8rem;
-  height: 0.8rem;
-  margin-right: 1.6rem;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%232b2b2d' d='M4 0c.2 2.2 1.8 3.8 4 4-2.2.2-3.8 1.8-4 4-.2-2.2-1.8-3.8-4-4 2.2-.2 3.8-1.8 4-4Z'/%3E%3C/svg%3E")
-    center / contain no-repeat;
 }
 
 /* KEŞFET + REZERVASYON yan yana (kullanıcı, 2026-10-11) */

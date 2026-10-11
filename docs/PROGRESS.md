@@ -5,8 +5,8 @@
 Ana sayfa, kullanıcı kararıyla **makenagolfandbeachclub.com ana sayfasının birebir kopyası**
 olarak kuruldu: 13 blok + header, menü, footer. **Galeri** (`/tr/galeri/` + 6 kategori) Mākena
 `/gallery` ve `/gallery/{kategori}` şablonlarının birebir kopyası; **Konaklama, Restoranlar, Barlar**
-aynı şablonun intro'lu, iki kolonlu Vogue kartlı varyantı. Build ve lint temiz;
-4 dil × (ana sayfa + konaklama + restoranlar + barlar + galeri + 6 kategori + 404) = 48 sayfa. Görseller yer tutucu
+aynı şablonun intro'lu, iki kolonlu Vogue kartlı varyantı; **20 detay sayfası** (4 oda, 7 restoran,
+9 bar) Mākena /real-estate/kaeo şablonu. Build ve lint temiz; 4 dil × 32 sayfa = 128 (+ 404'ler). Görseller yer tutucu
 (`scripts/placeholders.mjs`), ana sayfa metinleri onaylı, galeri EN/DE/RU metinleri editör
 kontrolü bekliyor; iletişim bilgileri doğrulanmış. Diğer sayfaların içeriği henüz yok; menü ve
 footer tüm rotaları listeliyor, bu linkler sayfalar yazılana kadar 404 verir.
@@ -81,6 +81,27 @@ değil) → kartlar bağlantısız: görsel ve başlık düz, yalnızca REZERVAS
 (`GalleryGridItem.page` isteğe bağlı). Detay istenirse önce URL haritası genişletilmeli.
 Görseller yer tutucu: `assets/images/{restaurants,bars}/<ad>/cover.jpg` (`scripts/placeholders.mjs`
 `restaurants` / `bars` setleri, yalnızca kapak). 7 kartta son satır tek kart (sol kolon).
+
+### Detay sayfaları — oda (4) · restoran (7) · bar (9) (2026-10-11, kullanıcı: Mākena /real-estate/kaeo şablonu)
+
+Dizilim `detailBlocks()` (`src/content/pages/room-details.ts`): **hero (tam ekran) → breadcrumb →
+intro → `body_column` (gövde + ✦ özellikler + 1 px çizgi) → `media_slider` (3 kare) → `related`
+(diğer odalar / restoranlar / barlar)**. Canlı kaeo ölçümü ve bizdeki değerler (1440 / 375):
+
+| Blok | kaeo 1440 | Bizde 1440 | kaeo 375 | Bizde 375 |
+|---|---:|---:|---:|---:|
+| body_column | pt 76,8 · metin col 3–8 (880,6) · çizgi mt 76,8 | aynı (76,8 + metin + 76,8 + 1) | pt 76,9 | aynı |
+| media_slider | 982,5 (track 1329 × 748,3 · ok satırı mt 42,2 · sayaç "1 \| 3") | **982,5** | 398,2 (track 336,6 × 252,1) | **398,2** |
+| related | 699,9 (kart 431,5 × 345,7 · x 48 / 496,7 / 945,5 · ok satırı mt 57,6) | **699,9** | 474,2 (kart 284,6, oklar gizli) | 541,5 (oklar görünür — WCAG 2.5.7) |
+
+Routes: `rooms/*` SEO haritasından; **restoran ve bar detayları haritada yoktu**, 16 rota eklendi
+(`routes.ts`, slug'lar haritanın sözcük seçimiyle: `/tr/restoranlar/turk-a-la-carte/`,
+`/de/bars/steg-bar/`, RU = EN). Kartlar ve KEŞFET artık detaya gider; ana sayfa oda carousel'i de.
+İçerik: odalar CONTENT-TR §4 (intro + feature metni + specs; ⚠️ yatak satırı yok), restoran/bar
+kart metninin ilk cümlesi intro, kalanı gövde (`splitLead`), meta açıklaması cümle sınırında ≤ 155.
+EN/DE/RU çeviri editör kontrolü bekliyor. Görseller yer tutucu: `assets/images/{rooms,restaurants,bars}/<ad>/{cover,01..03}.jpg`.
+Related'da mevcut sayfa listelenmez (Mākena kendini de listeliyor). 3 kartlı oda related'ı kaymaz,
+oklar devre dışı. Toplam 138 sayfa (4 dil × 32 + kök/sitemap).
 
 Header galeri kategorilerinde `is-black` (routes.ts `headerDark`): en tepede koyu logo ve metin.
 Lightbox `<dialog>` + `showModal` (odak tuzağı, Esc, odak geri dönüşü), kaydırma kilidi,
@@ -197,8 +218,7 @@ Açık kalanlar:
 2. Galeri EN/DE/RU metinleri (`src/content/pages/gallery.ts`) editör kontrolü bekliyor; gerçek
    fotoğraflar `assets/images/gallery/<kategori>/cover.jpg + 01..12.jpg` adlarıyla konur, sayı
    değişirse `IMAGES_PER_CATEGORY`; başlık istenirse `GalleryImage.caption`.
-3. **Oda detay sayfaları** (`rooms/*`, 4 oda): Konaklama kartları ve ana sayfa carousel'i buraya
-   gidiyor, şu an 404. Metinler CONTENT-TR §4 hazır; şablon kullanıcıdan (muhtemelen bir Mākena URL'si).
+3. ~~Oda detay sayfaları~~ → kaeo şablonuyla yapıldı (oda + restoran + bar).
 4. Diğer sayfalar: rota haritası hazır (`src/i18n/routes.ts`); metinler
    `docs/reference/ARCANUS-CONTENT-TR.md` (TR) + eski repodaki `src/content/{en,de,ru}/*.json`.
    Her sayfa `src/content/pages/<key>.ts` + gerekirse yeni blok tipi (`content/types.ts` + `blocks/registry.tsx`).
@@ -218,6 +238,10 @@ Açık kalanlar:
 
 ## Günlük
 
+- **2026-10-11 (gece, 5)** — Kullanıcı: "konaklama detay, restoran, barlar detay sayfasına bu sayfayı
+  yap" + Mākena /real-estate/kaeo. Canlı ölçüm (1440/375): property_intro, media carousel, listings
+  related. Yeni bloklar `body_column` · `media_slider` · `related`, ortak `SpecRow`; 16 restoran/bar
+  rotası; `room-details.ts` + `venues.ts` detayları; 56 yer tutucu. Slider ve related px birebir.
 - **2026-10-11 (gece, 4)** — Kullanıcı: "tüm projede sorun varsa çöz" + intro başlığı "ince yap".
   48 sayfa × 5 genişlik iframe taraması; başlık sırası, dokunma hedefleri, aria-label uyumu,
   prefetch 404'leri düzeltildi; display fontu Playfair → Noto Serif Display (300). Lighthouse yeniden.

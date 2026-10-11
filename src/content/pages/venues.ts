@@ -1,13 +1,16 @@
 import type { Locale } from '@/i18n/config';
+import { routes, type PageKey } from '@/i18n/routes';
 import type { GalleryGridItem, LocalizedPage, PageContent, PageMeta } from '../types';
+import { detailBlocks } from './room-details';
 
 /**
  * Restoranlar ve Barlar — kullanıcı kararı (2026-10-11): Konaklama sayfasının şablonu
- * (slim hero → breadcrumb → intro → iki kolonlu Vogue kartları). Kartların detay sayfası yok
- * (SEO haritasında restoran/bar URL'si tanımlı değil) → bağlantısız kart, yalnızca REZERVASYON.
+ * (slim hero → breadcrumb → intro → iki kolonlu Vogue kartları); kartlar detay sayfalarına gider.
+ * Detaylar: Mākena /real-estate/kaeo şablonu (`detailBlocks`): hero → intro (metnin ilk cümlesi)
+ * → gövde (kalanı + ✦ özellikler) → slider → diğer restoranlar/barlar.
  * TR metinler ARCANUS-CONTENT-TR §5 ve §6 (⚠️ işaretli cümleler alınmadı); özellik satırı
  * metinlerdeki bilgilerden (tür · öğün · yer). EN/DE/RU çeviri editör kontrolü bekliyor.
- * Görseller yer tutucu: assets/images/{restaurants,bars}/<ad>/cover.jpg.
+ * Görseller yer tutucu: assets/images/{restaurants,bars}/<ad>/{cover,01..03}.jpg.
  */
 
 interface VenueCard {
@@ -25,6 +28,15 @@ interface VenuePageText {
 
 const RESTAURANT_IMAGES = ['main', 'turkish', 'italian', 'mexican', 'far-east', 'fish', 'aqua-snack'];
 const BAR_IMAGES = ['lobby', 'coffee-house', 'pool', 'beach', 'disco', 'aqua', 'patisserie', 'passion', 'pier'];
+const RESTAURANT_KEYS: PageKey[] = RESTAURANT_IMAGES.map((n) => `restaurants/${n}` as PageKey);
+const BAR_KEYS: PageKey[] = BAR_IMAGES.map((n) => `bars/${n}` as PageKey);
+
+const RELATED: Record<Locale, { restaurants: string; bars: string; imageWord: string }> = {
+  tr: { restaurants: 'Diğer restoranlar', bars: 'Diğer barlar', imageWord: 'görsel' },
+  en: { restaurants: 'Other restaurants', bars: 'Other bars', imageWord: 'photo' },
+  de: { restaurants: 'Weitere Restaurants', bars: 'Weitere Bars', imageWord: 'Foto' },
+  ru: { restaurants: 'Другие рестораны', bars: 'Другие бары', imageWord: 'фото' },
+};
 
 const restaurantTexts: Record<Locale, VenuePageText> = {
   tr: {
@@ -447,10 +459,25 @@ const barTexts: Record<Locale, VenuePageText> = {
   },
 };
 
-function buildVenuePage(t: VenuePageText, dir: string, images: string[], heroImage: string): PageContent {
+interface VenueSet {
+  texts: Record<Locale, VenuePageText>;
+  dir: 'restaurants' | 'bars';
+  images: string[];
+  keys: PageKey[];
+  heroImage: string;
+}
+
+const SETS: VenueSet[] = [
+  { texts: restaurantTexts, dir: 'restaurants', images: RESTAURANT_IMAGES, keys: RESTAURANT_KEYS, heroImage: 'home/banner-full' },
+  { texts: barTexts, dir: 'bars', images: BAR_IMAGES, keys: BAR_KEYS, heroImage: 'home/exp-pavilion' },
+];
+
+function buildVenuePage(set: VenueSet, locale: Locale): PageContent {
+  const t = set.texts[locale];
   const items: GalleryGridItem[] = t.cards.map((card, i) => ({
+    page: set.keys[i],
     label: card.title,
-    media: { id: `${dir}/${images[i]}/cover`, alt: '' },
+    media: { id: `${set.dir}/${set.images[i]}/cover`, alt: '' },
     detail: { text: card.text, specs: card.specs },
   }));
   return {
@@ -461,7 +488,7 @@ function buildVenuePage(t: VenuePageText, dir: string, images: string[], heroIma
         slim: true,
         eyebrow: t.hero.eyebrow,
         titleLines: [t.hero.title],
-        media: { id: heroImage, alt: t.hero.alt },
+        media: { id: set.heroImage, alt: t.hero.alt },
       },
       { type: 'intro', text: t.intro, wide: true },
       { type: 'gallery_grid', columns: 2, items },
@@ -469,11 +496,59 @@ function buildVenuePage(t: VenuePageText, dir: string, images: string[], heroIma
   };
 }
 
-function localized(texts: Record<Locale, VenuePageText>, dir: string, images: string[], heroImage: string): LocalizedPage {
-  return Object.fromEntries(
-    (Object.keys(texts) as Locale[]).map((locale) => [locale, buildVenuePage(texts[locale], dir, images, heroImage)]),
-  ) as LocalizedPage;
+/** İlk cümle intro, kalanı gövde; tek cümlelik metinde gövde boş kalır */
+function splitLead(text: string): { lead: string; rest: string[] } {
+  const m = text.match(/^([^]+?[.!?])\s+([^]+)$/);
+  if (!m) return { lead: text, rest: [] };
+  return { lead: m[1], rest: [m[2]] };
 }
 
-export const restaurants: LocalizedPage = localized(restaurantTexts, 'restaurants', RESTAURANT_IMAGES, 'home/banner-full');
-export const bars: LocalizedPage = localized(barTexts, 'bars', BAR_IMAGES, 'home/exp-pavilion');
+/** meta description: cümle sınırında ≤ 155 karakter */
+function describe(text: string): string {
+  if (text.length <= 155) return text;
+  const cut = text.slice(0, 155);
+  const end = cut.lastIndexOf('. ');
+  return end > 60 ? cut.slice(0, end + 1) : `${cut.trimEnd()}…`;
+}
+
+function buildVenueDetail(set: VenueSet, index: number, locale: Locale): PageContent {
+  const t = set.texts[locale];
+  const card = t.cards[index];
+  const key = set.keys[index];
+  const title = routes[key].label[locale];
+  const { lead, rest } = splitLead(card.text);
+  const rel = RELATED[locale];
+  return {
+    meta: { title, description: describe(card.text) },
+    blocks: detailBlocks({
+      eyebrow: t.hero.eyebrow,
+      title,
+      heroAlt: title,
+      dir: `${set.dir}/${set.images[index]}`,
+      intro: lead,
+      paragraphs: rest,
+      specs: card.specs,
+      imageWord: rel.imageWord,
+      related: {
+        title: rel[set.dir],
+        items: set.keys
+          .map((k, i) => ({ page: k, label: routes[k].label[locale], media: { id: `${set.dir}/${set.images[i]}/cover`, alt: '' } }))
+          .filter((item) => item.page !== key),
+      },
+    }),
+  };
+}
+
+const LOCALES = Object.keys(restaurantTexts) as Locale[];
+
+function localized(build: (locale: Locale) => PageContent): LocalizedPage {
+  return Object.fromEntries(LOCALES.map((locale) => [locale, build(locale)])) as LocalizedPage;
+}
+
+export const restaurants: LocalizedPage = localized((locale) => buildVenuePage(SETS[0], locale));
+export const bars: LocalizedPage = localized((locale) => buildVenuePage(SETS[1], locale));
+
+/** 7 restoran + 9 bar detayı — sayfa kayıt defterine yayılır */
+export const venueDetails: Partial<Record<PageKey, LocalizedPage>> = Object.fromEntries(
+  SETS.flatMap((set) => set.keys.map((key, i) => [key, localized((locale) => buildVenueDetail(set, i, locale))])),
+);

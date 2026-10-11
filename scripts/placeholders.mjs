@@ -20,15 +20,21 @@ const SETS = {
     // kategori → ton (hue); ana sayfadaki yer tutucularla aynı yumuşak degrade dili
     groups: { hotel: 205, rooms: 28, pools: 190, restaurants: 18, beach: 200, activities: 95 },
   },
-  // Kart kapakları (yalnızca cover.jpg): restoranlar ve barlar sayfaları
+  // Oda detayları: hero kapağı + 3 slider karesi
+  rooms: {
+    size: [2400, 1600],
+    count: 3,
+    groups: { 'standard-room': 28, 'family-suite': 200, 'superior-family-room': 330, 'deluxe-family-room': 110 },
+  },
+  // Kart kapakları + 3 slider karesi: restoranlar ve barlar
   restaurants: {
     size: [1600, 1200],
-    count: 0,
+    count: 3,
     groups: { main: 30, turkish: 10, italian: 350, mexican: 20, 'far-east': 160, fish: 200, 'aqua-snack': 185 },
   },
   bars: {
     size: [1600, 1200],
-    count: 0,
+    count: 3,
     groups: {
       lobby: 35,
       'coffee-house': 25,

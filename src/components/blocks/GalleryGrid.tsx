@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { Picture } from '@/components/media/Picture';
 import { TransitionLink } from '@/components/transition/TransitionLink';
 import { Button } from '@/components/ui/Button';
+import { SpecRow } from '@/components/ui/SpecRow';
 import type { ResolvedImage } from '@/lib/images';
 import type { GalleryGridDetail } from '@/content/types';
 import s from './GalleryGrid.module.css';
@@ -78,15 +79,7 @@ export function GalleryGrid({ items, columns = 3, ctaLabel, booking }: Props) {
                   {item.href ? <TransitionLink href={item.href}>{item.label}</TransitionLink> : item.label}
                 </h2>
                 <p className={clsx('body-m', s.richText)}>{item.detail.text}</p>
-                {item.detail.specs.length ? (
-                  <ul className={clsx('label-s', s.specs)} aria-label={item.label}>
-                    {item.detail.specs.map((spec) => (
-                      <li key={spec} className={s.spec}>
-                        {spec}
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
+                <SpecRow items={item.detail.specs} label={item.label} className={s.specs} />
                 {(ctaLabel && item.href) || booking ? (
                   <div className={s.ctaRow}>
                     {ctaLabel && item.href ? <Button href={item.href} label={ctaLabel} srLabel={item.label} /> : null}

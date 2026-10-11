@@ -48,6 +48,9 @@ kod standartları); görsel sistem ve blok ölçüleri için Mākena referansı 
   (`<dialog>` + showModal, kaydırma kilidi, ← → Esc). Hero'suz sayfa `routes.ts` → `headerDark: true`
   (Mākena is-black). Görünür breadcrumb (Akra Didim ölçüleri, ✦ ayraç) her iç sayfada;
   `PageContent.breadcrumb: false` kapatır; hero'suz sayfada header altına bindirilir.
+- Detay şablonu (Mākena /real-estate/kaeo): `detailBlocks()` → hero → intro → `blocks/BodyColumn`
+  (+ `ui/SpecRow`) → `blocks/MediaSlider` (sonsuz, sayaçlı) → `blocks/Related` (clamped). Oda detayları
+  `content/pages/room-details.ts`, restoran/bar detayları `venues.ts` (`splitLead`: ilk cümle intro).
 - Yer tutucu görsel: `node scripts/placeholders.mjs <set>` → `assets/images/<set>/…`; gerçek
   fotoğraf aynı adla konur, betikteki set silinir.
 - SEO: `lib/seo.ts`, `lib/jsonld.ts`, `lib/sitemap.ts` + `app/sitemap*.xml/route.ts`.

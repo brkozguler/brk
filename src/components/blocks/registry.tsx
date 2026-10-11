@@ -7,6 +7,9 @@ import type { Block, ImageRef, PageLink } from '@/content/types';
 import { resolveImage, type ResolvedImage } from '@/lib/images';
 import { BannerFull } from './BannerFull';
 import { BannerScale } from './BannerScale';
+import { BodyColumn } from './BodyColumn';
+import { MediaSlider } from './MediaSlider';
+import { Related } from './Related';
 import { CardCarousel } from './CardCarousel';
 import { Content } from './Content';
 import { ExploreMore } from './ExploreMore';
@@ -144,6 +147,31 @@ export function renderBlock(block: Block, index: number, locale: Locale): ReactN
           booking={{ href: booking.href, external: booking.external, label: ui.bookNow }}
         />
       );
+    }
+    case 'body_column':
+      return <BodyColumn key={key} paragraphs={block.paragraphs} specs={block.specs} />;
+    case 'media_slider': {
+      const images = block.images.flatMap((ref) => {
+        const media = img(ref);
+        return media ? [media] : [];
+      });
+      if (!images.length) return null;
+      return (
+        <MediaSlider
+          key={key}
+          images={images}
+          title={block.images[0]?.alt ?? ''}
+          labels={{ ...navLabels, image: ui.image }}
+        />
+      );
+    }
+    case 'related': {
+      const items = block.items.flatMap((item) => {
+        const media = img(item.media);
+        return media ? [{ href: pagePath(locale, item.page), label: item.label, media }] : [];
+      });
+      if (!items.length) return null;
+      return <Related key={key} title={block.title} items={items} labels={navLabels} />;
     }
     case 'gallery_category': {
       const images = block.images.flatMap((ref) => {

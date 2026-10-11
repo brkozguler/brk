@@ -17,7 +17,23 @@ export type PageKey =
   | 'rooms/deluxe-family-room'
   | 'rooms/superior-family-room'
   | 'restaurants'
+  | 'restaurants/main'
+  | 'restaurants/turkish'
+  | 'restaurants/italian'
+  | 'restaurants/mexican'
+  | 'restaurants/far-east'
+  | 'restaurants/fish'
+  | 'restaurants/aqua-snack'
   | 'bars'
+  | 'bars/lobby'
+  | 'bars/coffee-house'
+  | 'bars/pool'
+  | 'bars/beach'
+  | 'bars/disco'
+  | 'bars/aqua'
+  | 'bars/patisserie'
+  | 'bars/passion'
+  | 'bars/pier'
   | 'activities'
   | 'pools'
   | 'kids-club'
@@ -102,9 +118,91 @@ export const routes: Record<PageKey, RouteDef> = {
     slug: s('restoranlar', 'restaurants', 'restaurants'),
     label: s('Restoranlar', 'Restaurants', 'Restaurants', 'Рестораны'),
   },
+  // Restoran ve bar detayları — SEO haritasında yok (kullanıcı 2026-10-11: kaeo şablonuyla detay
+  // sayfaları); slug'lar haritanın sözcük seçimleriyle tutarlı, RU = EN.
+  'restaurants/main': {
+    parent: 'restaurants',
+    slug: s('ana-restaurant', 'main-restaurant', 'hauptrestaurant'),
+    label: s('Ana Restaurant', 'Main Restaurant', 'Hauptrestaurant', 'Главный ресторан'),
+  },
+  'restaurants/turkish': {
+    parent: 'restaurants',
+    slug: s('turk-a-la-carte', 'turkish-a-la-carte', 'tuerkisches-a-la-carte'),
+    label: s("Türk A'la Carte", 'Turkish À la Carte', 'Türkisches À-la-carte', 'Турецкий à la carte'),
+  },
+  'restaurants/italian': {
+    parent: 'restaurants',
+    slug: s('italyan-a-la-carte', 'italian-a-la-carte', 'italienisches-a-la-carte'),
+    label: s("İtalyan A'la Carte", 'Italian À la Carte', 'Italienisches À-la-carte', 'Итальянский à la carte'),
+  },
+  'restaurants/mexican': {
+    parent: 'restaurants',
+    slug: s('meksika-a-la-carte', 'mexican-a-la-carte', 'mexikanisches-a-la-carte'),
+    label: s("Meksika A'la Carte", 'Mexican À la Carte', 'Mexikanisches À-la-carte', 'Мексиканский à la carte'),
+  },
+  'restaurants/far-east': {
+    parent: 'restaurants',
+    slug: s('uzakdogu-a-la-carte', 'far-east-a-la-carte', 'fernoestliches-a-la-carte'),
+    label: s("Uzakdoğu A'la Carte", 'Far East À la Carte', 'Fernöstliches À-la-carte', 'Дальневосточный à la carte'),
+  },
+  'restaurants/fish': {
+    parent: 'restaurants',
+    slug: s('balik-a-la-carte', 'fish-a-la-carte', 'fisch-a-la-carte'),
+    label: s("Balık A'la Carte", 'Fish À la Carte', 'Fisch-À-la-carte', 'Рыбный à la carte'),
+  },
+  'restaurants/aqua-snack': {
+    parent: 'restaurants',
+    slug: s('aqua-snack', 'aqua-snack', 'aqua-snack'),
+    label: s('Aqua Snack', 'Aqua Snack', 'Aqua Snack', 'Aqua Snack'),
+  },
   bars: {
     slug: s('barlar', 'bars', 'bars'),
     label: s('Barlar', 'Bars', 'Bars', 'Бары'),
+  },
+  'bars/lobby': {
+    parent: 'bars',
+    slug: s('lobi-bar', 'lobby-bar', 'lobby-bar'),
+    label: s('Lobi Bar', 'Lobby Bar', 'Lobby Bar', 'Лобби-бар'),
+  },
+  'bars/coffee-house': {
+    parent: 'bars',
+    slug: s('arcanus-kahve-evi', 'arcanus-coffee-house', 'arcanus-kaffeehaus'),
+    label: s('Arcanus Kahve Evi', 'Arcanus Coffee House', 'Arcanus Kaffeehaus', 'Кофейня Arcanus'),
+  },
+  'bars/pool': {
+    parent: 'bars',
+    slug: s('havuz-bar', 'pool-bar', 'pool-bar'),
+    label: s('Havuz Bar', 'Pool Bar', 'Pool Bar', 'Бар у бассейна'),
+  },
+  'bars/beach': {
+    parent: 'bars',
+    slug: s('sahil-bar', 'beach-bar', 'strandbar'),
+    label: s('Sahil Bar', 'Beach Bar', 'Strandbar', 'Пляжный бар'),
+  },
+  'bars/disco': {
+    parent: 'bars',
+    slug: s('disco-bar', 'disco-bar', 'disco-bar'),
+    label: s('Disco Bar', 'Disco Bar', 'Disco Bar', 'Диско-бар'),
+  },
+  'bars/aqua': {
+    parent: 'bars',
+    slug: s('aqua-bar', 'aqua-bar', 'aqua-bar'),
+    label: s('Aqua Bar', 'Aqua Bar', 'Aqua Bar', 'Aqua Bar'),
+  },
+  'bars/patisserie': {
+    parent: 'bars',
+    slug: s('pastane', 'patisserie', 'patisserie'),
+    label: s('Pastane', 'Patisserie', 'Patisserie', 'Кондитерская'),
+  },
+  'bars/passion': {
+    parent: 'bars',
+    slug: s('passion-kokteyl-bar', 'passion-cocktail-bar', 'passion-cocktailbar'),
+    label: s('Passion Kokteyl Bar', 'Passion Cocktail Bar', 'Passion Cocktailbar', 'Коктейль-бар Passion'),
+  },
+  'bars/pier': {
+    parent: 'bars',
+    slug: s('iskele-bar', 'pier-bar', 'steg-bar'),
+    label: s('İskele Bar', 'Pier Bar', 'Steg-Bar', 'Бар на пирсе'),
   },
   activities: {
     slug: s('aktivite-ve-eglence', 'activities-entertainment', 'aktivitaeten-unterhaltung'),

@@ -163,6 +163,33 @@ export interface GalleryCategoryBlock {
   images: GalleryImage[];
 }
 
+/** Mākena kaeo PROP-03: ortalı gövde metni sütunu + altta 1 px çizgi (detay sayfaları) */
+export interface BodyColumnBlock {
+  type: 'body_column';
+  paragraphs: string[];
+  /** "24 m²" ✦ "3 kişi" ✦ … — paragrafların altında */
+  specs?: string[];
+}
+
+/** Mākena kaeo PROP-04: tam genişlik sürüklenebilir slider + sayaç */
+export interface MediaSliderBlock {
+  type: 'media_slider';
+  images: ImageRef[];
+}
+
+export interface RelatedItem {
+  page: PageKey;
+  label: string;
+  media: ImageRef;
+}
+
+/** Mākena kaeo PROP-05 listings_related: başlık + 4:3 kart carousel'i */
+export interface RelatedBlock {
+  type: 'related';
+  title: string;
+  items: RelatedItem[];
+}
+
 export type Block =
   | HeroBlock
   | IntroBlock
@@ -176,7 +203,10 @@ export type Block =
   | Listings5050Block
   | ExploreMoreBlock
   | GalleryGridBlock
-  | GalleryCategoryBlock;
+  | GalleryCategoryBlock
+  | BodyColumnBlock
+  | MediaSliderBlock
+  | RelatedBlock;
 
 /* ----------------------------------------------------------------- sayfa */
 
