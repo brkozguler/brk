@@ -1,0 +1,33 @@
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 0.2rem;
+  transition: all var(--duration-instant);
+}
+
+/* Dokunma hedefi */
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: -1.6rem;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+}
+
+.done {
+  color: var(--color-white-pure);
+  background-color: var(--color-success);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    opacity: 0.8;
+  }
+}

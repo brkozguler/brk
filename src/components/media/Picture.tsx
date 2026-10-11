@@ -1,62 +1,84 @@
 import { preload } from 'react-dom';
-import { fallbackWidth, getImage, imageSrcSet, imageUrl } from '@/lib/images';
+import type { CSSProperties } from 'react';
+import { fallbackWidth, imageSrcSet, imageUrl } from '@/lib/image-url';
+import { SIZES, type SizeKey } from '@/lib/image-sizes';
+import type { ResolvedImage } from '@/lib/images';
 
 interface Props {
-  /** assets/images altındaki yol, uzantısız: 'rooms/standart-oda-1' */
-  id: string;
-  alt: string;
-  /** Görselin yerleşimdeki genişliği, ör. "(min-width: 1024px) 50vw, 100vw" */
-  sizes: string;
-  /** LCP görseli: eager + fetchpriority=high + preload; sayfada en fazla bir tane */
+  image: ResolvedImage;
+  /** `sizes` sözlüğünden anahtar — zorunlu */
+  sizeKey: SizeKey;
+  /** Sayfada en fazla bir görselde: eager + fetchpriority=high + preload (LCP) */
   priority?: boolean;
+  /** İlk ekranda görünen ama LCP olmayan görseller için `eager` */
+  loading?: 'eager' | 'lazy';
   className?: string;
   imgClassName?: string;
 }
 
-/**
- * AVIF + WebP srcset'li <picture>. next/image yerine kullanılır çünkü site statik
- * dosya olarak yayınlanır; boyutlar build'de scripts/images.mjs ile üretilir.
- * width/height her zaman verilir (CLS), ilk ekran dışındakiler lazy yüklenir.
- */
-export function Picture({ id, alt, sizes, priority = false, className, imgClassName }: Props) {
-  const img = getImage(id);
-  if (!img) {
-    if (process.env.NODE_ENV !== 'production') {
-      console.warn(`Picture: "${id}" manifestte yok. assets/images altına ekleyip "npm run images" çalıştırın.`);
-    }
-    return null;
-  }
+const MOBILE = '(max-width: 649px)';
 
-  const avif = imageSrcSet(img, 'avif');
-  const webp = imageSrcSet(img, 'webp');
+/**
+ * AVIF + WebP srcset'li <picture>; isteğe bağlı mobil kadraj (art direction).
+ * Kapsayıcı `.media-fill` ise img mutlak konumlanır ve kutuyu doldurur;
+ * aksi hâlde width/height ile doğal oranında akar (CLS = 0).
+ */
+export function Picture({ image, sizeKey, priority = false, loading, className, imgClassName }: Props) {
+  const { entry, alt, mobile, focal } = image;
+  const sizes = SIZES[sizeKey];
+  const avif = imageSrcSet(entry, 'avif');
+  const webp = imageSrcSet(entry, 'webp');
 
   if (priority) {
-    preload(imageUrl(img, fallbackWidth(img), 'avif'), {
+    if (mobile) {
+      preload(imageUrl(mobile, fallbackWidth(mobile), 'avif'), {
+        as: 'image',
+        type: 'image/avif',
+        imageSrcSet: imageSrcSet(mobile, 'avif'),
+        imageSizes: sizes,
+        media: MOBILE,
+        fetchPriority: 'high',
+      });
+    }
+    preload(imageUrl(entry, fallbackWidth(entry), 'avif'), {
       as: 'image',
       type: 'image/avif',
       imageSrcSet: avif,
       imageSizes: sizes,
+      media: mobile ? '(min-width: 650px)' : undefined,
       fetchPriority: 'high',
     });
   }
 
+  const style: CSSProperties = {};
+  if (focal) style.objectPosition = `${focal.x * 100}% ${focal.y * 100}%`;
+  if (entry.blur) {
+    style.backgroundImage = `url(${entry.blur})`;
+    style.backgroundSize = 'cover';
+  }
+
   return (
     <picture className={className}>
+      {mobile ? (
+        <>
+          <source media={MOBILE} type="image/avif" srcSet={imageSrcSet(mobile, 'avif')} sizes={sizes} />
+          <source media={MOBILE} type="image/webp" srcSet={imageSrcSet(mobile, 'webp')} sizes={sizes} />
+        </>
+      ) : null}
       <source type="image/avif" srcSet={avif} sizes={sizes} />
       <img
-        src={imageUrl(img, fallbackWidth(img), 'webp')}
+        src={imageUrl(entry, fallbackWidth(entry), 'webp')}
         srcSet={webp}
         sizes={sizes}
-        width={img.width}
-        height={img.height}
+        width={entry.width}
+        height={entry.height}
         alt={alt}
-        loading={priority ? 'eager' : 'lazy'}
+        loading={priority ? 'eager' : (loading ?? 'lazy')}
         decoding={priority ? 'sync' : 'async'}
         fetchPriority={priority ? 'high' : 'auto'}
+        draggable={false}
         className={imgClassName}
-        style={
-          img.blur ? { backgroundImage: `url(${img.blur})`, backgroundSize: 'cover' } : undefined
-        }
+        style={Object.keys(style).length ? style : undefined}
       />
     </picture>
   );

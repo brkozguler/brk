@@ -5,7 +5,8 @@ import { absoluteUrl } from './url';
 
 /**
  * JSON-LD üreticileri. Yalnızca sayfada görünen ve doğrulanmış bilgi işaretlenir;
- * boş alanlar çıktıya girmez.
+ * boş alanlar çıktıya girmez. Yıldız, giriş/çıkış saati ve olanaklar otelden
+ * teyit gelince eklenir (docs/PROGRESS.md açık sorular).
  */
 export type JsonLd = Record<string, unknown>;
 
@@ -15,6 +16,8 @@ export function organizationJsonLd(): JsonLd {
     '@type': 'Organization',
     name: site.name,
     url: `${site.url}/`,
+    telephone: site.contact.phone,
+    email: site.contact.email,
     ...(site.social.length ? { sameAs: site.social.map((s) => s.url) } : {}),
   };
 }
@@ -29,9 +32,7 @@ export function websiteJsonLd(locale: Locale): JsonLd {
   };
 }
 
-/** Adres ve telefon doğrulanana kadar null döner; o zamana kadar Hotel işaretlenmez. */
 export function hotelJsonLd(locale: Locale): JsonLd | null {
-  if (!site.address || !site.contact.phone) return null;
   const a = site.address;
   return {
     '@context': 'https://schema.org',
@@ -39,7 +40,7 @@ export function hotelJsonLd(locale: Locale): JsonLd | null {
     name: site.name,
     url: absoluteUrl(pagePath(locale, 'home')),
     telephone: site.contact.phone,
-    ...(site.contact.email ? { email: site.contact.email } : {}),
+    email: site.contact.email,
     address: {
       '@type': 'PostalAddress',
       streetAddress: a.street,
@@ -48,7 +49,9 @@ export function hotelJsonLd(locale: Locale): JsonLd | null {
       postalCode: a.postalCode,
       addressCountry: a.country,
     },
-    geo: { '@type': 'GeoCoordinates', latitude: a.lat, longitude: a.lng },
+    ...(a.lat !== null && a.lng !== null
+      ? { geo: { '@type': 'GeoCoordinates', latitude: a.lat, longitude: a.lng } }
+      : {}),
   };
 }
 

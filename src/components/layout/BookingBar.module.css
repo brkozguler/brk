@@ -1,12 +1,13 @@
+/* Mobilde sabit rezervasyon çubuğu (otel kuralları) — ≥650 gizli */
 .bar {
   position: fixed;
   inset: auto 0 0;
-  z-index: 30;
+  z-index: var(--z-booking);
   display: none;
   height: var(--booking-bar-h);
-  padding: 0.6rem var(--pad-x) calc(0.6rem + env(safe-area-inset-bottom));
-  background: var(--c-white);
-  box-shadow: 0 -1px 0 rgb(31 42 44 / 12%);
+  padding: 0.6rem var(--page-padding-mobile) calc(0.6rem + env(safe-area-inset-bottom));
+  background: var(--color-white-pure);
+  box-shadow: 0 -1px 0 rgb(0 0 0 / 12%);
 }
 
 .btn {
@@ -14,15 +15,18 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  min-height: var(--tap);
-  background: var(--c-ink);
-  color: var(--c-white);
-  border-radius: 999px;
-  font-size: var(--fs-sm);
-  letter-spacing: 0.04em;
+  min-height: 44px;
+  background: var(--color-brand);
+  color: var(--color-white-pure);
+  border-radius: 0.3rem;
+  font-family: var(--font-sans-stack);
+  font-size: max(1.1rem, 11px);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 649px) {
   .bar {
     display: block;
   }

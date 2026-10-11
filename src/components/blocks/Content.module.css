@@ -1,0 +1,50 @@
+.section {
+  padding: 4rem 0 8rem;
+}
+
+.left {
+  grid-column: 1 / span 6;
+  margin-bottom: 3.2rem;
+}
+
+.eyebrow {
+  margin-bottom: 3rem;
+  color: var(--color-brand-tint);
+}
+
+.title {
+  color: var(--color-ink);
+}
+
+.line {
+  display: block;
+}
+
+.right {
+  grid-column: 1 / span 6;
+}
+
+@media (min-width: 650px) {
+  .section {
+    padding: 11rem 0;
+  }
+
+  .left {
+    grid-column: 1 / span 5;
+    margin-bottom: 0;
+  }
+
+  .right {
+    grid-column: 7 / span 6;
+  }
+}
+
+@media (min-width: 1024px) {
+  .left {
+    grid-column: 2 / span 4;
+  }
+
+  .right {
+    grid-column: 7 / span 5;
+  }
+}

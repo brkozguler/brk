@@ -1,40 +1,38 @@
 import manifest from '@/content/generated/images.json';
+import type { ImageRef } from '@/content/types';
+import type { ImageEntry } from './image-url';
+
+export type { ImageEntry } from './image-url';
+export { fallbackWidth, imageSrcSet, imageUrl } from './image-url';
 
 /**
- * scripts/images.mjs çıktısı. Kaynak: assets/images/**, çıktı: public/img/**.
- * Dosya adı içerik hash'i taşır; bu yüzden .htaccess'te bir yıl immutable cache verilir.
+ * scripts/images.mjs manifesti — yalnızca SUNUCU tarafında okunur; istemci
+ * bileşenlerine çözümlenmiş `ResolvedImage` nesneleri prop olarak geçer.
  */
-export interface ImageEntry {
-  /** 'rooms/' gibi, sonunda eğik çizgiyle; kökteyse boş */
-  dir: string;
-  name: string;
-  hash: string;
-  width: number;
-  height: number;
-  /** Üretilen genişlikler, küçükten büyüğe */
-  widths: number[];
-  /** 16 px genişlikte base64 webp önizleme */
-  blur?: string;
-}
-
-export type ImageFormat = 'avif' | 'webp';
-
 const images = manifest as unknown as Record<string, ImageEntry>;
 
 export function getImage(id: string): ImageEntry | null {
   return images[id] ?? null;
 }
 
-export function imageUrl(img: ImageEntry, width: number, format: ImageFormat): string {
-  return `/img/${img.dir}${img.name}-${img.hash}-${width}.${format}`;
+/** Blokların istemci tarafına geçen, manifest'ten bağımsız görsel verisi */
+export interface ResolvedImage {
+  entry: ImageEntry;
+  alt: string;
+  /** Mobil kadraj (art direction), < 650 px */
+  mobile?: ImageEntry;
+  /** Odak noktası 0–1 */
+  focal?: { x: number; y: number };
 }
 
-export function imageSrcSet(img: ImageEntry, format: ImageFormat): string {
-  return img.widths.map((w) => `${imageUrl(img, w, format)} ${w}w`).join(', ');
-}
-
-/** Varsayılan `src` için en büyük 1920'yi aşmayan genişlik */
-export function fallbackWidth(img: ImageEntry): number {
-  const fitting = img.widths.filter((w) => w <= 1920);
-  return fitting.length ? fitting[fitting.length - 1] : img.widths[0];
+export function resolveImage(ref: ImageRef): ResolvedImage | null {
+  const entry = getImage(ref.id);
+  if (!entry) {
+    if (process.env.NODE_ENV !== 'production') {
+      console.warn(`Görsel manifestte yok: "${ref.id}" — assets/images altına ekleyip "npm run images" çalıştırın.`);
+    }
+    return null;
+  }
+  const mobile = ref.mobileId ? (getImage(ref.mobileId) ?? undefined) : undefined;
+  return { entry, alt: ref.alt, mobile, focal: ref.focal };
 }

@@ -1,1 +1,392 @@
-{}
+{
+  "home/banner-full": {
+    "dir": "home/",
+    "name": "banner-full",
+    "hash": "b5b4ddfe",
+    "width": 2560,
+    "height": 1440,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1920,
+      2560
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAkABABoJQBOgCGq9ZwAAP2aM8mO83ISqLJxMz9UsZTAAAA="
+  },
+  "home/banner-scale": {
+    "dir": "home/",
+    "name": "banner-scale",
+    "hash": "0c7fcdc9",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1920,
+      2400
+    ],
+    "blur": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAADQAQCdASoQAAsABABoJYwCdAEMpxq7/AD+gkraHnB8s8YjijO30AAA"
+  },
+  "home/exp-activities": {
+    "dir": "home/",
+    "name": "exp-activities",
+    "hash": "0fb92eb6",
+    "width": 1600,
+    "height": 900,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAADQAQCdASoQAAkABABoJYwCdAD0MZ4CAAD+oK/rA6VncRduTJtEAAAA"
+  },
+  "home/exp-kids": {
+    "dir": "home/",
+    "name": "exp-kids",
+    "hash": "f707e1fd",
+    "width": 1600,
+    "height": 900,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAQCdASoQAAkABABoJQBOgCGrBy8AAM3VOxpw/eFvm5Yi5/19oAAA"
+  },
+  "home/exp-meeting": {
+    "dir": "home/",
+    "name": "exp-meeting",
+    "hash": "4cae614f",
+    "width": 1600,
+    "height": 900,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAADQAQCdASoQAAkABABoJYwCdAD0MZ4CAAD+oK/rA6VncRduTJtEAAAA"
+  },
+  "home/exp-pavilion": {
+    "dir": "home/",
+    "name": "exp-pavilion",
+    "hash": "5410332d",
+    "width": 1600,
+    "height": 900,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAQCdASoQAAkABABoJQBOgCGrBy8AAM3VOxpw/eFvm5Yi5/19oAAA"
+  },
+  "home/exp-pools": {
+    "dir": "home/",
+    "name": "exp-pools",
+    "hash": "280b4704",
+    "width": 1600,
+    "height": 900,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAkABABoJagCdAENV6zgAPYdnnHpJSKFT20GWoleHd4/d0AAAA=="
+  },
+  "home/exp-spa": {
+    "dir": "home/",
+    "name": "exp-spa",
+    "hash": "7e4af440",
+    "width": 1600,
+    "height": 900,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAkABABoJQBOgCGrASgAAP2aM8mO83IPtesgVoEvyD0sgAA="
+  },
+  "home/explore-activities": {
+    "dir": "home/",
+    "name": "explore-activities",
+    "hash": "af617144",
+    "width": 1200,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1200
+    ],
+    "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQABAABABoJbACdAENUgZCgADNiXp5K2Bi2oSEpBlqlb+vuRnZ4uwA"
+  },
+  "home/explore-contact": {
+    "dir": "home/",
+    "name": "explore-contact",
+    "hash": "4bfadf48",
+    "width": 1200,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1200
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQABAABABoJQBOgB3Y7tGgAP6Ce8fLeFpyy6MVRW2ipIO24AA="
+  },
+  "home/explore-restaurants": {
+    "dir": "home/",
+    "name": "explore-restaurants",
+    "hash": "7026670d",
+    "width": 1200,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1200
+    ],
+    "blur": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAQCdASoQABAABABoJZACdADuuNcTAAD1twjdkfReADLVZNtIWeqcUGth7H1oAAA="
+  },
+  "home/explore-rooms": {
+    "dir": "home/",
+    "name": "explore-rooms",
+    "hash": "bcd9630d",
+    "width": 1200,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1200
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQABAABABoJYgCdADuuTPOAAD4oAMfxfz04+GaZH60lyBihtgAAA=="
+  },
+  "home/feature-rooms": {
+    "dir": "home/",
+    "name": "feature-rooms",
+    "hash": "684f3006",
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1200
+    ],
+    "blur": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACwAwCdASoQABUAPxF0sFCsJqSisAgBgCIJQBOmUABpEg/7uoDfcAD4e0XQuUmMb9j+VtDANbVcd+jjPocQ4AAA"
+  },
+  "home/hero-desktop": {
+    "dir": "home/",
+    "name": "hero-desktop",
+    "hash": "c15131e7",
+    "width": 2560,
+    "height": 1440,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1920,
+      2560
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAkABABoJaACdAENV6zgAPYdnnHpJSKFT20GVKP7J1lgQgAAAA=="
+  },
+  "home/hero-mobile": {
+    "dir": "home/",
+    "name": "hero-mobile",
+    "hash": "f65fcc9c",
+    "width": 1080,
+    "height": 1350,
+    "widths": [
+      480,
+      768,
+      1080
+    ],
+    "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACwAwCdASoQABQAPxFysFAsJqSisAgBgCIJZACdMoR3AAvzEkzVUADgxY70jtDG/HOfuino6z1Htty+b60IlLM2vaAAAA=="
+  },
+  "home/rest-fareast": {
+    "dir": "home/",
+    "name": "rest-fareast",
+    "hash": "9d361e84",
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1200
+    ],
+    "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAwCdASoQABUAPxFysFCsJqSisAgBgCIJZACdMoR3ABYHaxMa9WAA4MWO9I67B8UEYFXNOUbzkl/4Gw6EEsOLVQAAAA=="
+  },
+  "home/rest-fish": {
+    "dir": "home/",
+    "name": "rest-fish",
+    "hash": "2c171e96",
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1200
+    ],
+    "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAwCdASoQABUAPxFysFCsJqSisAgBgCIJZACdMoR3ABYHaxMa9WAA4MWO9I67B8UEYFXNOUbzkl/4Gw6EEsOLVQAAAA=="
+  },
+  "home/rest-italian": {
+    "dir": "home/",
+    "name": "rest-italian",
+    "hash": "8c3bbf8d",
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1200
+    ],
+    "blur": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAABwAwCdASoQABUAPxFysFAsJqSisAgBgCIJZQCdAA/xeu6f8gAA/RHUKPSTeOydAU8Z3Fbo51aB9HAA"
+  },
+  "home/rest-main": {
+    "dir": "home/",
+    "name": "rest-main",
+    "hash": "d1c7ecfa",
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1200
+    ],
+    "blur": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAAAwAwCdASoQABUAPxFysFCsJqSisAgBgCIJQBOgAgL9qrQAAMzoduJDudfhJY1vuuxt8W2qd8/MfEUMX0KYSoAA"
+  },
+  "home/rest-mexican": {
+    "dir": "home/",
+    "name": "rest-mexican",
+    "hash": "161a920e",
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1200
+    ],
+    "blur": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAAAwAwCdASoQABUAPxFysFCsJqSisAgBgCIJQBOgAgL9qrQAAMzoduJDudfhJY1vuuxt8W2qd8/MfEUMX0KYSoAA"
+  },
+  "home/rest-turkish": {
+    "dir": "home/",
+    "name": "rest-turkish",
+    "hash": "566cc27c",
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1200
+    ],
+    "blur": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACQAwCdASoQABUAPxF0sFCsJqSisAgBgCIJQBOmUABpEiilZl2MAPh7RdC5SYxv2R2PT2kZkqrk3INEO5yAFAAA"
+  },
+  "home/room-deluxe": {
+    "dir": "home/",
+    "name": "room-deluxe",
+    "hash": "1408c162",
+    "width": 1000,
+    "height": 1300,
+    "widths": [
+      480,
+      768,
+      1000
+    ],
+    "blur": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAABwAwCdASoQABUAPxFysFAsJqSisAgBgCIJYwCdAA/xeuouXAAA/RHUKPSTeTsDHiB58g3rdSbh+AAA"
+  },
+  "home/room-family-suite": {
+    "dir": "home/",
+    "name": "room-family-suite",
+    "hash": "c955adde",
+    "width": 1000,
+    "height": 1300,
+    "widths": [
+      480,
+      768,
+      1000
+    ],
+    "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAwCdASoQABUAPxFysFAsJqSisAgBgCIJZACdMoR3ABsIAOn613AAzTKe1xNszNLz/pXNOUbydI0of5y0q8eZlAAAAA=="
+  },
+  "home/room-standart": {
+    "dir": "home/",
+    "name": "room-standart",
+    "hash": "05ddd17e",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAADQAQCdASoQAAwABABoJQBOgCKQdHIEAAD4vYAqqkop0LpiVFJbp1DbAAA="
+  },
+  "home/room-superior": {
+    "dir": "home/",
+    "name": "room-superior",
+    "hash": "a4aab381",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAADQAQCdASoQAAwABABoJQBOgCG0d5DKIAD7fOXvsxq4xXNV3N+wYbxdAAA="
+  },
+  "home/story-large": {
+    "dir": "home/",
+    "name": "story-large",
+    "hash": "6961c3fb",
+    "width": 1800,
+    "height": 1350,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1800
+    ],
+    "blur": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAADQAQCdASoQAAwABABoJYwCdAEMp6PqMAD+gkraHmM02wwcShRcAAAA"
+  },
+  "home/story-small": {
+    "dir": "home/",
+    "name": "story-small",
+    "hash": "47e5bf3e",
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      480,
+      768,
+      1080,
+      1200
+    ],
+    "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAwCdASoQABUAPxFysFAsJqSisAgBgCIJZACdMoR3ABYHaxMa9WAA4MWO9I67B8UEYFXNOUbzkl/4Gw6EEsOLXBAAAA=="
+  }
+}

@@ -1,23 +1,22 @@
 .wrap {
   min-height: 70svh;
-  padding-top: calc(var(--header-h) + var(--section-y));
-  align-content: center;
+  padding: 22rem 0 12rem;
+  color: var(--color-ink-body);
 }
 
 .body {
-  grid-column: 2 / span 8;
+  grid-column: 1 / span 6;
   display: grid;
   justify-items: start;
-  gap: 1.5rem;
+  gap: 2.4rem;
 }
 
-.code {
-  font-size: var(--fs-sm);
-  opacity: 0.6;
+.body h1 {
+  color: var(--color-ink);
 }
 
-@media (max-width: 767px) {
+@media (min-width: 650px) {
   .body {
-    grid-column: 1 / -1;
+    grid-column: 2 / span 8;
   }
 }

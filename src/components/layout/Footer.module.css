@@ -1,109 +1,199 @@
-.footer {
-  padding: clamp(3rem, 6vw, 5rem) var(--pad-x) 2rem;
+.sf {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-brand);
+  color: var(--color-white-pure);
 }
 
-/* Masaüstünde içeriğin altından açılma efekti; globals.css'te main z-index: 1 */
-@media (min-width: 1024px) {
-  .footer {
-    position: sticky;
-    bottom: 0;
-    z-index: 0;
-  }
+.parallax {
+  padding: 5.5rem 0;
 }
 
-.inner {
-  display: grid;
-  grid-template-columns: 1.4fr repeat(2, 1fr) auto;
-  gap: var(--gutter);
+.logoCol {
+  grid-column: span 6;
+  order: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.brand {
-  display: grid;
-  gap: 1rem;
-  justify-items: start;
-  align-content: start;
-}
-
-.logo {
+.logoBtn {
   display: block;
 }
 
-.address {
-  font-style: normal;
-  font-size: var(--fs-sm);
-  line-height: 1.5;
-  opacity: 0.8;
+.logo {
+  height: 6.2rem;
+}
+
+.menus {
+  grid-column: span 6;
+  order: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 6rem;
+  font-size: 1.8rem;
+}
+
+.menuTitle {
+  margin-bottom: 1.5rem;
+  color: var(--color-white-tint);
+}
+
+/* Canlı DOM: li 14,4 px (label-s, lh 1), satır aralığı 1,2rem → 26 px adım */
+.menuList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 1.2rem;
+  line-height: 1;
+}
+
+.menuLink {
+  display: inline-flex;
+  align-items: center;
 }
 
 .contact {
-  display: inline-flex;
+  grid-column: span 6;
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  margin-top: 7rem;
+}
+
+.contactTitle {
+  margin-bottom: 2.5rem;
+}
+
+.contactList {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 0.6rem;
+}
+
+.contactItem {
+  display: flex;
   align-items: center;
-  min-height: var(--tap);
-  font-size: var(--fs-sm);
-}
-
-.groupTitle {
-  margin-bottom: 1rem;
-  font-size: var(--fs-sm);
-  opacity: 0.6;
-}
-
-.link {
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--tap);
-  font-size: var(--fs-sm);
-  opacity: 0.85;
-  transition: opacity var(--dur-fast) ease;
-}
-
-.link:hover,
-.link:focus-visible {
-  opacity: 1;
-}
-
-.lang {
-  align-self: start;
+  column-gap: 0.8rem;
 }
 
 .bottom {
+  position: relative;
+  grid-column: span 6;
+  order: 4;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 2rem;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: clamp(2rem, 5vw, 4rem);
-  padding-top: 1.5rem;
-  border-top: 1px solid rgb(255 255 255 / 15%);
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 6rem;
+  font-size: 1.4rem;
 }
 
-.copy {
-  font-size: var(--fs-xs);
-  opacity: 0.7;
+.bottomRight {
+  order: 1;
 }
 
-.legal {
+.bottomLeft {
+  order: 2;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 4rem;
+  letter-spacing: -0.03em;
+  line-height: 1.54;
 }
 
-.legal .link {
-  font-size: var(--fs-xs);
+/* Telif .5 → .65: küçük metinde AA kontrastı (RE §28.5) */
+.copyright,
+.terms {
+  opacity: 0.65;
 }
 
-@media (max-width: 1023px) {
-  .inner {
-    grid-template-columns: 1fr 1fr;
+.terms {
+  transition: opacity var(--duration-medium) ease-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .terms:hover {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 650px) {
+  .parallax {
+    padding-bottom: 5rem;
   }
 
-  .brand {
-    grid-column: 1 / -1;
+  .logoCol {
+    grid-column: span 12;
+  }
+
+  .logo {
+    height: 7rem;
+  }
+
+  .menus {
+    grid-column: span 12;
+    order: 2;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: flex-start;
+    column-gap: 12.5rem;
+    margin-top: 9rem;
+    font-size: inherit;
+  }
+
+  .menuTitle {
+    margin-bottom: 2.5rem;
+  }
+
+  .contact {
+    grid-column: span 12;
+    margin-top: 12rem;
+  }
+
+  .contactList {
+    row-gap: 1rem;
+  }
+
+  .bottom {
+    grid-column: span 12;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 4.5rem;
+  }
+
+  .bottomRight {
+    order: 2;
+  }
+
+  .bottomLeft {
+    order: 1;
+    margin-top: 0;
   }
 }
 
-@media (max-width: 767px) {
-  .inner {
-    grid-template-columns: 1fr;
+@media (min-width: 1024px) {
+  .logoCol {
+    grid-column: span 6;
+  }
+
+  .menus {
+    grid-column: span 5;
+    justify-content: flex-end;
+    column-gap: 10rem;
+    margin-top: 0;
+    margin-right: -8.6rem;
+  }
+
+  .contact {
+    margin-top: 22rem;
+  }
+
+  .contactList {
+    row-gap: 0.8rem;
   }
 }

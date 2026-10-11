@@ -11,22 +11,22 @@ export const notFoundText: Record<Locale, NotFoundText> = {
   tr: {
     title: 'Sayfa bulunamadı',
     text: 'Aradığınız sayfa taşınmış ya da kaldırılmış olabilir.',
-    back: 'Ana sayfaya dön',
+    back: 'ANA SAYFA',
   },
   en: {
     title: 'Page not found',
     text: 'The page you are looking for may have been moved or removed.',
-    back: 'Back to home',
+    back: 'HOMEPAGE',
   },
   de: {
     title: 'Seite nicht gefunden',
     text: 'Die gesuchte Seite wurde möglicherweise verschoben oder entfernt.',
-    back: 'Zur Startseite',
+    back: 'STARTSEITE',
   },
   ru: {
     title: 'Страница не найдена',
     text: 'Возможно, страница была перемещена или удалена.',
-    back: 'На главную',
+    back: 'НА ГЛАВНУЮ',
   },
 };
 
@@ -36,7 +36,7 @@ export const notFound: LocalizedPage = Object.fromEntries(
     locale,
     {
       meta: { title: notFoundText[locale].title, description: notFoundText[locale].text },
-      sections: [],
+      blocks: [],
     },
   ]),
 ) as LocalizedPage;

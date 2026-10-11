@@ -1,0 +1,35 @@
+.arrows {
+  display: flex;
+  align-items: center;
+  column-gap: 1.6rem;
+}
+
+.slash {
+  color: var(--color-brand);
+  opacity: 0.25;
+}
+
+/* Ok katmanı: görselin üstünde, kendisi tıklamayı yutmaz */
+.overlay {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.overlayInner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 4rem;
+}
+
+/* Tek başına çubuk: mobilde 23,1rem'e kadar, ortalı */
+@media (max-width: 649px) {
+  .progressAlone {
+    width: 100%;
+    max-width: 23.1rem;
+    margin-inline: auto;
+  }
+}

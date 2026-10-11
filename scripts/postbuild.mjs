@@ -68,8 +68,35 @@ async function main() {
     );
   }
 
+  const aliases = await aliasSegmentFiles(OUT);
   const files = await countFiles(OUT);
-  console.log(`postbuild: out/ hazır (${files} dosya), kök → /${DEFAULT_LOCALE}/`);
+  console.log(
+    `postbuild: out/ hazır (${files} dosya, ${aliases} segment kopyası), kök → /${DEFAULT_LOCALE}/`,
+  );
+}
+
+/**
+ * Next 16.4 export, segment prefetch dosyalarını iç içe klasör olarak yazıyor
+ * (tr/__next.$d$lang/__PAGE__.txt) ama istemci noktalı tek dosya istiyor
+ * (tr/__next.$d$lang.__PAGE__.txt) ve 404 alıyor. İstemcinin beklediği adla kopya üretilir.
+ */
+async function aliasSegmentFiles(dir, trail = []) {
+  let count = 0;
+  for (const entry of await fs.readdir(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    const inSegment = trail.length > 0 || entry.name.startsWith('__next.');
+    if (entry.isDirectory()) {
+      count += await aliasSegmentFiles(full, inSegment ? [...trail, entry.name] : []);
+    } else if (inSegment && trail.length > 0 && entry.name.endsWith('.txt')) {
+      const base = path.join(dir, ...trail.map(() => '..'));
+      const alias = path.join(base, [...trail, entry.name].join('.'));
+      if (!(await exists(alias))) {
+        await fs.copyFile(full, alias);
+        count += 1;
+      }
+    }
+  }
+  return count;
 }
 
 async function countFiles(dir) {

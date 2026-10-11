@@ -1,0 +1,53 @@
+.section {
+  padding: 5.5rem 0 4rem;
+  text-align: center;
+}
+
+.grid {
+  row-gap: 4rem;
+}
+
+.eyebrow,
+.title {
+  grid-column: 1 / span 6;
+  color: var(--color-ink);
+}
+
+.title {
+  width: 100%;
+}
+
+.line {
+  display: block;
+}
+
+@media (min-width: 650px) {
+  .section {
+    padding: 9rem 0 10rem;
+  }
+
+  .eyebrow,
+  .title {
+    grid-column: 2 / span 10;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 12rem 0 9rem;
+  }
+
+  .eyebrow,
+  .title {
+    grid-column: 3 / span 8;
+  }
+
+  .title {
+    max-width: 80rem;
+    margin-inline: auto;
+  }
+
+  .wide {
+    max-width: 92rem;
+  }
+}

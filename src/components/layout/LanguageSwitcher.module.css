@@ -1,19 +1,18 @@
 .list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem 1rem;
+  gap: 0.4rem 1.6rem;
 }
 
 .link {
   display: inline-flex;
   align-items: center;
-  min-height: var(--tap);
-  font-size: var(--fs-sm);
+  min-height: 3.2rem;
+  font-size: max(1.5rem, 13px);
   opacity: 0.6;
-  transition: opacity var(--dur-fast) ease;
+  transition: opacity var(--duration-medium) ease-out;
 }
 
-.link:hover,
 .link:focus-visible,
 .active {
   opacity: 1;
@@ -22,4 +21,10 @@
 .active {
   text-decoration: underline;
   text-underline-offset: 0.35em;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    opacity: 1;
+  }
 }

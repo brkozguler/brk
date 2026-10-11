@@ -1,0 +1,275 @@
+.line {
+  display: block;
+}
+
+/* ---------------------------------------------------------------- clamped */
+.clSection {
+  position: relative;
+  overflow: clip;
+  padding: 7rem 0 10rem;
+}
+
+.clHead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.clEyebrow {
+  width: 100%;
+  margin-top: 2.5rem;
+  color: var(--color-brand-tint);
+}
+
+.clTitle {
+  width: 100%;
+  margin-top: 2.4rem;
+  color: var(--color-ink);
+}
+
+.clText {
+  width: 100%;
+  margin-top: 2.6rem;
+}
+
+.clGrid {
+  margin-top: 8rem;
+}
+
+.clTrackCol {
+  grid-column: 1 / span 6;
+}
+
+.clTrack {
+  display: flex;
+  align-items: center;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.clSlide {
+  flex-shrink: 0;
+  width: 26.5rem;
+  min-width: 26.5rem;
+  max-width: 26.5rem;
+  margin-right: 3.2rem;
+}
+
+.clMedia {
+  position: relative;
+  width: 100%;
+  overflow: clip;
+}
+
+.clNav {
+  grid-column: 1 / span 6;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 7rem;
+}
+
+@media (min-width: 650px) {
+  .clSection {
+    padding: 15rem 6rem 10rem;
+  }
+
+  .clEyebrow,
+  .clTitle,
+  .clText {
+    max-width: 70rem;
+  }
+
+  .clGrid {
+    margin-top: 10rem;
+  }
+
+  .clTrackCol {
+    grid-column: 1 / span 12;
+  }
+
+  .clSlide {
+    width: 50rem;
+    min-width: 50rem;
+    max-width: 50rem;
+  }
+
+  .clNav {
+    grid-column: 1 / span 12;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 4rem;
+    row-gap: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .clSection {
+    padding-top: 7rem;
+  }
+
+  .clEyebrow {
+    margin-top: 3.2rem;
+  }
+
+  .clTitle,
+  .clText {
+    margin-top: 2.8rem;
+  }
+
+  .clSlide {
+    margin-right: 4rem;
+  }
+
+  .clNav {
+    grid-column: 2 / span 10;
+  }
+}
+
+/* --------------------------------------------------------------- infinite */
+.infSection {
+  position: relative;
+  overflow: clip;
+  padding: 7.6rem 0 7rem;
+}
+
+.infHead {
+  grid-column: 1 / span 6;
+  margin-bottom: 5rem;
+  text-align: center;
+}
+
+.infTitle {
+  text-align: center;
+  color: var(--color-ink);
+}
+
+.infText {
+  width: 100%;
+  margin: 2.6rem auto 0;
+}
+
+.infStack {
+  position: relative;
+  grid-column: 1 / span 6;
+  align-items: start;
+}
+
+.infTrack {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  min-width: 100%;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.wideSlide {
+  position: relative;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+}
+
+.wideLink {
+  display: block;
+}
+
+.wideFrame {
+  position: relative;
+}
+
+.wideScale {
+  position: absolute;
+  inset: 0;
+  overflow: clip;
+  transform-origin: center;
+}
+
+/* Çerçeve oranı — canlı DOM: pt-[102.85%] s:pt-[56.25%] */
+.wideAspect {
+  padding-top: 102.85%;
+}
+
+.wideCaption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3.2rem;
+}
+
+.wideTitle {
+  color: var(--color-ink);
+}
+
+.wideBtn {
+  margin-top: 2.8rem;
+}
+
+.infProgress {
+  grid-column: 1 / span 6;
+  margin-top: 6rem;
+}
+
+@media (min-width: 650px) {
+  .infSection {
+    padding: 12rem 0;
+  }
+
+  .infHead {
+    grid-column: 1 / span 12;
+    margin-bottom: 7rem;
+  }
+
+  .infTitle {
+    padding-top: 1px;
+  }
+
+  .infText {
+    max-width: 70rem;
+  }
+
+  .infStack {
+    grid-column: 2 / span 10;
+  }
+
+  .wideAspect {
+    padding-top: 56.25%;
+  }
+
+  .infProgress {
+    grid-column: 4 / span 6;
+  }
+}
+
+@media (min-width: 1024px) {
+  .infSection {
+    padding: 10rem 0;
+  }
+
+  .infHead {
+    grid-column: 4 / span 6;
+  }
+
+  .infText {
+    margin-top: 2.8rem;
+  }
+
+  .infStack {
+    grid-column: 3 / span 8;
+  }
+
+  .wideCaption {
+    margin-top: 4rem;
+  }
+
+  .wideBtn {
+    margin-top: 3rem;
+  }
+
+  .infProgress {
+    margin-top: 7rem;
+  }
+}

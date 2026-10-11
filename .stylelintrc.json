@@ -6,6 +6,8 @@
     "declaration-block-no-redundant-longhand-properties": null,
     "media-feature-range-notation": null,
     "property-no-vendor-prefix": null,
-    "value-keyword-case": null
+    "value-keyword-case": null,
+    "selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": ["global"] }],
+    "no-descending-specificity": null
   }
 }

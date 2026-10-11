@@ -1,108 +1,153 @@
-/* ------------------------------------------------------------------
-   Tasarım token'ları — docs/spec/frontend-teknik-sartname.md §4
-   Renkler geçici başlangıç paletidir; otelin fotoğraflarından yeniden çıkarılacak.
-------------------------------------------------------------------- */
+/* =============================================================================
+   TASARIM SİSTEMİ — Mākena referansından birebir
+   Kaynak: docs/reference/MAKENA-FRONTEND-REVERSE-ENGINEERING.md §05–§07, §13
+   Tüm ölçüler rem; kök yazı tipi viewport'a göre 9–10 px arasında ölçeklenir.
+   ============================================================================= */
+
 :root {
-  /* renk */
-  --c-ink: #1f2a2c;
-  --c-stone: #e6e2da;
-  --c-mist: #c8d2cf;
-  --c-sea: #2e5b60;
-  --c-sun: #b88a3e;
-  --c-white: #fbfaf7;
-  --bg: var(--c-stone);
-  --fg: var(--c-ink);
+  /* ---- Fluid kök — --size 390 (mobil) / 1500 (≥650) ---------------------- */
+  --size: 390;
 
-  /* tipografi */
-  --fs-xs: 0.75rem;
-  --fs-sm: 0.875rem;
-  --fs-md: 1.0625rem;
-  --fs-lg: clamp(1.25rem, 1rem + 0.8vw, 1.625rem);
-  --fs-xl: clamp(1.75rem, 1.2rem + 1.8vw, 2.75rem);
-  --fs-2xl: clamp(2.5rem, 1.5rem + 3.5vw, 4.75rem);
-  --fs-3xl: clamp(3.25rem, 1.5rem + 6vw, 8rem);
-  --lh-tight: 1.02;
-  --lh-heading: 1.12;
-  --lh-body: 1.6;
+  /* ---- Renkler ----------------------------------------------------------- */
+  --color-brand: #203276;
+  --color-brand-tint: #213375cc;
+  --color-sand: #f8f8f3;
+  --color-white-pure: #fff;
+  --color-white-subtle: #ffffff1f;
+  --color-white-tint: #fff9;
+  --color-ink: #000;
+  --color-ink-body: #000000b3;
+  --color-ink-soft: #2b2b2d;
+  --color-subtle: #f2eee8;
+  --color-offset: #a8a98f;
+  --color-offset-2: #d6eaf0;
+  --color-rule: #777;
+  --color-focus: #9a3630;
+  --color-error: #e22c2c;
+  --color-success: #118850;
 
-  /* hareket (lib/motion.ts ile eş) */
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
-  --dur-fast: 0.4s;
-  --dur-base: 0.8s;
+  /* ---- Font aileleri (next/font değişkenleri) ---------------------------- */
+  --font-display-stack: var(--font-display), Georgia, serif;
+  --font-sans-stack: var(--font-text), system-ui, sans-serif;
 
-  /* boşluk */
-  --gutter: clamp(1rem, 2.4vw, 2.5rem);
-  --pad-x: clamp(1.25rem, 4vw, 4rem);
-  --section-y: clamp(6rem, 14vw, 14rem);
-  --header-h: 5rem;
+  /* ---- Easing (RE §13.2) ------------------------------------------------- */
+  --ease-primary: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-btn: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-swap: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --ease-soft: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-hard: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+
+  /* ---- Süreler (RE §13.3) ------------------------------------------------ */
+  --duration-instant: 200ms;
+  --duration-fast: 250ms;
+  --duration-ui: 350ms;
+  --duration-medium: 500ms;
+  --duration-hover: 750ms;
+  --duration-reveal: 1000ms;
+  --duration-page: 1250ms;
+
+  /* ---- Z-index (RE §04.3) ------------------------------------------------ */
+  --z-content: 5;
+  --z-header-bg: 18;
+  --z-header: 20;
+  --z-booking: 30;
+  --z-consent: 999;
+  --z-overlay: 9999;
+
+  /* ---- Yerleşim ---------------------------------------------------------- */
+  --page-padding-mobile: 2rem;
+  --page-padding-desktop: 5rem;
+  --grid-gap-mobile: 0.7rem;
+  --grid-gap-desktop: 1.7rem;
+  --header-height: 9.5rem;
+  --header-height-top: 14.3rem;
   --booking-bar-h: 4.5rem;
 
-  /* dokunma hedefi (Google: 48 px) */
-  --tap: 3rem;
+  /* ---- Tipografi token'ları (RE §06.3) ----------------------------------- */
+  --display-size-mobile: 4rem;
+  --display-size-tablet: 4.8rem;
+  --display-size-desktop: 5.5rem;
+  --display-line-height: 1.2;
+  --title-l-size-mobile: 3.2rem;
+  --title-l-size-tablet: 3.5rem;
+  --title-l-size-desktop: 4rem;
+  --title-m-size-mobile: 2.8rem;
+  --title-m-size-tablet: 3.2rem;
+  --title-m-size-desktop: 3.5rem;
+  --title-s-size-mobile: 2.4rem;
+  --title-s-size-tablet: 2.6rem;
+  --title-s-size-desktop: 3rem;
+  --title-xs-size-mobile: 2rem;
+  --title-xs-size-tablet: 1.8rem;
+  --title-xs-size-desktop: 2.2rem;
+  --title-line-height: 1.4;
+  --heading-weight: 300;
+  --body-l-size: 2rem;
+  --body-m-size: 1.5rem;
+  --body-s-size: 1.2rem;
+  --label-l-size-mobile: 2rem;
+  --label-l-size-tablet: 2.1rem;
+  --label-l-size-desktop: 2.2rem;
+  --label-m-size: 1.8rem;
+  --label-s-size: 1.5rem;
+  --eyebrow-size-mobile: 1.1rem;
+  --eyebrow-size-tablet: 1.2rem;
+  --eyebrow-size-desktop: 1.1rem;
+  --mm-link-size-mobile: 3rem;
+  --mm-link-size-desktop: 3.5rem;
 }
 
-[data-surface='dark'] {
-  --bg: var(--c-ink);
-  --fg: var(--c-white);
+@media (min-width: 650px) {
+  :root {
+    --size: 1500;
+  }
 }
 
-[data-surface='sea'] {
-  --bg: var(--c-sea);
-  --fg: var(--c-white);
+/*
+  A11y düzeltmesi (RE §28.3): sınırlar px değil rem — kullanıcı tarayıcı yazı
+  tipini büyütürse tüm site orantılı büyür. 1440 → 9,6 px · 390 → 10 px · 650–1350 → 9 px.
+*/
+html {
+  font-size: clamp(0.5625rem, calc(10 * 100vw / var(--size)), 0.625rem);
+  font-kerning: none;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  overscroll-behavior: none;
 }
 
-[data-surface] {
-  background: var(--bg);
-  color: var(--fg);
-}
-
-/* ------------------------------------------------------------------
-   Sıfırlama
-------------------------------------------------------------------- */
+/* =============================================================================
+   SIFIRLAMA
+   ============================================================================= */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-html {
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-
 body {
   margin: 0;
-  font-family: var(--font-text), system-ui, sans-serif;
-  font-size: var(--fs-md);
-  line-height: var(--lh-body);
-  color: var(--fg);
-  background: var(--bg);
-  -webkit-font-smoothing: antialiased;
+  background-color: var(--color-white-pure);
+  color: var(--color-ink-body);
+  font-family: var(--font-sans-stack);
+  font-size: max(var(--body-m-size), 13px);
+  line-height: 1.6;
+  -webkit-tap-highlight-color: transparent;
   overflow-x: clip;
 }
 
-img,
-picture,
-video,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-img,
-video {
-  height: auto;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  font: inherit;
-  color: inherit;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+address {
+  margin: 0;
+  font-style: normal;
 }
 
 ul,
@@ -112,118 +157,53 @@ ol {
   list-style: none;
 }
 
-h1,
-h2,
-h3,
-h4,
-p {
-  margin: 0;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-/* iOS otomatik zoom'u engellemek için 16 px altı input yok */
+button {
+  appearance: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
 input,
 select,
 textarea {
   font: inherit;
-  font-size: max(1rem, var(--fs-md));
+  font-size: max(1.6rem, 16px);
 }
 
-/* ------------------------------------------------------------------
-   Tipografi
-------------------------------------------------------------------- */
-h1,
-.h1 {
-  font-family: var(--font-display), Georgia, serif;
-  font-size: var(--fs-3xl);
-  line-height: var(--lh-tight);
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  text-wrap: balance;
-}
-
-h2,
-.h2 {
-  font-family: var(--font-display), Georgia, serif;
-  font-size: var(--fs-2xl);
-  line-height: var(--lh-heading);
-  font-weight: 400;
-  text-wrap: balance;
-}
-
-h3,
-.h3 {
-  font-family: var(--font-display), Georgia, serif;
-  font-size: var(--fs-xl);
-  line-height: var(--lh-heading);
-  font-weight: 400;
-}
-
-.statement {
-  font-family: var(--font-display), Georgia, serif;
-  font-size: var(--fs-xl);
-  line-height: 1.25;
-  max-width: 28ch;
-}
-
-p {
-  max-width: 62ch;
-}
-
-/* ------------------------------------------------------------------
-   Yerleşim
-------------------------------------------------------------------- */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: var(--gutter);
-  padding-inline: var(--pad-x);
-}
-
-@media (max-width: 767px) {
-  .grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
-.section {
-  padding-block: var(--section-y);
-}
-
-main {
-  position: relative;
-  z-index: 1;
-  background: var(--bg);
+/* Odak: :focus değil :focus-visible (RE §13.7) */
+:focus {
   outline: none;
 }
 
-/* Footer, içeriğin altından açılır (sticky). Footer.module.css tamamlar. */
-
-/* ------------------------------------------------------------------
-   Erişilebilirlik
-------------------------------------------------------------------- */
 :focus-visible {
-  outline: 2px solid currentcolor;
-  outline-offset: 3px;
+  outline: 2px solid var(--color-focus);
+  outline-offset: 1px;
+  border-radius: 0.2rem;
 }
 
-.skip-link {
-  position: fixed;
-  top: 0.75rem;
-  left: 0.75rem;
-  z-index: 100;
-  padding: 0.75rem 1.25rem;
-  background: var(--c-ink);
-  color: var(--c-white);
-  border-radius: 999px;
-  transform: translateY(-200%);
-  transition: transform var(--dur-fast) var(--ease-out);
+main:focus {
+  outline: none;
 }
 
-.skip-link:focus-visible {
-  transform: translateY(0);
-}
-
-.visually-hidden {
+.sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -235,31 +215,646 @@ main {
   border: 0;
 }
 
-/* SplitText çalışana kadar başlık gizli; JS yoksa noscript görünür yapar */
-[data-split-pending] {
-  visibility: hidden;
+/* Skip link — klavye odağında görünür */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: calc(var(--z-overlay) + 2);
+  padding: 1.2rem 2rem;
+  background: var(--color-brand);
+  color: var(--color-white-pure);
+  transform: translateY(-120%);
+  transition: transform var(--duration-fast) var(--ease-primary);
 }
 
-/* Menü açıkken (Lenis yoksa) kaydırma kilidi */
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* =============================================================================
+   YERLEŞİM — container ve grid (RE §07). max-width YOK: bilinçli full-bleed.
+   ============================================================================= */
+.site-max {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--page-padding-mobile);
+}
+
+.site-max .site-max {
+  padding-inline: 0;
+}
+
+.site-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  column-gap: var(--grid-gap-mobile);
+}
+
+@media (min-width: 650px) {
+  .site-max {
+    padding-inline: var(--page-padding-desktop);
+  }
+
+  .site-grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--grid-gap-desktop);
+  }
+}
+
+/* Medya kapsayıcıları (RE §07.5) — odak noktası --focal ile */
+.media-fill :is(img, video) {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--focal, 50% 50%);
+}
+
+/* Tüm çocuklar aynı grid hücresinde üst üste (Mākena .stack) */
+.stack {
+  display: grid;
+}
+
+.stack > * {
+  grid-area: 1 / 1;
+}
+
+/* =============================================================================
+   TİPOGRAFİ (RE §06.3) — başlıklar 300 ağırlık, display fontu
+   ============================================================================= */
+.display {
+  font-family: var(--font-display-stack);
+  font-size: var(--display-size-mobile);
+  font-weight: var(--heading-weight);
+  line-height: var(--display-line-height);
+  letter-spacing: 0;
+}
+
+.title-l,
+.title-m,
+.title-s,
+.title-xs,
+.mm-link {
+  font-family: var(--font-display-stack);
+  font-weight: var(--heading-weight);
+  line-height: var(--title-line-height);
+  letter-spacing: 0;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+.title-l {
+  font-size: var(--title-l-size-mobile);
+}
+
+.title-m {
+  font-size: var(--title-m-size-mobile);
+}
+
+.title-s {
+  font-size: var(--title-s-size-mobile);
+}
+
+.title-xs {
+  font-size: var(--title-xs-size-mobile);
+}
+
+.mm-link {
+  font-size: var(--mm-link-size-mobile);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.body-l,
+.body-m,
+.body-s {
+  font-family: var(--font-sans-stack);
+  font-weight: 400;
+}
+
+.body-l {
+  font-size: var(--body-l-size);
+  line-height: 1.6;
+}
+
+.body-m {
+  font-size: max(var(--body-m-size), 13px);
+  line-height: 1.6;
+}
+
+.body-s {
+  font-size: max(var(--body-s-size), 11px);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.label-l,
+.label-m,
+.label-s {
+  font-family: var(--font-sans-stack);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.label-l {
+  font-size: var(--label-l-size-mobile);
+}
+
+.label-m {
+  font-size: var(--label-m-size);
+}
+
+.label-s {
+  font-size: var(--label-s-size);
+  letter-spacing: -0.01em;
+}
+
+/* Sitenin imza elemanı */
+.eyebrow {
+  font-family: var(--font-sans-stack);
+  font-size: max(var(--eyebrow-size-mobile), 10px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 650px) {
+  .display {
+    font-size: var(--display-size-tablet);
+  }
+
+  .title-l {
+    font-size: var(--title-l-size-tablet);
+  }
+
+  .title-m {
+    font-size: var(--title-m-size-tablet);
+  }
+
+  .title-s {
+    font-size: var(--title-s-size-tablet);
+  }
+
+  .title-xs {
+    font-size: var(--title-xs-size-tablet);
+  }
+
+  .mm-link {
+    font-size: var(--mm-link-size-desktop);
+  }
+
+  .label-l {
+    font-size: var(--label-l-size-tablet);
+  }
+
+  .eyebrow {
+    font-size: max(var(--eyebrow-size-tablet), 10px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .display {
+    font-size: var(--display-size-desktop);
+  }
+
+  .title-l {
+    font-size: var(--title-l-size-desktop);
+  }
+
+  .title-m {
+    font-size: var(--title-m-size-desktop);
+  }
+
+  .title-s {
+    font-size: var(--title-s-size-desktop);
+  }
+
+  .title-xs {
+    font-size: var(--title-xs-size-desktop);
+  }
+
+  .label-l {
+    font-size: var(--label-l-size-desktop);
+  }
+
+  .eyebrow {
+    font-size: max(var(--eyebrow-size-desktop), 10px);
+  }
+}
+
+/* =============================================================================
+   LİNK VE BUTON (RE §13.7)
+   ============================================================================= */
+
+/* Animasyonlu alt çizgi: soldan açılır, sağa süpürülerek kapanır */
+.uline {
+  position: relative;
+  display: inline-flex;
+  white-space: nowrap;
+
+  --uline-bottom: -0.05em;
+}
+
+.uline::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: var(--uline-bottom);
+  left: 0;
+  height: 0.05em;
+  min-height: 1px;
+  background-color: currentcolor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--duration-hover) var(--ease-primary);
+}
+
+.uline:focus-visible::before,
+.group:focus-visible .uline::before,
+.uline.is-active::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Kenarlıklı hap buton — Mākena .sh__cta / BaseBtn (canlı DOM) */
+.btn {
+  position: relative;
+  display: inline-flex;
+  min-width: 14rem;
+  border: 1px solid currentcolor;
+  border-radius: 0.3rem;
+}
+
+/* Dokunma hedefi: 4,2rem iç yükseklik + 3 px tampon */
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: -3px 0;
+}
+
+.btn__content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  width: 100%;
+  height: 4.2rem;
+}
+
+/* Dikey yazı takası (500 ms ease-out) — buton ve kart CTA'sı */
+.swap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.swap__a {
+  display: block;
+}
+
+.swap__b {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(100%);
+}
+
+/* Sürüklenebilir alan */
+.drag-area {
+  cursor: grab;
+}
+
+.drag-area:active,
+.drag-area.is-dragging {
+  cursor: grabbing;
+}
+
+.drag-area :is(img, a) {
+  -webkit-user-drag: none;
+}
+
+/* Hover efektleri yalnızca fare + ince işaretçi (RE §08.1) */
+@media (hover: hover) and (pointer: fine) {
+  .uline:hover::before,
+  .group:hover .uline::before {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  .swap__a,
+  .swap__b {
+    transition: transform var(--duration-medium) ease-out;
+    will-change: transform;
+  }
+
+  .group:hover .swap__a {
+    transform: translateY(-100%);
+  }
+
+  .group:hover .swap__b {
+    transform: translateY(0);
+  }
+}
+
+/* =============================================================================
+   BANNER SCALE — --progress'i GSAP sürer, transform'u CSS hesaplar (HOME-03)
+   ============================================================================= */
+@property --progress {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .bscale__scale {
+    transform: scale(calc(0.85 + var(--progress) * 0.15));
+    transform-origin: center;
+  }
+}
+
+/* Hero görseli hydration'dan önce de ölçekli başlar (GSAP 1,25 → 1) */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-i-scale {
+    transform: scale(1.25);
+  }
+}
+
+/* Hero scroll çizgisi: beyaz segment 2 s'de üstten alta süpürülür */
+@keyframes hero-scroll-line {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.hero-scroll-line {
+  animation: hero-scroll-line 2s var(--ease-primary) infinite;
+}
+
+/* =============================================================================
+   HOVER GÖRSEL (explore_more) — 1,05 büyür, 700 ms
+   ============================================================================= */
+.hoverable {
+  overflow: hidden;
+}
+
+.hoverable img {
+  transition: transform 700ms var(--ease-primary);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hoverable:hover img,
+  .group:hover .hoverable img {
+    transform: scale(1.05);
+  }
+}
+
+/* =============================================================================
+   CAROUSEL OK BUTONU (.cbtn) ve İLERLEME ÇUBUĞU (.cprog) — RE §16, §18
+   ============================================================================= */
+@keyframes cbtn-arrow-next {
+  0% {
+    opacity: 0;
+    transform: translateX(-1rem);
+  }
+
+  12.5% {
+    opacity: 1;
+  }
+
+  37.5% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes cbtn-arrow-prev {
+  0% {
+    opacity: 0;
+    transform: translateX(1rem);
+  }
+
+  12.5% {
+    opacity: 1;
+  }
+
+  37.5% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.cbtn {
+  position: relative;
+  display: flex;
+  width: 4rem;
+  height: 4rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  color: var(--color-ink);
+  background-color: var(--color-subtle);
+  transition:
+    color var(--duration-medium) ease-out,
+    background-color var(--duration-medium) ease-out;
+}
+
+.cbtn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-brand);
+  transform: scale(0);
+  transform-origin: center;
+  transition: transform 700ms var(--ease-primary);
+}
+
+/* Dokunma hedefi ≥ 44 px */
+.cbtn::before {
+  content: '';
+  position: absolute;
+  inset: -0.5rem;
+}
+
+.cbtn > svg {
+  position: relative;
+  z-index: 2;
+  width: auto;
+  height: 1rem;
+}
+
+.cbtn[aria-disabled='true'] {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.cbtn:focus-visible {
+  color: var(--color-white-pure);
+  background-color: var(--color-brand);
+}
+
+.cbtn--white {
+  background-color: var(--color-white-pure);
+  border-radius: 3px;
+}
+
+.cbtn--white::after {
+  border-radius: 3px;
+  transition-duration: var(--duration-medium);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cbtn:not([aria-disabled='true']):hover {
+    color: var(--color-white-pure);
+  }
+
+  .cbtn:not([aria-disabled='true']):hover::after {
+    transform: scale(1);
+  }
+
+  .cbtn--white:not([aria-disabled='true']):hover::after {
+    transform: scale(0.95);
+  }
+
+  .cbtn--next:not([aria-disabled='true']):hover > svg {
+    animation: cbtn-arrow-next 1s ease;
+  }
+
+  .cbtn--prev:not([aria-disabled='true']):hover > svg {
+    animation: cbtn-arrow-prev 1s ease;
+  }
+}
+
+.cprog {
+  position: relative;
+  flex: 1 1 auto;
+  height: 1px;
+  overflow: hidden;
+}
+
+.cprog__track,
+.cprog__bar {
+  position: absolute;
+  inset: 0;
+  transform-origin: left;
+}
+
+.cprog__track {
+  background-color: var(--color-offset-2);
+}
+
+.cprog__bar {
+  z-index: 2;
+  background-color: var(--color-brand);
+  transform: scaleX(0);
+}
+
+.cprog--ink .cprog__bar {
+  background-color: var(--color-ink);
+}
+
+/* =============================================================================
+   LISTINGS 5050 — madde listesi + üst üste görseller (Mākena .re-l)
+   ============================================================================= */
+.lst__list::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid var(--color-offset);
+  opacity: 0.5;
+}
+
+.lst__item::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid var(--color-ink-soft);
+  opacity: 0.2;
+}
+
+.lst__underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-brand);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.lst__image {
+  opacity: 0;
+  transform: scale(1.1);
+  transition:
+    transform 1s var(--ease-primary),
+    opacity var(--duration-medium) ease-out;
+}
+
+.lst__image.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* =============================================================================
+   GENEL DURUMLAR
+   ============================================================================= */
+
+/* Lenis yoksa (reduced motion) menü açıkken kaydırma kilidi */
 html.menu-open,
 html.menu-open body {
   overflow: hidden;
 }
 
 /* Mobilde sabit rezervasyon çubuğu içeriği örtmesin */
-@media (max-width: 767px) {
+@media (max-width: 649px) {
   body.has-booking-bar {
     padding-bottom: var(--booking-bar-h);
   }
 }
 
+/* =============================================================================
+   REDUCED MOTION — CSS tarafı; JS tarafı gsap.matchMedia() ile kapanıyor
+   ============================================================================= */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0s !important;
+    transition-delay: 0ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .hero-scroll-line {
+    animation-name: none;
   }
 }
