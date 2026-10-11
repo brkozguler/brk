@@ -134,10 +134,7 @@ export interface GalleryGridItem {
 export interface GalleryGridBlock {
   type: 'gallery_grid';
   items: GalleryGridItem[];
-  /**
-   * 3 (varsayılan): Mākena galerisi. 2: iki geniş kolon, Ethno Hotels konaklama aralıkları
-   * (kolon arası 5,2rem, satır arası 8,3rem; mobilde tek kolon) — kullanıcı kararı 2026-10-11.
-   */
+  /** 3 (varsayılan): Mākena galerisi. 2: aynı ızgara, kartlar ikişer yan yana (Konaklama, 2026-10-11). */
   columns?: 2 | 3;
 }
 

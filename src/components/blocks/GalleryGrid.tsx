@@ -23,10 +23,9 @@ interface Props {
  *   hover görsel 1,05 (700 ms). 1440'ta 3 × 432 px, satırlar y 604,8 / 1066,2; section 1018,7 px.
  * Etiket Mākena'da h3; başlık sırası atlanmasın diye h2 (hero'daki h1'den sonra).
  *
- * `columns={2}` (Konaklama, kullanıcı kararı 2026-10-11: "2'li, kart boşlukları Ethno gibi"):
- * ethnohotels.com/tr/konaklama canlı ölçümü (1440 / 768 / 375) — kolon arası 50 px, satır arası
- * 80 px, mobilde tek kolon ve 40 px. Bizde ≥650 iki kolon (kolon arası 5,2rem → kart 639,5 px
- * @1440, x 48 / 737,4), satır arası 8,3rem; <650 tek kolon, satır arası 4,2rem.
+ * `columns={2}` (Konaklama, kullanıcı kararı 2026-10-11: "Mākena galerisindeki gibi, 2'li yan yana"):
+ * aynı ızgara ve aralıklar, kartlar ≥650'de 6'şar kolon — 656,3 × 492,3 görsel @1440, x 48 / 720,7,
+ * satır arası yine 10rem; mobil galeriyle aynı (tek kolon, 6rem).
  */
 export function GalleryGrid({ items, columns = 3 }: Props) {
   const two = columns === 2;

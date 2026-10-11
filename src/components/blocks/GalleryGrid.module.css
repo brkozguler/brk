@@ -55,24 +55,10 @@
   }
 }
 
-/* İki kolonlu varyant — Ethno Hotels konaklama aralıkları. Mobil: tek kolon, satır arası 4,2rem (Ethno 40 px) */
-.two .item {
-  margin-bottom: 4.2rem;
-}
-
-.two .item:last-child {
-  margin-bottom: 0;
-}
-
+/* İki kolonlu varyant — Mākena galerisiyle aynı aralıklar, kartlar 6'şar kolon (656 px @1440); mobil aynı */
 @media (min-width: 650px) {
-  /* Kolon arası 5,2rem (Ethno 50 px) — grid gap'i ezer, kartlar 6'şar kolon */
-  .list.two {
-    column-gap: 5.2rem;
-  }
-
   .two .item,
   .two .item:last-child {
     grid-column: span 6;
-    margin-bottom: 8.3rem;
   }
 }
