@@ -93,7 +93,7 @@ kilit yok — bilinçli sapma (CLAUDE.md).
 |---|---|---|
 | Fluid kök font `clamp(9px, 10·100vw/--size, 10px)` | `globals.css` (rem tabanlı a11y düzeltmesiyle) | 1440 → 9,6 px birebir |
 | `.site-max` / `.site-grid` | aynı adlar, `globals.css` | 48 px padding, 12 kolon 16,32 gap ✓ |
-| ivy-mode / sweet-sans-pro / messina-sans | Playfair Display / Manrope / Manrope | geçici; lisanslı font gelince `src/app/fonts.ts` |
+| ivy-mode / sweet-sans-pro / messina-sans | Noto Serif Display (300) / Manrope / Manrope | geçici; lisanslı font gelince `src/app/fonts.ts`. Playfair Display 400'den başladığı için başlıklar kalın kalıyordu; kullanıcı "ince yap" (2026-10-11) → değişken ağırlıklı Noto Serif Display, ana sayfa intro'su yine 428,1 |
 | `$event` tick · `$resize` · `$scroll` | `src/lib/motion/runtime.ts` | tek RAF, Lenis lerp .15 wheel 1.25 |
 | CustomEase + registerEffect | `src/lib/motion/register.ts` | |
 | 13 blok | `src/components/blocks/*` | ölçüler her dosyanın başında |
@@ -145,6 +145,25 @@ Metin kaynaklı farklar font değişince yeniden ölçülecek; `docs/reference/A
 - Mākena'nın "önceki" dairesinde köşe yuvarlatma eksik (sınıf unutulmuş); bizde iki daire de .3rem.
 - Mākena'nın galeri hero'sundaki boş `<p>` kopyalanmadı; aynı boşluk `Hero .noSubtitle` padding'i.
 
+### QA taraması (2026-10-11, kullanıcı: "tüm projede sorun varsa çöz")
+
+48 sayfa × 320 / 375 / 768 / 1024 / 1440 px, aynı origin'de iframe ile (tarayıcı paneli): yatay
+taşma yok, kırpılan başlık/düğme yok, her sayfada tek h1, alt'sız görsel yok, dört dilde de (uzun
+DE/RU metinler dahil) düğme sarması yok. Bulunup düzeltilenler:
+- Başlık sırası: footer kolon başlıkları h3 → h2 (hero'suz ve 404 sayfalarında h1 → h3 atlıyordu).
+- Dokunma hedefi: footer menü ve yasal linklerine görünmez tampon (≥ 24 px), kart başlık linkine
+  negatif kenar boşluklu dolgu.
+- WCAG 2.5.3 ad uyuşmazlığı: header logo linki ve footer logo düğmesinin `aria-label`'ı görünür
+  "Arcanus Hotels Sorgun" metnini içeriyor.
+- Konsol 404'leri: `TransitionLink` prefetch varsayılan kapalı (statik export'ta her görünür link
+  için segment isteği + yazılmamış sayfalar için 404). Yazılmamış sayfaların linkleri (menü, footer,
+  oda kartları → 20 rota × 4 dil) sayfalar gelene kadar gerçek 404 sayfasına düşer; menüde yalnızca
+  yayınlanmış sayfaları listelemek istenirse `navigation.ts` → `hasPage` filtresi.
+- Küçük ekranda "yüklenmemiş görsel" uyarısı AVIF decode zamanlamasıydı; dosyalar doğrulandı.
+
+Sonuç (Lighthouse, yerel `serve out`): **ana sayfa mobil** perf 87 · a11y 100 · best 100 · SEO 100;
+**konaklama masaüstü** 100 / 100 / 100 / 100. Kalan tek konu JS yükü (mobil LCP/TBT).
+
 ### Google kuralları denetimi (2026-10-11, `docs/spec/google-frontend-kurallari-2026.md` §14)
 
 Lighthouse 12 (yerel `serve out`, Chrome headless): **mobil** perf 82 · a11y 96 · best 96 · SEO 100
@@ -156,9 +175,8 @@ WOFF2 preload + swap, Brotli/deflate + immutable cache, HSTS/CSP/nosniff/Referre
 Açık kalanlar:
 - JS ilk yük ~210 KB gzip (bütçe 150 / Google 170) — React 19 + Next çatısı ~120 KB, GSAP+Lenis ~57 KB.
 - Gövde metni 14,4 px (Mākena ölçeği; Google 16 px önerir) — kullanıcı kararı gerekir.
-- a11y: logo linkinin `aria-label`'ı görünür metinle uyuşmuyor (2.5.3) → `Header` logo;
-  footer yasal linkleri 44 px'in altında (`Footer .terms`). Her ikisi review geçişinde.
-- Konsolda 404: henüz yazılmamış sayfaların segment prefetch'i; sayfalar gelince kapanır.
+- ~~a11y: logo `aria-label` uyuşmazlığı, footer yasal linkleri 24 px altı~~ → QA taramasında düzeltildi.
+- ~~Konsolda 404: segment prefetch~~ → prefetch kapatıldı.
 - RUM (`web-vitals`), Speculation Rules, nonce'lu CSP (statik export'ta `'unsafe-inline'`),
   Hotel JSON-LD'de yıldız/giriş-çıkış/geo (otelden bilgi bekleniyor).
 
@@ -200,6 +218,9 @@ Açık kalanlar:
 
 ## Günlük
 
+- **2026-10-11 (gece, 4)** — Kullanıcı: "tüm projede sorun varsa çöz" + intro başlığı "ince yap".
+  48 sayfa × 5 genişlik iframe taraması; başlık sırası, dokunma hedefleri, aria-label uyumu,
+  prefetch 404'leri düzeltildi; display fontu Playfair → Noto Serif Display (300). Lighthouse yeniden.
 - **2026-10-11 (gece, 3)** — Kullanıcı: Mākena /gallery sayfasını Konaklama yap, "responsive olarak
   2'li, kart tasarımları küçük" → 320 px'lik ortalı kartlar "çok dar" bulundu → "kart boşlukları
   ethnohotels.com/tr/konaklama gibi, 2'li" → Ethno ölçüldü (1440: kolon arası 50, satır 80, kart 415

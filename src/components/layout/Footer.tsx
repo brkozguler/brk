@@ -63,15 +63,18 @@ export function Footer({ locale, ui, groups, legal, published, siteName, phone, 
       <div ref={parallax} className={s.parallax}>
         <div className="site-max site-grid">
           <div className={s.logoCol}>
-            <button type="button" className={s.logoBtn} aria-label={ui.backToTop} onClick={() => scroll.to(0)}>
+            {/* Erişilebilir ad: görünür logo metni + sr-only "Sayfanın başına dön" (WCAG 2.5.3) */}
+            <button type="button" className={s.logoBtn} onClick={() => scroll.to(0)}>
               <Logo className={s.logo} />
+              <span className="sr-only"> – {ui.backToTop}</span>
             </button>
           </div>
 
           <div className={s.menus}>
             {groups.map((group) => (
               <nav key={group.title} aria-label={group.title}>
-                <h3 className={clsx('eyebrow', s.menuTitle)}>{group.title}</h3>
+                {/* h2: hero'suz ve 404 sayfalarında h1 → h3 atlaması olmasın */}
+                <h2 className={clsx('eyebrow', s.menuTitle)}>{group.title}</h2>
                 <ul className={s.menuList}>
                   {group.links.map((link) => (
                     <li key={link.href}>
@@ -86,7 +89,7 @@ export function Footer({ locale, ui, groups, legal, published, siteName, phone, 
           </div>
 
           <div className={s.contact}>
-            <h3 className={clsx('eyebrow', s.menuTitle, s.contactTitle)}>{ui.contact}</h3>
+            <h2 className={clsx('eyebrow', s.menuTitle, s.contactTitle)}>{ui.contact}</h2>
             <ul className={clsx('label-m', s.contactList)}>
               <li className={s.contactItem}>
                 <span>T:</span>

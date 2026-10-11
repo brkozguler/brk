@@ -50,8 +50,16 @@
 }
 
 .menuLink {
+  position: relative;
   display: inline-flex;
   align-items: center;
+}
+
+/* Dokunma hedefi (WCAG 2.5.8): 14,4 px satır + görünmez tampon; ::before alt çizgi (uline) */
+.menuLink::after {
+  content: '';
+  position: absolute;
+  inset: -0.5rem 0;
 }
 
 .contact {
@@ -78,6 +86,17 @@
   display: flex;
   align-items: center;
   column-gap: 0.8rem;
+}
+
+/* Telefon / e-posta linkleri 17 px; dokunma hedefi ≥ 24 px için görünmez tampon */
+.contactItem a {
+  position: relative;
+}
+
+.contactItem a::after {
+  content: '';
+  position: absolute;
+  inset: -0.4rem 0;
 }
 
 .bottom {
@@ -111,7 +130,11 @@
   opacity: 0.65;
 }
 
+/* Yasal linkler: gerçek kutu ≥ 24 px (Lighthouse pseudo tamponu saymaz) */
 .terms {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
   transition: opacity var(--duration-medium) ease-out;
 }
 

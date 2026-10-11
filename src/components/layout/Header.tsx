@@ -156,8 +156,10 @@ export function Header({
               onClick={() => setMenuOpen((v) => !v)}
               labels={{ menu: ui.menu, close: ui.close, toggle: ui.menuToggle }}
             />
-            <TransitionLink href={homeHref} className={s.logo} aria-label={ui.homeLink}>
+            {/* Erişilebilir ad: görünür logo metni + sr-only "Ana sayfa" (WCAG 2.5.3) */}
+            <TransitionLink href={homeHref} className={s.logo}>
               <Logo className={s.logoMark} />
+              <span className="sr-only"> – {ui.homeLink}</span>
             </TransitionLink>
             <Button href={ctaHref} label={ui.bookNow} external={ctaExternal} className={s.cta} />
           </div>
