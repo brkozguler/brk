@@ -20,6 +20,27 @@ const SETS = {
     // kategori → ton (hue); ana sayfadaki yer tutucularla aynı yumuşak degrade dili
     groups: { hotel: 205, rooms: 28, pools: 190, restaurants: 18, beach: 200, activities: 95 },
   },
+  // Kart kapakları (yalnızca cover.jpg): restoranlar ve barlar sayfaları
+  restaurants: {
+    size: [1600, 1200],
+    count: 0,
+    groups: { main: 30, turkish: 10, italian: 350, mexican: 20, 'far-east': 160, fish: 200, 'aqua-snack': 185 },
+  },
+  bars: {
+    size: [1600, 1200],
+    count: 0,
+    groups: {
+      lobby: 35,
+      'coffee-house': 25,
+      pool: 195,
+      beach: 205,
+      disco: 280,
+      aqua: 180,
+      pier: 215,
+      patisserie: 15,
+      passion: 320,
+    },
+  },
 };
 
 function hsl(h, s, l) {

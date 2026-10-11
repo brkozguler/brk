@@ -4,9 +4,9 @@
 
 Ana sayfa, kullanıcı kararıyla **makenagolfandbeachclub.com ana sayfasının birebir kopyası**
 olarak kuruldu: 13 blok + header, menü, footer. **Galeri** (`/tr/galeri/` + 6 kategori) Mākena
-`/gallery` ve `/gallery/{kategori}` şablonlarının birebir kopyası; **Konaklama** aynı şablonun
-iki kolonlu küçük kart varyantı. Build ve lint temiz;
-4 dil × (ana sayfa + konaklama + galeri + 6 kategori + 404) = 40 sayfa. Görseller yer tutucu
+`/gallery` ve `/gallery/{kategori}` şablonlarının birebir kopyası; **Konaklama, Restoranlar, Barlar**
+aynı şablonun intro'lu, iki kolonlu Vogue kartlı varyantı. Build ve lint temiz;
+4 dil × (ana sayfa + konaklama + restoranlar + barlar + galeri + 6 kategori + 404) = 48 sayfa. Görseller yer tutucu
 (`scripts/placeholders.mjs`), ana sayfa metinleri onaylı, galeri EN/DE/RU metinleri editör
 kontrolü bekliyor; iletişim bilgileri doğrulanmış. Diğer sayfaların içeriği henüz yok; menü ve
 footer tüm rotaları listeliyor, bu linkler sayfalar yazılana kadar 404 verir.
@@ -70,6 +70,17 @@ Metinler CONTENT-TR ROOMS-03…06 (kişi sayısı kapasitenin üst sınırı: 3 
 EN/DE/RU çeviri editör kontrolü bekliyor. Görsel bağlantısı `tabindex=-1 aria-hidden` (başlıkla aynı
 hedef), başlık ve düğme gerçek bağlantı. Hero alt metni Mākena galerisinde olmadığı için kullanılmadı.
 Oda kartları `rooms/*` rotalarına gider; **oda detay sayfaları henüz yok** (404).
+
+### Restoranlar — `/tr/restoranlar/` · Barlar — `/tr/barlar/` (2026-10-11, kullanıcı: "bu sayfayı restoranlar barlar olarak da yap")
+
+Konaklama şablonu birebir (slim hero → breadcrumb → intro → iki kolonlu Vogue kartları), içerik
+`src/content/pages/venues.ts`: 7 restoran (REST-01…09) ve 9 bar (BARS-01…11), TR onaylı metinler
+(⚠️ işaretli cümleler alınmadı), özellik satırı metinlerdeki tür · öğün · yer bilgisinden; EN/DE/RU
+çeviri editör kontrolü bekliyor. **Detay sayfası yok** (SEO haritasında restoran/bar URL'si tanımlı
+değil) → kartlar bağlantısız: görsel ve başlık düz, yalnızca REZERVASYON düğmesi
+(`GalleryGridItem.page` isteğe bağlı). Detay istenirse önce URL haritası genişletilmeli.
+Görseller yer tutucu: `assets/images/{restaurants,bars}/<ad>/cover.jpg` (`scripts/placeholders.mjs`
+`restaurants` / `bars` setleri, yalnızca kapak). 7 kartta son satır tek kart (sol kolon).
 
 Header galeri kategorilerinde `is-black` (routes.ts `headerDark`): en tepede koyu logo ve metin.
 Lightbox `<dialog>` + `showModal` (odak tuzağı, Esc, odak geri dönüşü), kaydırma kilidi,
@@ -201,7 +212,8 @@ Açık kalanlar:
   yukarıdan boşluk" (satır arası 10,4rem) → açıklama ve özellikler "biraz daha daralt" (max-w 50rem;
   özellik aralığı 1,6rem), "REZERVASYON diye bir buton daha" (bookingTarget) → Akra Didim breadcrumb'ı
   "oluşturduğumuz tüm sayfalara" (`Breadcrumb` yeniden yazıldı, varsayılan açık) → Mākena intro
-  bloğu konaklamaya (ROOMS-02 metni). `gallery_grid` → `columns: 2`, `src/content/pages/rooms.ts`
+  bloğu konaklamaya (ROOMS-02 metni) → aynı şablon **Restoranlar ve Barlar** (`venues.ts`, 7 + 9
+  bağlantısız kart, 16 kapak yer tutucu). `gallery_grid` → `columns: 2`, `src/content/pages/rooms.ts`
   4 dil. Oda detayları sıradaki iş.
 - **2026-10-11 (gece, 2)** — Kullanıcı: "galeri sayfasını yapalım" + Mākena /gallery. Canlı sitede
   indeks, kategori ve lightbox 1440×900 + 375×812 ölçüldü (RE §17.6 doğrulandı; mobilde 8 kare +

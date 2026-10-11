@@ -5,6 +5,7 @@ import { gallery, galleryCategories } from './gallery';
 import { home } from './home';
 import { notFound } from './not-found';
 import { rooms } from './rooms';
+import { bars, restaurants } from './venues';
 
 /**
  * Sayfa kayıt defteri. Bir sayfa burada ve ilgili dilde içeriği varsa üretilir;
@@ -14,6 +15,8 @@ import { rooms } from './rooms';
 export const pages: Partial<Record<PageKey, LocalizedPage>> = {
   home,
   rooms,
+  restaurants,
+  bars,
   gallery,
   ...galleryCategories,
   'not-found': notFound,

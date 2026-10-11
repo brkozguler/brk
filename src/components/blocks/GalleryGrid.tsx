@@ -7,7 +7,8 @@ import type { GalleryGridDetail } from '@/content/types';
 import s from './GalleryGrid.module.css';
 
 export interface GalleryGridItemData {
-  href: string;
+  /** Detay sayfası yoksa kart bağlantısız: görsel ve başlık düz, KEŞFET yok */
+  href?: string;
   label: string;
   media: ResolvedImage;
   detail?: GalleryGridDetail;
@@ -46,53 +47,75 @@ interface Props {
  * özellikler label-s 500, ✦ ayraçlı → KEŞFET + REZERVASYON .btn (Vogue 91×44 düz kenarlı tek düğme,
  * bizde 14rem × 4,2rem yazı takaslı iki düğme). Kullanıcı düzeltmeleri (2026-10-11): eyebrow yok,
  * açıklama mt 2rem ve max-w 50rem, özellik aralığı 1,6rem, satır arası 10,4rem, ikinci düğme.
+ * Aynı şablon Restoranlar ve Barlar'da; detay sayfası olmadığı için kartlar bağlantısız, KEŞFET yok.
  */
 export function GalleryGrid({ items, columns = 3, ctaLabel, booking }: Props) {
   const two = columns === 2;
+  const sizeKey = two ? 'galleryCardWide' : 'galleryCard';
   return (
     <section className={clsx(s.section, two && s.sectionTwo)}>
       <ul className={clsx('site-max site-grid', s.list, two && s.two)}>
-        {items.map((item) =>
-          item.detail ? (
-            <li key={item.href} className={clsx('group', s.item, s.rich)}>
-              {/* Görsel bağlantısı başlıkla aynı hedef; klavye ve ekran okuyucu için tekrar değil */}
-              <TransitionLink href={item.href} className={s.mediaLink} tabIndex={-1} aria-hidden="true">
-                <div className={clsx('hoverable media-fill', s.media)}>
-                  <Picture image={item.media} sizeKey={two ? 'galleryCardWide' : 'galleryCard'} />
+        {items.map((item) => {
+          const media = (
+            <div className={clsx('hoverable media-fill', s.media)}>
+              <Picture image={item.media} sizeKey={sizeKey} />
+            </div>
+          );
+
+          if (item.detail) {
+            return (
+              <li key={item.label} className={clsx('group', s.item, s.rich)}>
+                {item.href ? (
+                  /* Görsel bağlantısı başlıkla aynı hedef; klavye ve ekran okuyucu için tekrar değil */
+                  <TransitionLink href={item.href} className={s.mediaLink} tabIndex={-1} aria-hidden="true">
+                    {media}
+                  </TransitionLink>
+                ) : (
+                  <div className={s.mediaLink}>{media}</div>
+                )}
+                {item.detail.eyebrow ? <p className={clsx('eyebrow', s.richEyebrow)}>{item.detail.eyebrow}</p> : null}
+                <h2 className={clsx('title-xs', s.richTitle)}>
+                  {item.href ? <TransitionLink href={item.href}>{item.label}</TransitionLink> : item.label}
+                </h2>
+                <p className={clsx('body-m', s.richText)}>{item.detail.text}</p>
+                {item.detail.specs.length ? (
+                  <ul className={clsx('label-s', s.specs)} aria-label={item.label}>
+                    {item.detail.specs.map((spec) => (
+                      <li key={spec} className={s.spec}>
+                        {spec}
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+                {(ctaLabel && item.href) || booking ? (
+                  <div className={s.ctaRow}>
+                    {ctaLabel && item.href ? <Button href={item.href} label={ctaLabel} srLabel={item.label} /> : null}
+                    {booking ? (
+                      <Button href={booking.href} label={booking.label} external={booking.external} srLabel={item.label} />
+                    ) : null}
+                  </div>
+                ) : null}
+              </li>
+            );
+          }
+
+          const label = <h2 className={clsx('eyebrow', s.label)}>{item.label}</h2>;
+          return (
+            <li key={item.label} className={s.item}>
+              {item.href ? (
+                <TransitionLink href={item.href} className={clsx('group', s.link)}>
+                  {media}
+                  {label}
+                </TransitionLink>
+              ) : (
+                <div className={clsx('group', s.link)}>
+                  {media}
+                  {label}
                 </div>
-              </TransitionLink>
-              {item.detail.eyebrow ? <p className={clsx('eyebrow', s.richEyebrow)}>{item.detail.eyebrow}</p> : null}
-              <h2 className={clsx('title-xs', s.richTitle)}>
-                <TransitionLink href={item.href}>{item.label}</TransitionLink>
-              </h2>
-              <p className={clsx('body-m', s.richText)}>{item.detail.text}</p>
-              <ul className={clsx('label-s', s.specs)} aria-label={item.label}>
-                {item.detail.specs.map((spec) => (
-                  <li key={spec} className={s.spec}>
-                    {spec}
-                  </li>
-                ))}
-              </ul>
-              {ctaLabel || booking ? (
-                <div className={s.ctaRow}>
-                  {ctaLabel ? <Button href={item.href} label={ctaLabel} srLabel={item.label} /> : null}
-                  {booking ? (
-                    <Button href={booking.href} label={booking.label} external={booking.external} srLabel={item.label} />
-                  ) : null}
-                </div>
-              ) : null}
+              )}
             </li>
-          ) : (
-            <li key={item.href} className={s.item}>
-              <TransitionLink href={item.href} className={clsx('group', s.link)}>
-                <div className={clsx('hoverable media-fill', s.media)}>
-                  <Picture image={item.media} sizeKey={two ? 'galleryCardWide' : 'galleryCard'} />
-                </div>
-                <h2 className={clsx('eyebrow', s.label)}>{item.label}</h2>
-              </TransitionLink>
-            </li>
-          ),
-        )}
+          );
+        })}
       </ul>
     </section>
   );

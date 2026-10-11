@@ -130,7 +130,9 @@ export function renderBlock(block: Block, index: number, locale: Locale): ReactN
     case 'gallery_grid': {
       const items = block.items.flatMap((item) => {
         const media = img(item.media);
-        return media ? [{ href: pagePath(locale, item.page), label: item.label, media, detail: item.detail }] : [];
+        if (!media) return [];
+        const href = item.page ? pagePath(locale, item.page) : undefined;
+        return [{ href, label: item.label, media, detail: item.detail }];
       });
       const booking = bookingTarget(locale);
       return (

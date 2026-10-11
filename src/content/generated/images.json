@@ -1,4 +1,139 @@
 {
+  "bars/aqua/cover": {
+    "dir": "bars/aqua/",
+    "name": "cover",
+    "hash": "314989e9",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAwABABoJaACdAENMx+yAAD+jsN97UrGDcHUEWTdh36q0tEuAAAA"
+  },
+  "bars/beach/cover": {
+    "dir": "bars/beach/",
+    "name": "cover",
+    "hash": "89f11660",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAwABABoJZACdAEI3WogAAD92DOLU0kkN7sxA5pBltsVEYTHLwAA"
+  },
+  "bars/coffee-house/cover": {
+    "dir": "bars/coffee-house/",
+    "name": "cover",
+    "hash": "3b84ceda",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQAAwABABoJZACdAEOtfmPAAD+Vv+Ii96is7LQjCaSdDZP7MAAAA=="
+  },
+  "bars/disco/cover": {
+    "dir": "bars/disco/",
+    "name": "cover",
+    "hash": "a32e9ead",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAwABABoJZACdAEQ8OXWAAD8bp9R6MQhcmzTuysrRWUv4MttggAA"
+  },
+  "bars/lobby/cover": {
+    "dir": "bars/lobby/",
+    "name": "cover",
+    "hash": "6e82e028",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAwABABoJZgCdAEJEtBAAP6MT2C5lfHTMnr2fLM4IYXsH4AAAA=="
+  },
+  "bars/passion/cover": {
+    "dir": "bars/passion/",
+    "name": "cover",
+    "hash": "b6f3e88c",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQAAwABABoJaACdAEQ89CDQAD91w83GmQcUkZgaBz8CZ+wuQAAAA=="
+  },
+  "bars/patisserie/cover": {
+    "dir": "bars/patisserie/",
+    "name": "cover",
+    "hash": "43eccd62",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADwAQCdASoQAAwABABoJZACdAEQ81WDnAAA/lZ8gbvdmCniCl7SXQz3g123YAAA"
+  },
+  "bars/pier/cover": {
+    "dir": "bars/pier/",
+    "name": "cover",
+    "hash": "cd50a4bb",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQAAwABABoJZACdAENU8iAAAD915YAbGSfylXIqdWWn2X8HkZAAA=="
+  },
+  "bars/pool/cover": {
+    "dir": "bars/pool/",
+    "name": "cover",
+    "hash": "a4ddc15b",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoQAAwABABoJZACdAEJEtagAP5W+mJrPFlCOniKSUlXpsD6Th6QsAAA"
+  },
   "gallery/activities/01": {
     "dir": "gallery/activities/",
     "name": "01",
@@ -1558,5 +1693,110 @@
       1200
     ],
     "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAwCdASoQABUAPxFysFAsJqSisAgBgCIJZACdMoR3ABYHaxMa9WAA4MWO9I67B8UEYFXNOUbzkl/4Gw6EEsOLXBAAAA=="
+  },
+  "restaurants/aqua-snack/cover": {
+    "dir": "restaurants/aqua-snack/",
+    "name": "cover",
+    "hash": "23d50ae8",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAwABABoJZgCdAEOtW2wAP6Ol/CYgD5cmLOayd6X4Nkg2iAAAA=="
+  },
+  "restaurants/far-east/cover": {
+    "dir": "restaurants/far-east/",
+    "name": "cover",
+    "hash": "afc76250",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQAAwABABoJaAC7AENMCG+AAD+jsN9B5cr0U8TvhhU8O7m158AAA=="
+  },
+  "restaurants/fish/cover": {
+    "dir": "restaurants/fish/",
+    "name": "cover",
+    "hash": "3a0315b3",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAwABABoJZACdAENUftgAP5Ws6CFRjvskTZiDLbYqIwmOXgAAA=="
+  },
+  "restaurants/italian/cover": {
+    "dir": "restaurants/italian/",
+    "name": "cover",
+    "hash": "2643fd3b",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADwAQCdASoQAAwABABoJagCdAEQ8QiP6AAA/G6fU65IbDcAjnHWtWbtU0wAAA=="
+  },
+  "restaurants/main/cover": {
+    "dir": "restaurants/main/",
+    "name": "cover",
+    "hash": "bd4542d2",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAwABABoJZACdAEOtWpgAP6LyECkD7cNE6vxiw3WdbK+EAA="
+  },
+  "restaurants/mexican/cover": {
+    "dir": "restaurants/mexican/",
+    "name": "cover",
+    "hash": "6452dfc6",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAwABABoJYgCdAEQ+/twAAD+Vv8c3SGbRCtCCivctFIoq9M/AAAA"
+  },
+  "restaurants/turkish/cover": {
+    "dir": "restaurants/turkish/",
+    "name": "cover",
+    "hash": "1a04b0bd",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADwAQCdASoQAAwABABoJZACdAEQ89EkaAAA/dg7/HMJGbbhhE3tsQsPO1aPgAAA"
   }
 }

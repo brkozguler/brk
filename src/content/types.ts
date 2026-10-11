@@ -133,7 +133,8 @@ export interface GalleryGridDetail {
 }
 
 export interface GalleryGridItem {
-  page: PageKey;
+  /** Detay sayfası; yoksa kart bağlantısız (restoran/bar — SEO haritasında detay URL'si yok) */
+  page?: PageKey;
   label: string;
   media: ImageRef;
   /** Varsa kart: görsel → eyebrow → başlık → metin → özellikler → KEŞFET */
