@@ -30,23 +30,28 @@ footer tüm rotaları listeliyor, bu linkler sayfalar yazılana kadar 404 verir.
 | kapat / görsel / başlık | y 51,8 / 115,2 × 708 / 856,8 | aynı | genişlik 1344 vs 1329: Mākena kaydırma çubuğunu bırakıyor, biz kilitliyoruz |
 | mobil lightbox şerit / kapat / görsel | 735,1 / 38,5 / 96,2 × 619,7 | aynı | |
 
-### Konaklama — `/tr/konaklama/` (2026-10-11, kullanıcı: "Mākena galerisindeki gibi, 2'li yan yana")
+### Konaklama — `/tr/konaklama/` (2026-10-11, kullanıcı: kart boyutu ve boşluk voguehotelsupreme.com/odalar gibi)
 
-Mākena /gallery şablonu (slim hero + `gallery_grid`), `columns: 2`: ızgara, aralıklar ve kart
-tasarımı galeriyle birebir, tek fark kartların ≥650'de 6'şar kolon kaplaması (üçlü yerine ikili).
-Yol: 320 px'lik ortalı kartlar "çok dar" → Ethno aralıkları (50/80 px) denendi → kullanıcı
-Mākena aralıklarına döndü. Ethno ölçümleri günlükte duruyor. 4 oda kartı alan sırasıyla
-(24 · 38 · 48 · 72 m²).
+Mākena /gallery şablonu (slim hero + `gallery_grid`), `columns: 2`: kart içeriği Mākena (4:3 yerine
+Vogue oranı görsel + eyebrow etiket), **ölçüler ve boşluklar Vogue Hotel Supreme /odalar canlı
+ölçümünden** (1440 / 768 / 375). Yol: 320 px ortalı kartlar "çok dar" → Ethno aralıkları →
+Mākena ikili → Vogue. 4 oda kartı alan sırasıyla (24 · 38 · 48 · 72 m²).
 
-| Ölçü | 1440 | 375 |
-|---|---:|---:|
-| kart | 656,3 × 533,5 · x 48 / 720,7 (kolon arası 16,3) | 336,6 × 286,1 (galeriyle aynı) |
-| görsel | 656,3 × 492,3 (4:3), altı 3,2rem | 336,6 × 252,4, altı 2,4rem |
-| satır arası | 10rem (96) · satırlar y 604,8 / 1234,3 | 6rem (57,7), son kartta 0 |
-| bölüm | 1355 | 1394,2 |
+| Ölçü | Vogue 1440 | Bizde 1440 | Vogue 375 | Bizde 375 |
+|---|---:|---:|---:|---:|
+| alan | 1280 ortalı (kenar 72,5) | 133,3rem = 1279,7 (kenar 72,7) | tam genişlik, kenar 15 | kenar 19,2 |
+| kart / kolon arası | 626 / 28 | 626 / 27,8 (2,9rem) | 345, tek kolon | 336,6, tek kolon |
+| görsel | 626 × 426 (sabit yükseklik) | 626 × 426 (aspect 626/426) | 345 × 245 | 336,6 × 239 (345/245) |
+| etiket üstü | 40 | 40,3 (4,2rem) | 40 | 40,4 |
+| satır arası | 80 | 79,7 (8,3rem) | 80 | 79,8 |
+| alt boşluk | 120 | 120 (8,3 + 4,2rem) | 120 | 120 (12,5rem) |
 
-Değerler `GalleryGrid.module.css` → `.two`. Hero alt metni (ROOMS-01 subtitle) Mākena galerisinde
-olmadığı için kullanılmadı. Oda kartları `rooms/*` rotalarına gider; **oda detay sayfaları henüz yok** (404).
+Vogue iki kolona 960'ta geçer, bizde kırılım 1024 (tablet tek kolon, görsel masaüstü oranı 626/426;
+Vogue'un tabletteki 693×245 sabit yüksekliği aşırı yatay olduğu için alınmadı). Değerler
+`GalleryGrid.module.css` → `.two` / `.sectionTwo`. Vogue kartında ayrıca eyebrow + başlık + açıklama +
+m²/kişi/manzara satırı + "Detay" düğmesi var; istenirse eklenir (TR metinler CONTENT-TR ROOMS-03…06
+hazır, EN/DE/RU çeviri gerekir). Hero alt metni Mākena galerisinde olmadığı için kullanılmadı.
+Oda kartları `rooms/*` rotalarına gider; **oda detay sayfaları henüz yok** (404).
 
 Header galeri kategorilerinde `is-black` (routes.ts `headerDark`): en tepede koyu logo ve metin.
 Lightbox `<dialog>` + `showModal` (odak tuzağı, Esc, odak geri dönüşü), kaydırma kilidi,
@@ -168,7 +173,9 @@ Açık kalanlar:
   2'li, kart tasarımları küçük" → 320 px'lik ortalı kartlar "çok dar" bulundu → "kart boşlukları
   ethnohotels.com/tr/konaklama gibi, 2'li" → Ethno ölçüldü (1440: kolon arası 50, satır 80, kart 415
   üçlü; 768/375 tek kolon, satır 40) ve uygulandı → kullanıcı: "Mākena galerisindeki gibi 2'li yan
-  yana" → son hâl: galeri ızgarası, kartlar 6'şar kolon. `gallery_grid` → `columns: 2`,
+  yana" (galeri ızgarası, 6'şar kolon) → kullanıcı: "voguehotelsupreme.com/odalar gibi kart boyutu ve
+  boşluk" → Vogue ölçüldü (1280 alan, kart 626, kolon 28, satır 80, görsel 626×426, etiket üstü 40,
+  alt 120; <960 tek kolon 345×245) ve uygulandı. `gallery_grid` → `columns: 2`,
   `src/content/pages/rooms.ts` 4 dil. Oda detayları sıradaki iş.
 - **2026-10-11 (gece, 2)** — Kullanıcı: "galeri sayfasını yapalım" + Mākena /gallery. Canlı sitede
   indeks, kategori ve lightbox 1440×900 + 375×812 ölçüldü (RE §17.6 doğrulandı; mobilde 8 kare +

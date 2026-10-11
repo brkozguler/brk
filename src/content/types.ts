@@ -134,7 +134,7 @@ export interface GalleryGridItem {
 export interface GalleryGridBlock {
   type: 'gallery_grid';
   items: GalleryGridItem[];
-  /** 3 (varsayılan): Mākena galerisi. 2: aynı ızgara, kartlar ikişer yan yana (Konaklama, 2026-10-11). */
+  /** 3 (varsayılan): Mākena galerisi. 2: ikişer kart, Vogue Hotel Supreme /odalar ölçüleri (Konaklama, 2026-10-11). */
   columns?: 2 | 3;
 }
 

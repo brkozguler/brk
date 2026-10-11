@@ -55,10 +55,65 @@
   }
 }
 
-/* İki kolonlu varyant — Mākena galerisiyle aynı aralıklar, kartlar 6'şar kolon (656 px @1440); mobil aynı */
+/* -------------------------------------------------------------------------------------------
+   İki kolonlu varyant — voguehotelsupreme.com/odalar canlı ölçümü (1440 / 768 / 375, 2026-10-11):
+   1280 px ortalı alan, kart 626, kolon arası 28, satır arası 80, görsel 626×426 (sabit yükseklik),
+   etiket üstü 40, alt boşluk 120; <960 tek kolon, görsel 345×245 @375. Bizde kırılım 1024.
+   ------------------------------------------------------------------------------------------- */
+.two .item,
+.two .item:last-child {
+  grid-column: span 6;
+  margin-bottom: 8.3rem;
+}
+
+.two .item:last-child {
+  margin-bottom: 0;
+}
+
+.two .media {
+  aspect-ratio: 345 / 245;
+  margin-bottom: 4.2rem;
+}
+
+.sectionTwo {
+  padding-bottom: 12.5rem;
+}
+
 @media (min-width: 650px) {
   .two .item,
   .two .item:last-child {
+    grid-column: span 12;
+    margin-bottom: 8.3rem;
+  }
+
+  .two .item:last-child {
+    margin-bottom: 0;
+  }
+
+  .sectionTwo {
+    padding-bottom: 12.5rem;
+  }
+
+  /* Tablet tek kolonda masaüstü oranı (Vogue'un 693×245 sabit yüksekliği aşırı yatay kalıyor) */
+  .two .media {
+    aspect-ratio: 626 / 426;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* İçerik alanı 133,3rem (1280 px); site-max padding'i dışarıda kalsın diye eklenir */
+  .list.two {
+    max-width: calc(133.3rem + 2 * var(--page-padding-desktop));
+    column-gap: 2.9rem;
+  }
+
+  .two .item,
+  .two .item:last-child {
     grid-column: span 6;
+    margin-bottom: 8.3rem;
+  }
+
+  .sectionTwo {
+    padding-bottom: 4.2rem;
   }
 }

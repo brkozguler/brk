@@ -23,14 +23,16 @@ interface Props {
  *   hover görsel 1,05 (700 ms). 1440'ta 3 × 432 px, satırlar y 604,8 / 1066,2; section 1018,7 px.
  * Etiket Mākena'da h3; başlık sırası atlanmasın diye h2 (hero'daki h1'den sonra).
  *
- * `columns={2}` (Konaklama, kullanıcı kararı 2026-10-11: "Mākena galerisindeki gibi, 2'li yan yana"):
- * aynı ızgara ve aralıklar, kartlar ≥650'de 6'şar kolon — 656,3 × 492,3 görsel @1440, x 48 / 720,7,
- * satır arası yine 10rem; mobil galeriyle aynı (tek kolon, 6rem).
+ * `columns={2}` (Konaklama, kullanıcı kararı 2026-10-11: kart boyutu ve boşluk
+ * voguehotelsupreme.com/odalar gibi): ≥1024 iki kart, 133,3rem (1280 px) ortalı alan, kart 626 px
+ * (x 72,7 / 726,8 @1440), kolon arası 2,9rem (28), satır arası 8,3rem (80), görsel 626/426,
+ * etiket üstü 4,2rem (40), alt boşluk 120; <1024 tek kolon, görsel 345/245. Kart içeriği Mākena
+ * (görsel + eyebrow); Vogue'daki başlık/metin/özellik satırı istenirse eklenir.
  */
 export function GalleryGrid({ items, columns = 3 }: Props) {
   const two = columns === 2;
   return (
-    <section className={s.section}>
+    <section className={clsx(s.section, two && s.sectionTwo)}>
       <ul className={clsx('site-max site-grid', s.list, two && s.two)}>
         {items.map((item) => (
           <li key={item.href} className={s.item}>
