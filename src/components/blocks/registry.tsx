@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import type { Locale } from '@/i18n/config';
 import { pagePath, routes } from '@/i18n/routes';
 import { getUi } from '@/i18n/ui';
+import { bookingTarget } from '@/content/navigation';
 import type { Block, ImageRef, PageLink } from '@/content/types';
 import { resolveImage, type ResolvedImage } from '@/lib/images';
 import { BannerFull } from './BannerFull';
@@ -131,7 +132,16 @@ export function renderBlock(block: Block, index: number, locale: Locale): ReactN
         const media = img(item.media);
         return media ? [{ href: pagePath(locale, item.page), label: item.label, media, detail: item.detail }] : [];
       });
-      return <GalleryGrid key={key} items={items} columns={block.columns} ctaLabel={ui.explore} />;
+      const booking = bookingTarget(locale);
+      return (
+        <GalleryGrid
+          key={key}
+          items={items}
+          columns={block.columns}
+          ctaLabel={ui.explore}
+          booking={{ href: booking.href, external: booking.external, label: ui.bookNow }}
+        />
+      );
     }
     case 'gallery_category': {
       const images = block.images.flatMap((ref) => {

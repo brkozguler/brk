@@ -13,11 +13,19 @@ export interface GalleryGridItemData {
   detail?: GalleryGridDetail;
 }
 
+export interface GalleryGridBooking {
+  href: string;
+  label: string;
+  external: boolean;
+}
+
 interface Props {
   items: GalleryGridItemData[];
   columns?: 2 | 3;
   /** Zengin kartların buton etiketi (KEŞFET) */
   ctaLabel?: string;
+  /** İkinci düğme: REZERVASYON → rezervasyon motoru ya da iletişim sayfası */
+  booking?: GalleryGridBooking;
 }
 
 /**
@@ -35,11 +43,11 @@ interface Props {
  *
  * `detail` (Vogue oda kartı, "bizim font ve font-size"): görsel → eyebrow (mt 4,2rem; Vogue 40) →
  * başlık title-xs (mt .8rem; Vogue 20 px Playfair, 8) → açıklama body-m (mt 4,2rem) →
- * özellikler label-s 500, ✦ ayraçlı (aralık 2,4 + .8 + 2,4 = 5,6rem; Vogue gap 56) → KEŞFET .btn
- * (mt 4,2rem; Vogue 91×44 düz kenarlı, bizde 14rem × 4,2rem yazı takaslı). Mobil: 2,4 / .8 / 3,2 /
- * 3,2 / 3,2rem. Vogue eyebrow'u <960 gizliyor, bizde görünür.
+ * özellikler label-s 500, ✦ ayraçlı → KEŞFET + REZERVASYON .btn (Vogue 91×44 düz kenarlı tek düğme,
+ * bizde 14rem × 4,2rem yazı takaslı iki düğme). Kullanıcı düzeltmeleri (2026-10-11): eyebrow yok,
+ * açıklama mt 2rem ve max-w 50rem, özellik aralığı 1,6rem, satır arası 10,4rem, ikinci düğme.
  */
-export function GalleryGrid({ items, columns = 3, ctaLabel }: Props) {
+export function GalleryGrid({ items, columns = 3, ctaLabel, booking }: Props) {
   const two = columns === 2;
   return (
     <section className={clsx(s.section, two && s.sectionTwo)}>
@@ -65,7 +73,14 @@ export function GalleryGrid({ items, columns = 3, ctaLabel }: Props) {
                   </li>
                 ))}
               </ul>
-              {ctaLabel ? <Button href={item.href} label={ctaLabel} srLabel={item.label} className={s.cta} /> : null}
+              {ctaLabel || booking ? (
+                <div className={s.ctaRow}>
+                  {ctaLabel ? <Button href={item.href} label={ctaLabel} srLabel={item.label} /> : null}
+                  {booking ? (
+                    <Button href={booking.href} label={booking.label} external={booking.external} srLabel={item.label} />
+                  ) : null}
+                </div>
+              ) : null}
             </li>
           ) : (
             <li key={item.href} className={s.item}>

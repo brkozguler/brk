@@ -57,9 +57,9 @@ Vogue'un tabletteki 693×245 sabit yüksekliği aşırı yatay olduğu için al�
 |---|---|---|
 | eyebrow | Playfair 15 px / 500 / 2,25 px · mt 40 · <960 gizli | **kaldırıldı** (kullanıcı, 2026-10-11); `detail.eyebrow` isteğe bağlı duruyor |
 | başlık | Playfair 20 px / 120 % · vurgu rengi · mt 8 | `.title-xs` (21,1 px) · marka rengi · mt 4,2rem (görselden sonra) · bağlantı |
-| açıklama | 15 px / 22,5 · mt 40 | `.body-m` (14,4 px / 1,6) · mt 2rem (kullanıcı: "arayı azalt") |
-| özellikler | 15 px / 500 · aralık 56 · ✦ 8×8 (li::after, −28 px) | `.label-s` 500 / lh 1,5 · 2,4 + ✦ .8 + 2,4rem · sarabilir |
-| düğme | 91 × 44, 12 px / 1,5 px, kenar %50 siyah, köşe 2 · mt 40 | `.btn` 14rem × 4,2rem, eyebrow, yazı takası · mt 4,2rem · "KEŞFET" (CONTENT-TR cta; Vogue "Detay") |
+| açıklama | 15 px / 22,5 · mt 40 · tam genişlik | `.body-m` (14,4 px / 1,6) · mt 2rem ("arayı azalt") · max-w 50rem ("biraz daha daralt") |
+| özellikler | 15 px / 500 · aralık 56 · ✦ 8×8 (li::after, −28 px) | `.label-s` 500 / lh 1,5 · 1,6 + ✦ .8 + 1,6rem = 38 px ("biraz daha daralt") · sarabilir |
+| düğme | 91 × 44, 12 px / 1,5 px, kenar %50 siyah, köşe 2 · mt 40 · tek | `.btn` 14rem × 4,2rem, eyebrow, yazı takası · mt 4,2rem · **KEŞFET + REZERVASYON** (1,6rem ara; rezervasyon hedefi `bookingTarget`: motor adresi yoksa iletişim sayfası) |
 | mobil aralıklar | 24 / 24 / ? / 32 / ? | 2,4 / .8 / 3,2 / 3,2 / 3,2rem |
 
 Metinler CONTENT-TR ROOMS-03…06 (kişi sayısı kapasitenin üst sınırı: 3 · 4 · 5 · 7; manzara kısaltıldı);
@@ -192,8 +192,9 @@ Açık kalanlar:
   alt 120; <960 tek kolon 345×245) ve uygulandı → kullanıcı Vogue kartının içeriğini seçti ("bu
   şekilde yap ama bizim font ve font-size"): `detail` (eyebrow · title-xs · body-m · ✦'li label-s ·
   KEŞFET) → kullanıcı: eyebrow "kaldır", açıklama "arayı azalt" (2rem), ikinci satıra "biraz daha
-  yukarıdan boşluk" (satır arası 10,4rem). `gallery_grid` → `columns: 2`, `src/content/pages/rooms.ts`
-  4 dil. Oda detayları sıradaki iş.
+  yukarıdan boşluk" (satır arası 10,4rem) → açıklama ve özellikler "biraz daha daralt" (max-w 50rem;
+  özellik aralığı 1,6rem), "REZERVASYON diye bir buton daha" (bookingTarget). `gallery_grid` →
+  `columns: 2`, `src/content/pages/rooms.ts` 4 dil. Oda detayları sıradaki iş.
 - **2026-10-11 (gece, 2)** — Kullanıcı: "galeri sayfasını yapalım" + Mākena /gallery. Canlı sitede
   indeks, kategori ve lightbox 1440×900 + 375×812 ölçüldü (RE §17.6 doğrulandı; mobilde 8 kare +
   Load more, boş alt metin boşluğu, önceki dairesinde eksik köşe). Yeni: `gallery_grid` ve
