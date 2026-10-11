@@ -12,7 +12,7 @@ export interface GalleryGridItemData {
 
 interface Props {
   items: GalleryGridItemData[];
-  size?: 'small';
+  columns?: 2 | 3;
 }
 
 /**
@@ -23,20 +23,21 @@ interface Props {
  *   hover görsel 1,05 (700 ms). 1440'ta 3 × 432 px, satırlar y 604,8 / 1066,2; section 1018,7 px.
  * Etiket Mākena'da h3; başlık sırası atlanmasın diye h2 (hero'daki h1'den sonra).
  *
- * `size="small"` (Konaklama, kullanıcı kararı 2026-10-11: "2'li, kartlar küçük"): her kırılımda
- * iki kolon, kartlar ortalı ve dar — mobil 3/6 kolon (165 px @375), s: 4/12, l: 3/12 (320 × 240
- * @1440, x 384,4 / 720,7); satır boşluğu 4rem / s: 6rem, görsel altı 2rem / s: 2,4rem.
+ * `columns={2}` (Konaklama, kullanıcı kararı 2026-10-11: "2'li, kart boşlukları Ethno gibi"):
+ * ethnohotels.com/tr/konaklama canlı ölçümü (1440 / 768 / 375) — kolon arası 50 px, satır arası
+ * 80 px, mobilde tek kolon ve 40 px. Bizde ≥650 iki kolon (kolon arası 5,2rem → kart 639,5 px
+ * @1440, x 48 / 737,4), satır arası 8,3rem; <650 tek kolon, satır arası 4,2rem.
  */
-export function GalleryGrid({ items, size }: Props) {
-  const small = size === 'small';
+export function GalleryGrid({ items, columns = 3 }: Props) {
+  const two = columns === 2;
   return (
     <section className={s.section}>
-      <ul className={clsx('site-max site-grid', s.list, small && s.small)}>
+      <ul className={clsx('site-max site-grid', s.list, two && s.two)}>
         {items.map((item) => (
           <li key={item.href} className={s.item}>
             <TransitionLink href={item.href} className={clsx('group', s.link)}>
               <div className={clsx('hoverable media-fill', s.media)}>
-                <Picture image={item.media} sizeKey={small ? 'galleryCardSmall' : 'galleryCard'} />
+                <Picture image={item.media} sizeKey={two ? 'galleryCardWide' : 'galleryCard'} />
               </div>
               <h2 className={clsx('eyebrow', s.label)}>{item.label}</h2>
             </TransitionLink>

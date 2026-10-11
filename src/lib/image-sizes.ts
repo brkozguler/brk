@@ -29,8 +29,8 @@ export const SIZES = {
   menuFigure: '(min-width: 1024px) 40vw, (min-width: 650px) 48vw, 0px',
   /** Galeri indeks kartı (s: 4/12 kolon = 432 px @1440) */
   galleryCard: '(min-width: 650px) 30.33vw, calc(100vw - 4rem)',
-  /** Galeri ızgarası küçük varyantı (l: 3/12 = 320 px · s: 4/12 · mobil 3/6) */
-  galleryCardSmall: '(min-width: 1024px) 23vw, (min-width: 650px) 31vw, calc(50vw - 2.4rem)',
+  /** Galeri ızgarası iki kolonlu varyant (s: (100% − 5,2rem) / 2 = 640 px @1440; mobil tam genişlik) */
+  galleryCardWide: '(min-width: 650px) 45vw, calc(100vw - 4rem)',
   /** Galeri küçük görseli (l: 2/12 = 208 px · s: 4/12 · mobil 3/6) */
   galleryThumb: '(min-width: 1024px) 14.6vw, (min-width: 650px) 31vw, calc(50vw - 2.4rem)',
   /** Lightbox — site-max içinde object-contain */

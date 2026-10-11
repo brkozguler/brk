@@ -4,7 +4,8 @@ import type { LocalizedPage, PageContent, PageMeta } from '../types';
 
 /**
  * Konaklama — `/tr/konaklama/`. Kullanıcı kararı (2026-10-11): Mākena /gallery şablonu
- * (slim hero + kart ızgarası), kartlar iki kolon ve küçük (`gallery_grid` → `size: 'small'`).
+ * (slim hero + kart ızgarası), kartlar iki kolon, aralıklar Ethno Hotels konaklama sayfası gibi
+ * (`gallery_grid` → `columns: 2`).
  * Hero metni ARCANUS-CONTENT-TR ROOMS-01 (alt metin Mākena galerisinde olmadığı için kullanılmadı);
  * kart adları routes.ts etiketleri; meta TR içerik dokümanı §meta tablosu, EN/DE/RU çeviri
  * editör kontrolü bekliyor. Kart görselleri ana sayfanın oda yer tutucuları.
@@ -82,7 +83,7 @@ function build(locale: Locale): PageContent {
       },
       {
         type: 'gallery_grid',
-        size: 'small',
+        columns: 2,
         items: ROOM_KEYS.map((page) => ({
           page,
           label: routes[page].label[locale],

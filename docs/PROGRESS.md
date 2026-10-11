@@ -30,23 +30,25 @@ footer tüm rotaları listeliyor, bu linkler sayfalar yazılana kadar 404 verir.
 | kapat / görsel / başlık | y 51,8 / 115,2 × 708 / 856,8 | aynı | genişlik 1344 vs 1329: Mākena kaydırma çubuğunu bırakıyor, biz kilitliyoruz |
 | mobil lightbox şerit / kapat / görsel | 735,1 / 38,5 / 96,2 × 619,7 | aynı | |
 
-### Konaklama — `/tr/konaklama/` (2026-10-11, kullanıcı: "galeri sayfasını konaklama yap, 2'li, kartlar küçük")
+### Konaklama — `/tr/konaklama/` (2026-10-11, kullanıcı: Mākena galeri şablonu, "2'li, kart boşlukları Ethno gibi")
 
-Mākena /gallery şablonu (slim hero + `gallery_grid`), `size: 'small'` varyantıyla: her kırılımda
-iki kolon, kartlar ortalı ve dar. 4 oda kartı alan sırasıyla (24 · 38 · 48 · 72 m²).
+Mākena /gallery şablonu (slim hero + `gallery_grid`), `columns: 2` varyantıyla. İlk deneme
+(3/12 kolonluk 320 px kartlar) kullanıcıya "çok dar" geldi; referans olarak
+**ethnohotels.com/tr/konaklama** verildi. Ethno canlı ölçümü: kolon arası 50 px, satır arası 80 px
+(1440), mobilde tek kolon ve 40 px; kart içeriği değil, aralıklar alındı (kart Mākena: 4:3 görsel +
+eyebrow etiket). 4 oda kartı alan sırasıyla (24 · 38 · 48 · 72 m²).
 
-| Ölçü | 1440 | 375 |
-|---|---:|---:|
-| hero | 528 (h1 y 232,8) | 528,8 |
-| kart | 320 × 273,6 · x 384,3 / 720,7 (4–6 / 7–9. kolon) | 164,9 × 153,5 · x 19,2 / 190,9 |
-| görsel | 320 × 240 (4:3), altı 2,4rem | 164,9 × 123,7, altı 2rem |
-| satır boşluğu | 6rem (57,6) · satırlar y 604,8 / 936 | 4rem (38,5), son satırda 0 |
-| bölüm | 758,4 | 422,3 |
+| Ölçü | Ethno (1440) | Bizde 1440 | Bizde 375 (Ethno) |
+|---|---:|---:|---:|
+| kolon arası | 50 | 49,9 (5,2rem) | tek kolon |
+| satır arası | 80 | 79,7 (8,3rem) | 40,4 (Ethno 40) |
+| kart | 415 (3 kolon) | 639,5 · x 48 / 737,5 | 336,6 |
+| görsel | 415 × 281 (3:2) | 639,5 × 479,7 (4:3, Mākena) | 336,6 × 252,4 |
+| satırlar y | — | 604,8 / 1205,4 | 567,3 / 893,7 / 1220,2 / 1546,6 |
+| bölüm | — | 1297,2 | 1342,3 |
 
-Tablet (650–1023): kartlar 3–6 / 7–10. kolon. Değerler `GalleryGrid.module.css` → `.small`.
-Mobilde de ikili ("responsive olarak 2'li" böyle yorumlandı); tekli istenirse `.small .item`
-mobil kuralı `span 6` yapılır. Hero alt metni (ROOMS-01 subtitle) Mākena galerisinde olmadığı için
-kullanılmadı. Oda kartları `rooms/*` rotalarına gider; **oda detay sayfaları henüz yok** (404).
+Değerler `GalleryGrid.module.css` → `.two`. Hero alt metni (ROOMS-01 subtitle) Mākena galerisinde
+olmadığı için kullanılmadı. Oda kartları `rooms/*` rotalarına gider; **oda detay sayfaları henüz yok** (404).
 
 Header galeri kategorilerinde `is-black` (routes.ts `headerDark`): en tepede koyu logo ve metin.
 Lightbox `<dialog>` + `showModal` (odak tuzağı, Esc, odak geri dönüşü), kaydırma kilidi,
@@ -165,8 +167,10 @@ Açık kalanlar:
 ## Günlük
 
 - **2026-10-11 (gece, 3)** — Kullanıcı: Mākena /gallery sayfasını Konaklama yap, "responsive olarak
-  2'li, kart tasarımları küçük". `gallery_grid` → `size: 'small'` varyantı (iki kolon, ortalı,
-  l: 3/12 kolon 320 px, mobil 3/6), `src/content/pages/rooms.ts` 4 dil. Oda detayları sıradaki iş.
+  2'li, kart tasarımları küçük" → 320 px'lik ortalı kartlar "çok dar" bulundu → "kart boşlukları
+  ethnohotels.com/tr/konaklama gibi, 2'li". Ethno ölçüldü (1440/1024/768/375); `gallery_grid` →
+  `columns: 2` (kolon arası 5,2rem, satır 8,3rem, mobil tek kolon 4,2rem). `src/content/pages/rooms.ts`
+  4 dil. Oda detayları sıradaki iş.
 - **2026-10-11 (gece, 2)** — Kullanıcı: "galeri sayfasını yapalım" + Mākena /gallery. Canlı sitede
   indeks, kategori ve lightbox 1440×900 + 375×812 ölçüldü (RE §17.6 doğrulandı; mobilde 8 kare +
   Load more, boş alt metin boşluğu, önceki dairesinde eksik köşe). Yeni: `gallery_grid` ve
