@@ -261,6 +261,20 @@ Açık kalanlar:
 6. Sayfa geçiş perdesi, "bu sayfa Almanca da mevcut" bandı, çerez onayı, front-end review
    (NVDA/VoiceOver, klavye, gerçek cihaz, Lighthouse — yukarıdaki açık kalanlar listesi).
 
+7. **Kullanıcının içerik klasörü (Google Drive, 2026-10-11):**
+   https://drive.google.com/drive/folders/1AztFDAey-V8482PxaTYWgA7J3gkvrpjd ("Web İçerik", herkese açık
+   bağlantı). Yalnızca klasör listesi görüldü, dosyalar henüz açılmadı / indirilmedi:
+   - Konaklama: Standart Oda (+ Bahçe / Deniz / Yandan Deniz Manzaralı), Family Suite, Superior Aile
+     Odaları, Deluxe Aile Odaları — bizde 4 oda tipi var, Drive'da Standart Oda 3 manzara alt tipiyle.
+   - Restaurant & Alacarte: Ana Restaurant, Aqua Snack, Balık, İtalyan, Meksika, Türk, Uzakdoğu
+     A'La Carte ve **Sahil Snack Restaurant** (bizde yok).
+   - Barlar: Aqua, Arcanus Kahve Evi, Disco, Havuz, İskele, Lobi, Passion Kokteyl, Pastane, Sahil Bar
+     ve **Bistro Sorgun** (bizde yok).
+   - Aktiviteler: Aktivite & Eğlence, Çocuk Kulübü, Pavilyon, Spa, Toplantı, Yüzme Havuzları.
+   - Hakkımızda: `Arcanus-Sorgun-Hakkimizda-TR-EN-DE-RU.md` (6 KB).
+   - Kvkk Protokolleri: `Arcanus-Sorgun-KVKK-TR-EN-DE-RU.md` (235 KB).
+   Kullanıcı taramayı durdurdu; içerikler okunmadan kullanılmaz, sıradaki adım kullanıcıya sorulur.
+
 ## Günlük
 
 - **2026-10-11 (gece, 7)** — Kullanıcı karartma katmanını seçip "arka planı kaldır" dedi;
