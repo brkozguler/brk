@@ -37,6 +37,8 @@ export const SIZES = {
   lightbox: '(min-width: 650px) 93.33vw, calc(100vw - 4rem)',
   /** İlgili kartlar carousel'i: s: 3'lü (431 px @1440), mobil calc(100% − 5,4rem) */
   relatedCard: '(min-width: 650px) 30vw, calc(100vw - 7.4rem)',
+  /** Banner kelime şeridi görseli — 14,58rem ≈ 140 px, tüm kırılımlarda sabit */
+  bannerWord: '146px',
 } as const;
 
 export type SizeKey = keyof typeof SIZES;

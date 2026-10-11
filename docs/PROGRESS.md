@@ -103,6 +103,31 @@ EN/DE/RU çeviri editör kontrolü bekliyor. Görseller yer tutucu: `assets/imag
 Related'da mevcut sayfa listelenmez (Mākena kendini de listeliyor). 3 kartlı oda related'ı kaymaz,
 oklar devre dışı. Toplam 138 sayfa (4 dil × 32 + kök/sitemap).
 
+### Ana sayfa banner üstü kelime şeridi (2026-10-11, kullanıcı: Ethno Belek .section-line → "görselin üstüne")
+
+Ethno Belek ana sayfasındaki iki satırlı kelime + küçük görsel şeridi, ana sayfadaki tam genişlik
+banner görselinin (HOME-08, "Deniz ve iskele") üstüne bindirildi (`BannerFull` → `lines`). Ethno
+kodu saf CSS: ≥1200 ikinci satır translateX(−200), şerit hover'ında satırlar yer değiştirir
+(transition 1 s); <960 tek sütun zikzak. Canlı ölçüm ve bizdeki değerler:
+
+| | Ethno 1440 | Bizde 1440 | Ethno 375 | Bizde 375 |
+|---|---:|---:|---:|---:|
+| Kapsayıcı | 1280 + 2 × 40 (x 32,5) | 1360 (x 32,5) | 335 + 2 × 20 | aynı |
+| Satır 1 / 2 x | 72,5 / −127,5 | **72,5 / −127,5** | tek sütun | tek sütun |
+| Şerit yüksekliği | 240,8 (98,4 + 44 + 98,4) | **240,7** | 570 (5 × 98 + 4 × 20) | **570,6** |
+| Kelime | 68 px, lh 1,4 · 300 / italik 400 | 68 · 300 / italik 400 | 32 px | 32 |
+| Görsel | 140 × 98,4 | 140 × 98,4 | 140 × 98, solda/sağda zikzak | aynı (x 20 / 214,8) |
+| Aralıklar | 36 (öğe içi ve arası) | 36 | 20 | 20 |
+
+Bizde: font Noto Serif Display (italik kesim ayrı next/font örneği, preload yok, yalnızca ana sayfada
+iner); kelimeler büyük harfe CSS ile çevrilir (`lang` sayesinde İSKELE). Kelimeler hemen önceki
+storytelling metninden, günün sırasıyla (TR Kahvaltı · Havuz · İskele · Sofra · Müzik; EN/DE/RU aynı
+metinden) — uydurma metin yok. Görseller dekoratif (alt boş), kelimeyle eşleşen mekânın yer tutucusu.
+Sapmalar: Ethno koyu metin/krem zemin → görsel üstünde beyaz metin + %25 karartma; Ethno'nun
+960–1199 ara düzeni (tek satır 32 px) yok, <1024 tek sütun; `h3` yerine `ul/li` (başlık sırası).
+Masaüstünde satır 1 sağdan taşar (TR KAHVALTI geniş); Ethno'da da dar ekranda taşıyor. DE FRÜHSTÜCK
+mobilde yan boşluğa ~9 px biner (Ethno GATHERINGS 11,7 px).
+
 Header galeri kategorilerinde `is-black` (routes.ts `headerDark`): en tepede koyu logo ve metin.
 Lightbox `<dialog>` + `showModal` (odak tuzağı, Esc, odak geri dönüşü), kaydırma kilidi,
 ← → ile gezinme, canlı bölge sayaç; oklar başa/sona sarar. Mākena'da kaydırınca kapanıyor,
@@ -238,6 +263,10 @@ Açık kalanlar:
 
 ## Günlük
 
+- **2026-10-11 (gece, 6)** — Kullanıcı Ethno Belek ana sayfasındaki kelime şeridini seçip ana
+  sayfa banner görselini gösterdi: "burdaki görselin üstüne yaparmısın". Ethno canlı ölçüldü
+  (1440 / 375, CSS kuralları okundu), `BannerFull` → `lines` + italik font örneği eklendi, 4 dil.
+  Ölçüm birebir (tablo yukarıda), hover geçişi doğrulandı, taşma yok.
 - **2026-10-11 (gece, 5)** — Kullanıcı: "konaklama detay, restoran, barlar detay sayfasına bu sayfayı
   yap" + Mākena /real-estate/kaeo. Canlı ölçüm (1440/375): property_intro, media carousel, listings
   related. Yeni bloklar `body_column` · `media_slider` · `related`, ortak `SpecRow`; 16 restoran/bar

@@ -9,3 +9,142 @@
   position: absolute;
   inset: 0;
 }
+
+/*
+  Kelime şeridi — Ethno Belek ana sayfa .section-line (canlı ölçüm 2026-10-11, 1440 × 900
+  ve 375 × 812). Ethno ≥1200 / 960–1199 / <960 kırılımları bizde ≥1024 / <1024.
+  Masaüstü: kapsayıcı 1280 px içerik + 40 px yan boşluk; kelime 68 px, lh 1,4 (95,2);
+  görsel 140 × 98,4 (mobilde 140 × 98); kelime–görsel ve öğe aralığı 36 px; ikinci satır mt 44 px,
+  translateX(-200 px); şerit hover'ında satırlar yer değiştirir (transition 1 s).
+  Mobil: tek sütun, kelime 32 px, tüm aralıklar 20 px, yan boşluk 20 px; öğe sırası
+  çiftse görsel solda (row-reverse + flex-end), tekse sağda (flex-end).
+  Ethno koyu metni krem zemin üzerinde; burada görselin üstünde olduğu için beyaz metin
+  ve %25 karartma. Izgara izi minmax(0, 1fr): uzun kelime (DE FRÜHSTÜCK) izi büyütüp şeridi
+  kaydırmasın; Ethno gibi taşan kelime yan boşluğa biner. rem = px / 9,6 (1440) · px / 9,615 (375).
+*/
+.withLines {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  height: auto;
+  min-height: 100svh;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background-color: rgb(0 0 0 / 25%);
+}
+
+.lines {
+  position: relative;
+  padding-block: 6rem;
+  color: var(--color-white-pure);
+}
+
+.container {
+  max-width: calc(133.33rem + 2 * 4.17rem);
+  margin-inline: auto;
+  padding-inline: 2.08rem;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 2.08rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.row + .row {
+  margin-top: 2.08rem;
+}
+
+.item {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2.08rem;
+}
+
+.imageFirst {
+  flex-direction: row-reverse;
+}
+
+.word {
+  flex: none;
+  font-family: var(--font-display-stack);
+  font-size: 3.33rem;
+  font-weight: var(--heading-weight);
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.italic {
+  font-family: var(--font-display-italic-stack);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.media {
+  position: relative;
+  flex: none;
+  width: 14.58rem;
+  aspect-ratio: 10 / 7;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .lines {
+    padding-block: 0;
+  }
+
+  .container {
+    padding-inline: 4.17rem;
+  }
+
+  .row {
+    flex-direction: row;
+    gap: 3.75rem;
+  }
+
+  .row + .row {
+    margin-top: 4.58rem;
+    transform: translateX(-20.83rem);
+  }
+
+  .item {
+    justify-content: normal;
+    gap: 3.75rem;
+  }
+
+  .imageFirst {
+    flex-direction: row;
+  }
+
+  .word {
+    font-size: 7.08rem;
+  }
+
+  .media {
+    aspect-ratio: 202 / 142;
+  }
+}
+
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .row {
+    transition: transform 1s ease;
+  }
+}
+
+@media (min-width: 1024px) and (hover: hover) {
+  .lines:hover .row:first-child {
+    transform: translateX(-20.83rem);
+  }
+
+  .lines:hover .row + .row {
+    transform: translateX(0);
+  }
+}

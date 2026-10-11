@@ -37,6 +37,19 @@ const IMG = {
   exploreContact: 'home/explore-contact',
 } as const;
 
+/**
+ * Banner üstü kelime şeridi (Ethno Belek .section-line): kelimeler hemen önceki
+ * storytelling metninden, günün sırasıyla — kahvaltı, havuz, iskele, akşam sofrası, müzik.
+ * Görseller kelimeyle eşleşen mekânın yer tutucusu; satırlar Ethno gibi 3 + 2.
+ */
+const WORD_IMAGES = [
+  IMG.restMain,
+  IMG.expPools,
+  'bars/pier/cover',
+  IMG.exploreRestaurants,
+  'bars/disco/cover',
+] as const;
+
 interface HomeText {
   meta: PageMeta;
   hero: { eyebrow: string; titleLines: string[]; subtitle: string; alt: string };
@@ -45,10 +58,23 @@ interface HomeText {
   content: { eyebrow: string; title: string; text: string };
   story: { text: string; largeAlt: string; smallAlt: string };
   bannerFullAlt: string;
+  /** Kelime şeridi — storytelling metnindeki beş durak, WORD_IMAGES sırasıyla */
+  bannerWords: [string, string, string, string, string];
   feature: { eyebrow: string; title: string; text: string; cta: string; alt: string };
   rooms: { eyebrow: string; title: string; text: string; items: [string, string, string, string] };
-  dining: { eyebrow: string; title: string; text: string; cta: string; items: [string, string, string, string, string, string] };
-  experiences: { title: string; text: string; cta: string; items: [string, string, string, string, string] };
+  dining: {
+    eyebrow: string;
+    title: string;
+    text: string;
+    cta: string;
+    items: [string, string, string, string, string, string];
+  };
+  experiences: {
+    title: string;
+    text: string;
+    cta: string;
+    items: [string, string, string, string, string];
+  };
   explore: { title: string; items: [string, string, string, string] };
 }
 
@@ -66,7 +92,12 @@ function build(t: HomeText): { meta: PageMeta; blocks: Block[] } {
         eyebrow: t.hero.eyebrow,
         titleLines: t.hero.titleLines,
         subtitle: t.hero.subtitle,
-        media: { id: IMG.hero, alt: t.hero.alt, mobileId: IMG.heroMobile, focal: { x: 0.5, y: 0.45 } },
+        media: {
+          id: IMG.hero,
+          alt: t.hero.alt,
+          mobileId: IMG.heroMobile,
+          focal: { x: 0.5, y: 0.45 },
+        },
       },
       { type: 'intro', text: t.intro, wide: true },
       { type: 'banner_scale', media: { id: IMG.bannerScale, alt: t.bannerScaleAlt } },
@@ -81,7 +112,13 @@ function build(t: HomeText): { meta: PageMeta; blocks: Block[] } {
       },
       { type: 'spacer' },
       { type: 'spacer' },
-      { type: 'banner_full', media: { id: IMG.bannerFull, alt: t.bannerFullAlt } },
+      {
+        type: 'banner_full',
+        media: { id: IMG.bannerFull, alt: t.bannerFullAlt },
+        lines: [t.bannerWords.slice(0, 3), t.bannerWords.slice(3)].map((row, r) =>
+          row.map((text, i) => ({ text, image: WORD_IMAGES[r * 3 + i] })),
+        ),
+      },
       {
         type: 'feature5050',
         eyebrow: t.feature.eyebrow,
@@ -129,7 +166,11 @@ function build(t: HomeText): { meta: PageMeta; blocks: Block[] } {
         cards: [
           { title: pools, page: 'pools', media: { id: IMG.expPools, alt: pools } },
           { title: kids, page: 'kids-club', media: { id: IMG.expKids, alt: kids } },
-          { title: activities, page: 'activities', media: { id: IMG.expActivities, alt: activities } },
+          {
+            title: activities,
+            page: 'activities',
+            media: { id: IMG.expActivities, alt: activities },
+          },
           { title: spa, page: 'spa', media: { id: IMG.expSpa, alt: spa } },
           { title: pavilions, page: 'pavilions', media: { id: IMG.expPavilion, alt: pavilions } },
         ],
@@ -139,8 +180,16 @@ function build(t: HomeText): { meta: PageMeta; blocks: Block[] } {
         title: t.explore.title,
         links: [
           { page: 'rooms', label: exRooms, media: { id: IMG.exploreRooms, alt: exRooms } },
-          { page: 'restaurants', label: exRestaurants, media: { id: IMG.exploreRestaurants, alt: exRestaurants } },
-          { page: 'activities', label: exActivities, media: { id: IMG.exploreActivities, alt: exActivities } },
+          {
+            page: 'restaurants',
+            label: exRestaurants,
+            media: { id: IMG.exploreRestaurants, alt: exRestaurants },
+          },
+          {
+            page: 'activities',
+            label: exActivities,
+            media: { id: IMG.exploreActivities, alt: exActivities },
+          },
           { page: 'contact', label: exContact, media: { id: IMG.exploreContact, alt: exContact } },
         ],
       },
@@ -174,6 +223,7 @@ const tr: HomeText = {
     smallAlt: 'İskele detayı, gün batımı',
   },
   bannerFullAlt: 'Deniz ve iskele, geniş açı',
+  bannerWords: ['Kahvaltı', 'Havuz', 'İskele', 'Sofra', 'Müzik'],
   feature: {
     eyebrow: 'KONAKLAMA',
     title: 'Tatilin en konforlu hali',
@@ -192,7 +242,14 @@ const tr: HomeText = {
     title: 'Her akşam başka bir sofra',
     text: "Günün her öğününde açık olan Ana Restaurant'ın yanında beş à la carte restoran ve havuz başı snack noktası var. Akşam yemeğinizi her gün başka bir mutfakta planlayabilirsiniz.",
     cta: 'KEŞFET',
-    items: ['Ana Restaurant', "Türk A'la Carte", "İtalyan A'la Carte", "Meksika A'la Carte", "Uzakdoğu A'la Carte", "Balık A'la Carte"],
+    items: [
+      'Ana Restaurant',
+      "Türk A'la Carte",
+      "İtalyan A'la Carte",
+      "Meksika A'la Carte",
+      "Uzakdoğu A'la Carte",
+      "Balık A'la Carte",
+    ],
   },
   experiences: {
     title: 'Keşfedilecek her şey burada',
@@ -232,6 +289,7 @@ const en: HomeText = {
     smallAlt: 'The pier at sunset',
   },
   bannerFullAlt: 'The sea and the pier, wide angle',
+  bannerWords: ['Breakfast', 'Pool', 'Pier', 'Dinner', 'Music'],
   feature: {
     eyebrow: 'ACCOMMODATION',
     title: 'Comfort at its fullest',
@@ -250,7 +308,14 @@ const en: HomeText = {
     title: 'A different table every evening',
     text: 'Alongside the Main Restaurant, open for every meal of the day, there are five à la carte restaurants and a poolside snack point. Plan dinner in a different kitchen every evening.',
     cta: 'DISCOVER',
-    items: ['Main Restaurant', 'Turkish À la Carte', 'Italian À la Carte', 'Mexican À la Carte', 'Far Eastern À la Carte', 'Fish À la Carte'],
+    items: [
+      'Main Restaurant',
+      'Turkish À la Carte',
+      'Italian À la Carte',
+      'Mexican À la Carte',
+      'Far Eastern À la Carte',
+      'Fish À la Carte',
+    ],
   },
   experiences: {
     title: 'Everything there is to discover',
@@ -290,6 +355,7 @@ const de: HomeText = {
     smallAlt: 'Der Steg bei Sonnenuntergang',
   },
   bannerFullAlt: 'Meer und Steg, Weitwinkel',
+  bannerWords: ['Frühstück', 'Pool', 'Steg', 'Tafel', 'Musik'],
   feature: {
     eyebrow: 'UNTERKUNFT',
     title: 'Der komfortabelste Urlaub',
@@ -308,7 +374,14 @@ const de: HomeText = {
     title: 'Jeden Abend ein anderer Tisch',
     text: 'Neben dem Hauptrestaurant, das zu jeder Mahlzeit geöffnet ist, gibt es fünf À-la-carte-Restaurants und eine Snackstation am Pool. Planen Sie Ihr Abendessen jeden Tag in einer anderen Küche.',
     cta: 'ENTDECKEN',
-    items: ['Hauptrestaurant', 'Türkisches À-la-carte', 'Italienisches À-la-carte', 'Mexikanisches À-la-carte', 'Fernöstliches À-la-carte', 'Fisch-À-la-carte'],
+    items: [
+      'Hauptrestaurant',
+      'Türkisches À-la-carte',
+      'Italienisches À-la-carte',
+      'Mexikanisches À-la-carte',
+      'Fernöstliches À-la-carte',
+      'Fisch-À-la-carte',
+    ],
   },
   experiences: {
     title: 'Alles, was es zu entdecken gibt',
@@ -348,6 +421,7 @@ const ru: HomeText = {
     smallAlt: 'Пирс на закате',
   },
   bannerFullAlt: 'Море и пирс, широкий угол',
+  bannerWords: ['Завтрак', 'Бассейн', 'Пирс', 'Ужин', 'Музыка'],
   feature: {
     eyebrow: 'РАЗМЕЩЕНИЕ',
     title: 'Отдых в самом удобном виде',
@@ -359,14 +433,26 @@ const ru: HomeText = {
     eyebrow: 'НОМЕРА',
     title: 'Подходящий вам номер',
     text: 'Четыре типа номеров, от 24 м² до 72 м². Сравните вместимость, вид и оснащение.',
-    items: ['Стандартный номер', 'Family Suite', 'Семейный номер Superior', 'Семейный номер Deluxe'],
+    items: [
+      'Стандартный номер',
+      'Family Suite',
+      'Семейный номер Superior',
+      'Семейный номер Deluxe',
+    ],
   },
   dining: {
     eyebrow: 'ГАСТРОНОМИЯ',
     title: 'Каждый вечер — новый стол',
     text: 'Помимо главного ресторана, открытого на каждый приём пищи, работают пять ресторанов à la carte и снек-точка у бассейна. Ужин можно планировать каждый день в другой кухне.',
     cta: 'СМОТРЕТЬ',
-    items: ['Главный ресторан', 'Турецкий à la carte', 'Итальянский à la carte', 'Мексиканский à la carte', 'Дальневосточный à la carte', 'Рыбный à la carte'],
+    items: [
+      'Главный ресторан',
+      'Турецкий à la carte',
+      'Итальянский à la carte',
+      'Мексиканский à la carte',
+      'Дальневосточный à la carte',
+      'Рыбный à la carte',
+    ],
   },
   experiences: {
     title: 'Всё, что стоит открыть',

@@ -31,7 +31,8 @@ export function renderBlock(block: Block, index: number, locale: Locale): ReactN
   const ui = getUi(locale);
   const key = `${block.type}-${index}`;
   const img = (ref: ImageRef): ResolvedImage | null => resolveImage(ref);
-  const link = (l?: PageLink) => (l ? { href: pagePath(locale, l.page), label: l.label } : undefined);
+  const link = (l?: PageLink) =>
+    l ? { href: pagePath(locale, l.page), label: l.label } : undefined;
   const navLabels = { prev: ui.carouselPrev, next: ui.carouselNext, carousel: ui.carousel };
 
   switch (block.type) {
@@ -55,7 +56,15 @@ export function renderBlock(block: Block, index: number, locale: Locale): ReactN
     case 'banner_scale': {
       const media = img(block.media);
       if (!media) return null;
-      return <BannerScale key={key} eyebrow={block.eyebrow} title={block.title} text={block.text} media={media} />;
+      return (
+        <BannerScale
+          key={key}
+          eyebrow={block.eyebrow}
+          title={block.title}
+          text={block.text}
+          media={media}
+        />
+      );
     }
     case 'content':
       return <Content key={key} eyebrow={block.eyebrow} title={block.title} text={block.text} />;
@@ -70,7 +79,13 @@ export function renderBlock(block: Block, index: number, locale: Locale): ReactN
     case 'banner_full': {
       const media = img(block.media);
       if (!media) return null;
-      return <BannerFull key={key} media={media} />;
+      const lines = block.lines?.map((row) =>
+        row.flatMap((word) => {
+          const wordMedia = img({ id: word.image, alt: '' });
+          return wordMedia ? [{ text: word.text, media: wordMedia }] : [];
+        }),
+      );
+      return <BannerFull key={key} media={media} lines={lines} />;
     }
     case 'feature5050': {
       const media = img(block.media);
@@ -92,7 +107,15 @@ export function renderBlock(block: Block, index: number, locale: Locale): ReactN
     case 'card_carousel': {
       const cards = block.cards.flatMap((card) => {
         const media = img(card.media);
-        return media ? [{ title: card.title, href: card.page ? pagePath(locale, card.page) : undefined, media }] : [];
+        return media
+          ? [
+              {
+                title: card.title,
+                href: card.page ? pagePath(locale, card.page) : undefined,
+                media,
+              },
+            ]
+          : [];
       });
       return (
         <CardCarousel
@@ -178,7 +201,10 @@ export function renderBlock(block: Block, index: number, locale: Locale): ReactN
         const media = img(ref);
         return media ? [{ media, caption: ref.caption }] : [];
       });
-      const navLink = (page: typeof block.prev) => ({ href: pagePath(locale, page), label: routes[page].label[locale] });
+      const navLink = (page: typeof block.prev) => ({
+        href: pagePath(locale, page),
+        label: routes[page].label[locale],
+      });
       return (
         <GalleryCategory
           key={key}

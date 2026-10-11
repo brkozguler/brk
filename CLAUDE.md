@@ -51,6 +51,8 @@ kod standartları); görsel sistem ve blok ölçüleri için Mākena referansı 
 - Detay şablonu (Mākena /real-estate/kaeo): `detailBlocks()` → hero → intro → `blocks/BodyColumn`
   (+ `ui/SpecRow`) → `blocks/MediaSlider` (sonsuz, sayaçlı) → `blocks/Related` (clamped). Oda detayları
   `content/pages/room-details.ts`, restoran/bar detayları `venues.ts` (`splitLead`: ilk cümle intro).
+- Ana sayfa banner'ı (`blocks/BannerFull`) `lines` alırsa görselin üstüne Ethno Belek kelime şeridi
+  bindirilir (kelime + küçük görsel, düz / italik; italik kesim `fonts.ts` → `displayItalic`, preload yok).
 - Yer tutucu görsel: `node scripts/placeholders.mjs <set>` → `assets/images/<set>/…`; gerçek
   fotoğraf aynı adla konur, betikteki set silinir.
 - SEO: `lib/seo.ts`, `lib/jsonld.ts`, `lib/sitemap.ts` + `app/sitemap*.xml/route.ts`.

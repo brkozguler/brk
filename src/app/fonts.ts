@@ -17,6 +17,17 @@ export const display = Noto_Serif_Display({
   adjustFontFallback: true,
 });
 
+/** İtalik kesim yalnızca kelime şeridinde; preload yok, kullanıldığı sayfada iner */
+export const displayItalic = Noto_Serif_Display({
+  weight: 'variable',
+  style: 'italic',
+  subsets: ['latin', 'latin-ext'],
+  variable: '--font-display-italic',
+  display: 'swap',
+  preload: false,
+  adjustFontFallback: true,
+});
+
 export const text = Manrope({
   subsets: ['latin', 'latin-ext'],
   variable: '--font-text',

@@ -63,9 +63,17 @@ export interface SpacerBlock {
   type: 'spacer';
 }
 
+/** Banner üstü kelime şeridi öğesi — görsel dekoratif (alt boş), anlamı kelime taşır */
+export interface BannerWord {
+  text: string;
+  image: string;
+}
+
 export interface BannerFullBlock {
   type: 'banner_full';
   media: ImageRef;
+  /** Ethno Belek kelime şeridi: satırlar (3 + 2), sırayla düz / italik */
+  lines?: BannerWord[][];
 }
 
 export interface Feature5050Block {

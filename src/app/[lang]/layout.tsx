@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import { notFound } from 'next/navigation';
 import 'lenis/dist/lenis.css';
 import '../globals.css';
-import { display, text } from '../fonts';
+import { display, displayItalic, text } from '../fonts';
 import { isLocale, locales } from '@/i18n/config';
 import { pagePath } from '@/i18n/routes';
 import { getUi } from '@/i18n/ui';
@@ -53,7 +53,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   };
 
   return (
-    <html lang={lang} className={`${display.variable} ${text.variable}`}>
+    <html lang={lang} className={`${display.variable} ${displayItalic.variable} ${text.variable}`}>
       <body className="has-booking-bar">
         <a className="skip-link" href="#main">
           {ui.skipToContent}

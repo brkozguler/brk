@@ -28,6 +28,7 @@
 
   /* ---- Font aileleri (next/font değişkenleri) ---------------------------- */
   --font-display-stack: var(--font-display), Georgia, serif;
+  --font-display-italic-stack: var(--font-display-italic), var(--font-display), Georgia, serif;
   --font-sans-stack: var(--font-text), system-ui, sans-serif;
 
   /* ---- Easing (RE §13.2) ------------------------------------------------- */
