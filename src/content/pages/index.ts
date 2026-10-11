@@ -4,6 +4,7 @@ import type { LocalizedPage, PageContent, PublishedMatrix } from '../types';
 import { gallery, galleryCategories } from './gallery';
 import { home } from './home';
 import { notFound } from './not-found';
+import { rooms } from './rooms';
 
 /**
  * Sayfa kayıt defteri. Bir sayfa burada ve ilgili dilde içeriği varsa üretilir;
@@ -12,6 +13,7 @@ import { notFound } from './not-found';
  */
 export const pages: Partial<Record<PageKey, LocalizedPage>> = {
   home,
+  rooms,
   gallery,
   ...galleryCategories,
   'not-found': notFound,

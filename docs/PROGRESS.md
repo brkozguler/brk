@@ -4,8 +4,9 @@
 
 Ana sayfa, kullanıcı kararıyla **makenagolfandbeachclub.com ana sayfasının birebir kopyası**
 olarak kuruldu: 13 blok + header, menü, footer. **Galeri** (`/tr/galeri/` + 6 kategori) Mākena
-`/gallery` ve `/gallery/{kategori}` şablonlarının birebir kopyası. Build ve lint temiz;
-4 dil × (ana sayfa + galeri + 6 kategori + 404) = 36 sayfa. Görseller yer tutucu
+`/gallery` ve `/gallery/{kategori}` şablonlarının birebir kopyası; **Konaklama** aynı şablonun
+iki kolonlu küçük kart varyantı. Build ve lint temiz;
+4 dil × (ana sayfa + konaklama + galeri + 6 kategori + 404) = 40 sayfa. Görseller yer tutucu
 (`scripts/placeholders.mjs`), ana sayfa metinleri onaylı, galeri EN/DE/RU metinleri editör
 kontrolü bekliyor; iletişim bilgileri doğrulanmış. Diğer sayfaların içeriği henüz yok; menü ve
 footer tüm rotaları listeliyor, bu linkler sayfalar yazılana kadar 404 verir.
@@ -28,6 +29,24 @@ footer tüm rotaları listeliyor, bu linkler sayfalar yazılana kadar 404 verir.
 | **Lightbox** şerit / oklar / sayaç | 41,3 / 48 · 101,8 / 167 | aynı | beyaz 38,4 kareler, köşesiz |
 | kapat / görsel / başlık | y 51,8 / 115,2 × 708 / 856,8 | aynı | genişlik 1344 vs 1329: Mākena kaydırma çubuğunu bırakıyor, biz kilitliyoruz |
 | mobil lightbox şerit / kapat / görsel | 735,1 / 38,5 / 96,2 × 619,7 | aynı | |
+
+### Konaklama — `/tr/konaklama/` (2026-10-11, kullanıcı: "galeri sayfasını konaklama yap, 2'li, kartlar küçük")
+
+Mākena /gallery şablonu (slim hero + `gallery_grid`), `size: 'small'` varyantıyla: her kırılımda
+iki kolon, kartlar ortalı ve dar. 4 oda kartı alan sırasıyla (24 · 38 · 48 · 72 m²).
+
+| Ölçü | 1440 | 375 |
+|---|---:|---:|
+| hero | 528 (h1 y 232,8) | 528,8 |
+| kart | 320 × 273,6 · x 384,3 / 720,7 (4–6 / 7–9. kolon) | 164,9 × 153,5 · x 19,2 / 190,9 |
+| görsel | 320 × 240 (4:3), altı 2,4rem | 164,9 × 123,7, altı 2rem |
+| satır boşluğu | 6rem (57,6) · satırlar y 604,8 / 936 | 4rem (38,5), son satırda 0 |
+| bölüm | 758,4 | 422,3 |
+
+Tablet (650–1023): kartlar 3–6 / 7–10. kolon. Değerler `GalleryGrid.module.css` → `.small`.
+Mobilde de ikili ("responsive olarak 2'li" böyle yorumlandı); tekli istenirse `.small .item`
+mobil kuralı `span 6` yapılır. Hero alt metni (ROOMS-01 subtitle) Mākena galerisinde olmadığı için
+kullanılmadı. Oda kartları `rooms/*` rotalarına gider; **oda detay sayfaları henüz yok** (404).
 
 Header galeri kategorilerinde `is-black` (routes.ts `headerDark`): en tepede koyu logo ve metin.
 Lightbox `<dialog>` + `showModal` (odak tuzağı, Esc, odak geri dönüşü), kaydırma kilidi,
@@ -124,12 +143,14 @@ Açık kalanlar:
 2. Galeri EN/DE/RU metinleri (`src/content/pages/gallery.ts`) editör kontrolü bekliyor; gerçek
    fotoğraflar `assets/images/gallery/<kategori>/cover.jpg + 01..12.jpg` adlarıyla konur, sayı
    değişirse `IMAGES_PER_CATEGORY`; başlık istenirse `GalleryImage.caption`.
-3. Diğer sayfalar: rota haritası hazır (`src/i18n/routes.ts`); metinler
+3. **Oda detay sayfaları** (`rooms/*`, 4 oda): Konaklama kartları ve ana sayfa carousel'i buraya
+   gidiyor, şu an 404. Metinler CONTENT-TR §4 hazır; şablon kullanıcıdan (muhtemelen bir Mākena URL'si).
+4. Diğer sayfalar: rota haritası hazır (`src/i18n/routes.ts`); metinler
    `docs/reference/ARCANUS-CONTENT-TR.md` (TR) + eski repodaki `src/content/{en,de,ru}/*.json`.
    Her sayfa `src/content/pages/<key>.ts` + gerekirse yeni blok tipi (`content/types.ts` + `blocks/registry.tsx`).
    Yer tutucu görsel gerekirse `scripts/placeholders.mjs`'e set eklenir. Galeri şablonu
    (`GalleryCategory` + `Lightbox`) oda/restoran detaylarındaki görsel ızgarası için de kullanılabilir.
-4. Açık sorular (cevap gelince ilgili dosya):
+5. Açık sorular (cevap gelince ilgili dosya):
    - Fotoğraf ve video → `assets/images/`, `public/video/`
    - Logo SVG (açık/koyu, 116×58 oranı) → `public/logo-*.svg`, `components/layout/Logo.tsx`
    - Lisanslı font → `src/app/fonts.ts`
@@ -138,11 +159,14 @@ Açık kalanlar:
    - Eski site URL envanteri → `deploy/redirects.csv`
    - Analitik / üçüncü parti → CSP + çerez onayı
    - GitHub repo adı (remote yok)
-5. Sayfa geçiş perdesi, "bu sayfa Almanca da mevcut" bandı, çerez onayı, front-end review
+6. Sayfa geçiş perdesi, "bu sayfa Almanca da mevcut" bandı, çerez onayı, front-end review
    (NVDA/VoiceOver, klavye, gerçek cihaz, Lighthouse — yukarıdaki açık kalanlar listesi).
 
 ## Günlük
 
+- **2026-10-11 (gece, 3)** — Kullanıcı: Mākena /gallery sayfasını Konaklama yap, "responsive olarak
+  2'li, kart tasarımları küçük". `gallery_grid` → `size: 'small'` varyantı (iki kolon, ortalı,
+  l: 3/12 kolon 320 px, mobil 3/6), `src/content/pages/rooms.ts` 4 dil. Oda detayları sıradaki iş.
 - **2026-10-11 (gece, 2)** — Kullanıcı: "galeri sayfasını yapalım" + Mākena /gallery. Canlı sitede
   indeks, kategori ve lightbox 1440×900 + 375×812 ölçüldü (RE §17.6 doğrulandı; mobilde 8 kare +
   Load more, boş alt metin boşluğu, önceki dairesinde eksik köşe). Yeni: `gallery_grid` ve

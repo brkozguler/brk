@@ -131,7 +131,7 @@ export function renderBlock(block: Block, index: number, locale: Locale): ReactN
         const media = img(item.media);
         return media ? [{ href: pagePath(locale, item.page), label: item.label, media }] : [];
       });
-      return <GalleryGrid key={key} items={items} />;
+      return <GalleryGrid key={key} items={items} size={block.size} />;
     }
     case 'gallery_category': {
       const images = block.images.flatMap((ref) => {

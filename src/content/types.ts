@@ -134,6 +134,8 @@ export interface GalleryGridItem {
 export interface GalleryGridBlock {
   type: 'gallery_grid';
   items: GalleryGridItem[];
+  /** small: iki kolon, dar ve ortalı kartlar (Konaklama — kullanıcı kararı 2026-10-11) */
+  size?: 'small';
 }
 
 export interface GalleryImage extends ImageRef {
