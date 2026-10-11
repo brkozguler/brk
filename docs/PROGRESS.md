@@ -123,7 +123,7 @@ Bizde: font Noto Serif Display (italik kesim ayrı next/font örneği, preload y
 iner); kelimeler büyük harfe CSS ile çevrilir (`lang` sayesinde İSKELE). Kelimeler hemen önceki
 storytelling metninden, günün sırasıyla (TR Kahvaltı · Havuz · İskele · Sofra · Müzik; EN/DE/RU aynı
 metinden) — uydurma metin yok. Görseller dekoratif (alt boş), kelimeyle eşleşen mekânın yer tutucusu.
-Sapmalar: Ethno koyu metin/krem zemin → görsel üstünde beyaz metin + %25 karartma; Ethno'nun
+Sapmalar: Ethno koyu metin/krem zemin → görsel üstünde beyaz metin, karartma yok (kullanıcı kaldırttı); Ethno'nun
 960–1199 ara düzeni (tek satır 32 px) yok, <1024 tek sütun; `h3` yerine `ul/li` (başlık sırası).
 Masaüstünde satır 1 sağdan taşar (TR KAHVALTI geniş); Ethno'da da dar ekranda taşıyor. DE FRÜHSTÜCK
 mobilde yan boşluğa ~9 px biner (Ethno GATHERINGS 11,7 px).
@@ -263,6 +263,8 @@ Açık kalanlar:
 
 ## Günlük
 
+- **2026-10-11 (gece, 7)** — Kullanıcı karartma katmanını seçip "arka planı kaldır" dedi;
+  şeridin altındaki %25 siyah katman kaldırıldı, metin doğrudan görselin üstünde.
 - **2026-10-11 (gece, 6)** — Kullanıcı Ethno Belek ana sayfasındaki kelime şeridini seçip ana
   sayfa banner görselini gösterdi: "burdaki görselin üstüne yaparmısın". Ethno canlı ölçüldü
   (1440 / 375, CSS kuralları okundu), `BannerFull` → `lines` + italik font örneği eklendi, 4 dil.

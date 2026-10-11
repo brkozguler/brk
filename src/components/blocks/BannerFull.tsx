@@ -51,28 +51,25 @@ export function BannerFull({ media, lines }: { media: ResolvedImage; lines?: Ban
         <Picture image={media} sizeKey="bannerFull" />
       </div>
       {rows.length > 0 ? (
-        <>
-          <div className={s.scrim} aria-hidden="true" />
-          <div className={s.lines}>
-            <div className={s.container}>
-              {rows.map((row, r) => (
-                <ul key={r} className={s.row}>
-                  {row.map((word) => {
-                    const i = order++;
-                    return (
-                      <li key={word.text} className={clsx(s.item, i % 2 === 0 && s.imageFirst)}>
-                        <span className={clsx(s.word, i % 2 === 1 && s.italic)}>{word.text}</span>
-                        <span className={clsx('media-fill', s.media)}>
-                          <Picture image={word.media} sizeKey="bannerWord" />
-                        </span>
-                      </li>
-                    );
-                  })}
-                </ul>
-              ))}
-            </div>
+        <div className={s.lines}>
+          <div className={s.container}>
+            {rows.map((row, r) => (
+              <ul key={r} className={s.row}>
+                {row.map((word) => {
+                  const i = order++;
+                  return (
+                    <li key={word.text} className={clsx(s.item, i % 2 === 0 && s.imageFirst)}>
+                      <span className={clsx(s.word, i % 2 === 1 && s.italic)}>{word.text}</span>
+                      <span className={clsx('media-fill', s.media)}>
+                        <Picture image={word.media} sizeKey="bannerWord" />
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
+            ))}
           </div>
-        </>
+        </div>
       ) : null}
     </div>
   );
