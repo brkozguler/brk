@@ -120,9 +120,11 @@ Metin kaynaklı farklar font değişince yeniden ölçülecek; `docs/reference/A
 - Yatay mod uyarısı yok (WCAG 1.3.4).
 - Statik export: `next/image` yerine kendi `Picture` bileşenimiz; CSP `'unsafe-inline'`.
 - Deneyim carousel'inde 5 kart (Mākena 4, eski içerik 6 — "Toplantı" SEO haritasında sayfa olmadığı için düştü).
-- Görünür breadcrumb varsayılan kapalı (`PageContent.breadcrumb`): Mākena şablonlarında yok;
-  BreadcrumbList JSON-LD her iç sayfada var. Otel kuralları görünür breadcrumb istiyor —
-  kullanıcı isterse sayfa bazında açılır (bileşen hazır: `components/page/Breadcrumb`).
+- Görünür breadcrumb **her iç sayfada** (kullanıcı 2026-10-11: Akra Didim konaklama sayfasındaki
+  gibi, "oluşturduğumuz tüm sayfalar"): Akra ölçüleri (py 20 px, ✦ 8 px ayraç + 8 px kenar, %70 siyah,
+  son öğe siyah) bizim yazı tipi ve 1,2rem ölçeğiyle; Akra <1024 gizliyor, bizde her boyutta.
+  Hero'lu sayfada hero'dan sonra akışta (grid 57 px aşağı kayar); hero'suz kategori sayfasında
+  header'ın altına bindirilir, bölüm ölçüleri değişmez. `PageContent.breadcrumb: false` ile kapanır.
 - Galeri kategorisi mobilde 8 kare + "Daha fazla" (Mākena gibi); kalan kareler `display:none`
   ile bekliyor — görsel ızgarası, metin değil; ≥650 hepsi görünür.
 - Mākena'nın "önceki" dairesinde köşe yuvarlatma eksik (sınıf unutulmuş); bizde iki daire de .3rem.
@@ -193,7 +195,8 @@ Açık kalanlar:
   şekilde yap ama bizim font ve font-size"): `detail` (eyebrow · title-xs · body-m · ✦'li label-s ·
   KEŞFET) → kullanıcı: eyebrow "kaldır", açıklama "arayı azalt" (2rem), ikinci satıra "biraz daha
   yukarıdan boşluk" (satır arası 10,4rem) → açıklama ve özellikler "biraz daha daralt" (max-w 50rem;
-  özellik aralığı 1,6rem), "REZERVASYON diye bir buton daha" (bookingTarget). `gallery_grid` →
+  özellik aralığı 1,6rem), "REZERVASYON diye bir buton daha" (bookingTarget) → Akra Didim breadcrumb'ı
+  "oluşturduğumuz tüm sayfalara" (`Breadcrumb` yeniden yazıldı, varsayılan açık). `gallery_grid` →
   `columns: 2`, `src/content/pages/rooms.ts` 4 dil. Oda detayları sıradaki iş.
 - **2026-10-11 (gece, 2)** — Kullanıcı: "galeri sayfasını yapalım" + Mākena /gallery. Canlı sitede
   indeks, kategori ve lightbox 1440×900 + 375×812 ölçüldü (RE §17.6 doğrulandı; mobilde 8 kare +

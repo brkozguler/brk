@@ -46,7 +46,8 @@ kod standartları); görsel sistem ve blok ölçüleri için Mākena referansı 
   bizim tipografiyle — Konaklama) ·
   `blocks/GalleryCategory` + `components/gallery/Lightbox`
   (`<dialog>` + showModal, kaydırma kilidi, ← → Esc). Hero'suz sayfa `routes.ts` → `headerDark: true`
-  (Mākena is-black). Görünür breadcrumb yalnızca `PageContent.breadcrumb: true` ile.
+  (Mākena is-black). Görünür breadcrumb (Akra Didim ölçüleri, ✦ ayraç) her iç sayfada;
+  `PageContent.breadcrumb: false` kapatır; hero'suz sayfada header altına bindirilir.
 - Yer tutucu görsel: `node scripts/placeholders.mjs <set>` → `assets/images/<set>/…`; gerçek
   fotoğraf aynı adla konur, betikteki set silinir.
 - SEO: `lib/seo.ts`, `lib/jsonld.ts`, `lib/sitemap.ts` + `app/sitemap*.xml/route.ts`.

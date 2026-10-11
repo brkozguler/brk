@@ -194,8 +194,8 @@ export interface PageContent {
   meta: PageMeta;
   blocks: Block[];
   /**
-   * Görünür breadcrumb. Mākena şablonlarında yok; BreadcrumbList JSON-LD her iç
-   * sayfada zaten var. Yalnızca açıkça istenen sayfada açılır.
+   * Görünür breadcrumb — her iç sayfada açık (kullanıcı kararı 2026-10-11, Akra Didim örneği);
+   * `false` ile kapatılır. BreadcrumbList JSON-LD her durumda var.
    */
   breadcrumb?: boolean;
 }

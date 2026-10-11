@@ -1,33 +1,76 @@
+/* Akra Didim breadcrumb ölçüleri (canlı DOM, 2026-10-11): py 20 px, 12 px light, ✦ ayraç 8 px + 8 px kenar */
 .nav {
-  padding: 1.6rem var(--page-padding-mobile) 0;
-  font-size: max(1.2rem, 11px);
+  padding-block: 2rem;
 }
 
 .list {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.4rem 0.8rem;
+  font-family: var(--font-sans-stack);
+  font-size: max(1.2rem, 11px);
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: 0.025em;
+  color: var(--color-ink-body);
 }
 
-.item + .item::before {
-  content: '/';
-  margin-inline-end: 0.8rem;
-  opacity: 0.4;
+.item {
+  display: inline-flex;
+  align-items: center;
 }
 
-.item span {
-  opacity: 0.7;
+/* ✦ ayraç — oda kartı özellik satırıyla aynı işaret */
+.item:not(:last-child)::after {
+  content: '';
+  display: inline-block;
+  flex-shrink: 0;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-inline: 0.8rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%232b2b2d' d='M4 0c.2 2.2 1.8 3.8 4 4-2.2.2-3.8 1.8-4 4-.2-2.2-1.8-3.8-4-4 2.2-.2 3.8-1.8 4-4Z'/%3E%3C/svg%3E")
+    center / contain no-repeat;
 }
 
 .link {
-  display: inline-flex;
-  align-items: center;
-  min-height: 4.4rem;
+  position: relative;
+  color: inherit;
+  transition: color var(--duration-medium) ease-out;
+}
+
+/* Dokunma hedefi ≥ 44 px: satır yüksekliğini büyütmeden görünmez tampon */
+.link::before {
+  content: '';
+  position: absolute;
+  inset: -1.4rem 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    color: var(--color-ink);
+  }
+}
+
+.current {
+  color: var(--color-ink);
+}
+
+/* Hero'suz sayfa: header'ın (9,5rem / s: 14,3rem) hemen altına, bölümün üst boşluğunun içine */
+.overlayHost {
+  position: relative;
+  height: 0;
+}
+
+.navOverlay {
+  position: absolute;
+  top: 9.5rem;
+  right: 0;
+  left: 0;
+  z-index: 2;
 }
 
 @media (min-width: 650px) {
-  .nav {
-    padding-inline: var(--page-padding-desktop);
+  .navOverlay {
+    top: 14.3rem;
   }
 }

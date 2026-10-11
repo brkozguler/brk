@@ -27,8 +27,12 @@ export function PageRenderer({ locale, pageKey, page }: Props) {
 
   const blocks = page.blocks.map((block, i) => renderBlock(block, i, locale));
   const heroFirst = page.blocks[0]?.type === 'hero';
-  // Görünür breadcrumb yalnızca içerik isterse; JSON-LD zinciri her iç sayfada var
-  const breadcrumb = pageKey !== 'home' && page.breadcrumb ? <Breadcrumb locale={locale} pageKey={pageKey} /> : null;
+  // Görünür breadcrumb her iç sayfada (kullanıcı kararı 2026-10-11); `breadcrumb: false` ile kapatılır.
+  // Hero varsa hero'dan sonra akışta, yoksa header'ın altına bindirilir.
+  const breadcrumb =
+    pageKey !== 'home' && page.breadcrumb !== false ? (
+      <Breadcrumb locale={locale} pageKey={pageKey} overlay={!heroFirst} />
+    ) : null;
 
   return (
     <>
