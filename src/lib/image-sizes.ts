@@ -27,6 +27,12 @@ export const SIZES = {
   listingImage: '(min-width: 650px) 38vw, calc(100vw - 4rem)',
   /** Menü görseli — mobilde gizli */
   menuFigure: '(min-width: 1024px) 40vw, (min-width: 650px) 48vw, 0px',
+  /** Galeri indeks kartı (s: 4/12 kolon = 432 px @1440) */
+  galleryCard: '(min-width: 650px) 30.33vw, calc(100vw - 4rem)',
+  /** Galeri küçük görseli (l: 2/12 = 208 px · s: 4/12 · mobil 3/6) */
+  galleryThumb: '(min-width: 1024px) 14.6vw, (min-width: 650px) 31vw, calc(50vw - 2.4rem)',
+  /** Lightbox — site-max içinde object-contain */
+  lightbox: '(min-width: 650px) 93.33vw, calc(100vw - 4rem)',
 } as const;
 
 export type SizeKey = keyof typeof SIZES;

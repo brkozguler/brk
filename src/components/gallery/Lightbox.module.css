@@ -1,0 +1,159 @@
+/* Tarayıcı <dialog> varsayılanları sıfır: tam ekran siyah katman (Mākena aside) */
+.dialog {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background-color: var(--color-ink);
+  color: var(--color-white-pure);
+}
+
+.dialog::backdrop {
+  background: transparent;
+}
+
+/* Üst şerit — mobilde altta, iki uçta */
+.strip {
+  position: absolute;
+  bottom: 4rem;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  column-gap: 2.8rem;
+}
+
+.stripInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  column-gap: 2.8rem;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  column-gap: 1.6rem;
+}
+
+/* Lightbox okları beyaz ve köşesiz (HOME-12'deki 3 px köşe burada yok) */
+.btn,
+.btn::after {
+  border-radius: 0;
+}
+
+.counter {
+  position: relative;
+  color: var(--color-white-pure);
+}
+
+.close {
+  position: absolute;
+  top: 4rem;
+  right: 2rem;
+  z-index: 2;
+  line-height: 0.9;
+  color: var(--color-white-pure);
+
+  --uline-bottom: -5px;
+}
+
+.close::before {
+  height: 1px;
+}
+
+/* Görsel alanı — tıklamayı yutmaz */
+.stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  pointer-events: none;
+}
+
+.stageInner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.frame {
+  position: relative;
+  flex: 1 1 auto;
+}
+
+.center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.figure {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  max-height: calc(100% - 20rem);
+  overflow: hidden;
+}
+
+.figure :global(img) {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.captionBox {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  line-height: 1;
+  text-align: center;
+  color: var(--color-white-pure);
+  transform: translateX(-50%);
+}
+
+.caption {
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+}
+
+@media (min-width: 650px) {
+  .strip {
+    position: relative;
+    bottom: auto;
+    margin: 4.3rem 0 3.8rem;
+  }
+
+  .stripInner {
+    justify-content: flex-start;
+    width: auto;
+  }
+
+  .close {
+    top: 5.4rem;
+    right: 5rem;
+  }
+
+  .stage {
+    padding: 12rem 0 8rem;
+  }
+
+  .figure {
+    max-height: none;
+  }
+}

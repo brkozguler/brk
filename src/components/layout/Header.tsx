@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { Locale } from '@/i18n/config';
+import { resolvePath, routes } from '@/i18n/routes';
 import type { UiStrings } from '@/i18n/ui';
 import type { NavGroup, PublishedMatrix } from '@/content/types';
 import type { ResolvedImage } from '@/lib/images';
@@ -25,8 +26,6 @@ interface Props {
   ctaExternal: boolean;
   contact: MenuContact;
   menuFigure: ResolvedImage | null;
-  /** Hero'suz sayfa: en tepede de koyu metin (Mākena is-black) */
-  dark?: boolean;
 }
 
 interface HeaderState {
@@ -57,9 +56,11 @@ export function Header({
   ctaExternal,
   contact,
   menuFigure,
-  dark = false,
 }: Props) {
   const pathname = usePathname();
+  // Hero'suz, beyaz zeminle başlayan sayfa (galeri kategorileri): en tepede de koyu metin (Mākena is-black)
+  const route = resolvePath(pathname);
+  const dark = Boolean(route && routes[route.key].headerDark);
   const [state, setState] = useState<HeaderState>(INITIAL);
   const [menuOpen, setMenuOpen] = useState(false);
   const stateRef = useRef<HeaderState>(INITIAL);

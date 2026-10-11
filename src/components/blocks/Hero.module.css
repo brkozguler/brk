@@ -57,6 +57,11 @@
   opacity: 0.9;
 }
 
+/* Alt metin yokken aynı boşluk (RE §17.6 /gallery: boş p mt-24 / l:mt-42) */
+.noSubtitle {
+  padding-bottom: 2.4rem;
+}
+
 .cue {
   position: absolute;
   bottom: 0;
@@ -112,6 +117,10 @@
 
   .subtitle {
     margin-top: 4.2rem;
+  }
+
+  .noSubtitle {
+    padding-bottom: 4.2rem;
   }
 
   .cue {

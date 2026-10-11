@@ -80,7 +80,8 @@ export function Hero({ eyebrow, titleLines, subtitle, media, slim = false, scrol
         <div aria-hidden="true" className={s.shade} />
       </div>
 
-      <div ref={content} className={clsx('site-max', s.content)}>
+      {/* Alt metinsiz hero'da Mākena boş <p>'nin üst boşluğunu koruyor (başlık 20 px yukarıda); aynı boşluk padding ile */}
+      <div ref={content} className={clsx('site-max', s.content, !subtitle && s.noSubtitle)}>
         {eyebrow ? <p className={clsx('eyebrow js-i-words', s.eyebrow)}>{eyebrow}</p> : null}
         <h1 className={clsx('display js-i-words', s.title)}>
           {titleLines.map((line) => (

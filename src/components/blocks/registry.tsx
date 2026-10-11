@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import type { Locale } from '@/i18n/config';
-import { pagePath } from '@/i18n/routes';
+import { pagePath, routes } from '@/i18n/routes';
 import { getUi } from '@/i18n/ui';
 import type { Block, ImageRef, PageLink } from '@/content/types';
 import { resolveImage, type ResolvedImage } from '@/lib/images';
@@ -10,6 +10,8 @@ import { CardCarousel } from './CardCarousel';
 import { Content } from './Content';
 import { ExploreMore } from './ExploreMore';
 import { Feature5050 } from './Feature5050';
+import { GalleryCategory } from './GalleryCategory';
+import { GalleryGrid } from './GalleryGrid';
 import { Hero } from './Hero';
 import { Intro } from './Intro';
 import { Listings5050 } from './Listings5050';
@@ -123,6 +125,42 @@ export function renderBlock(block: Block, index: number, locale: Locale): ReactN
         return media ? [{ href: pagePath(locale, l.page), label: l.label, media }] : [];
       });
       return <ExploreMore key={key} title={block.title} links={links} labels={navLabels} />;
+    }
+    case 'gallery_grid': {
+      const items = block.items.flatMap((item) => {
+        const media = img(item.media);
+        return media ? [{ href: pagePath(locale, item.page), label: item.label, media }] : [];
+      });
+      return <GalleryGrid key={key} items={items} />;
+    }
+    case 'gallery_category': {
+      const images = block.images.flatMap((ref) => {
+        const media = img(ref);
+        return media ? [{ media, caption: ref.caption }] : [];
+      });
+      const navLink = (page: typeof block.prev) => ({ href: pagePath(locale, page), label: routes[page].label[locale] });
+      return (
+        <GalleryCategory
+          key={key}
+          title={block.title}
+          prev={navLink(block.prev)}
+          next={navLink(block.next)}
+          images={images}
+          labels={{
+            prev: ui.carouselPrev,
+            next: ui.carouselNext,
+            carouselPrev: ui.carouselPrev,
+            carouselNext: ui.carouselNext,
+            close: ui.close,
+            image: ui.image,
+            galleryViewer: ui.galleryViewer,
+            galleryNav: ui.galleryNav,
+            previousGallery: ui.previousGallery,
+            nextGallery: ui.nextGallery,
+            loadMore: ui.loadMore,
+          }}
+        />
+      );
     }
     default:
       return null;

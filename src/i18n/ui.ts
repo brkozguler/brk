@@ -29,6 +29,12 @@ export interface UiStrings {
   copyEmail: string;
   backToTop: string;
   allRightsReserved: string;
+  loadMore: string;
+  image: string;
+  galleryNav: string;
+  previousGallery: string;
+  nextGallery: string;
+  galleryViewer: string;
 }
 
 const strings: Record<Locale, UiStrings> = {
@@ -56,6 +62,12 @@ const strings: Record<Locale, UiStrings> = {
     copyEmail: 'E-posta adresini kopyala',
     backToTop: 'Sayfanın başına dön',
     allRightsReserved: 'Tüm hakları saklıdır.',
+    loadMore: 'Daha fazla',
+    image: 'Görsel',
+    galleryNav: 'Galeriler arasında geçiş',
+    previousGallery: 'Önceki galeri',
+    nextGallery: 'Sonraki galeri',
+    galleryViewer: 'Galeri görüntüleyici',
   },
   en: {
     skipToContent: 'Skip to content',
@@ -81,6 +93,12 @@ const strings: Record<Locale, UiStrings> = {
     copyEmail: 'Copy email address',
     backToTop: 'Back to top',
     allRightsReserved: 'All rights reserved.',
+    loadMore: 'Load more',
+    image: 'Image',
+    galleryNav: 'Switch gallery',
+    previousGallery: 'Previous gallery',
+    nextGallery: 'Next gallery',
+    galleryViewer: 'Gallery viewer',
   },
   de: {
     skipToContent: 'Zum Inhalt springen',
@@ -106,6 +124,12 @@ const strings: Record<Locale, UiStrings> = {
     copyEmail: 'E-Mail-Adresse kopieren',
     backToTop: 'Nach oben',
     allRightsReserved: 'Alle Rechte vorbehalten.',
+    loadMore: 'Mehr laden',
+    image: 'Bild',
+    galleryNav: 'Galerie wechseln',
+    previousGallery: 'Vorherige Galerie',
+    nextGallery: 'Nächste Galerie',
+    galleryViewer: 'Galerieansicht',
   },
   ru: {
     skipToContent: 'Перейти к содержанию',
@@ -131,6 +155,12 @@ const strings: Record<Locale, UiStrings> = {
     copyEmail: 'Скопировать адрес электронной почты',
     backToTop: 'Наверх',
     allRightsReserved: 'Все права защищены.',
+    loadMore: 'Показать ещё',
+    image: 'Изображение',
+    galleryNav: 'Переход между галереями',
+    previousGallery: 'Предыдущая галерея',
+    nextGallery: 'Следующая галерея',
+    galleryViewer: 'Просмотр галереи',
   },
 };
 

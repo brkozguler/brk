@@ -1,0 +1,146 @@
+.section {
+  padding: 16rem 0 7.3rem;
+}
+
+.titleBox {
+  position: relative;
+  grid-column: span 6;
+  padding-bottom: 4rem;
+  text-align: center;
+}
+
+/* Başlığın altındaki 1 px marka çizgisi, %30 */
+.titleBox::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid var(--color-brand);
+  opacity: 0.3;
+}
+
+.title {
+  width: fit-content;
+  margin-inline: auto;
+  color: var(--color-ink);
+}
+
+.navBox {
+  grid-column: span 6;
+  margin-block: 3rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  column-gap: 2.4rem;
+  color: var(--color-ink-body);
+}
+
+.navLabel {
+  font-weight: 700;
+}
+
+/* Daire: .cbtn ölçüleri (4rem, subtle zemin, marka ::after) + .3rem köşe; ok marka renginde */
+.circle,
+.circle::after {
+  border-radius: 0.3rem;
+}
+
+.circle {
+  color: var(--color-brand);
+}
+
+/* Hover bağlantının tamamında (Mākena .media-gallery__button:hover) */
+@media (hover: hover) and (pointer: fine) {
+  .navLink:hover .circle {
+    color: var(--color-white-pure);
+  }
+
+  .navLink:hover .circle::after {
+    transform: scale(1);
+  }
+
+  .navNext:hover .circle > svg {
+    animation: cbtn-arrow-next 1s ease;
+  }
+
+  .navPrev:hover .circle > svg {
+    animation: cbtn-arrow-prev 1s ease;
+  }
+}
+
+.thumb {
+  grid-column: span 3;
+  margin-bottom: 0.7rem;
+  cursor: pointer;
+}
+
+.thumbMedia {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  transition: transform 200ms var(--ease-soft);
+}
+
+.thumb:focus-visible .thumbMedia {
+  transform: scale(1.05);
+}
+
+/* Mobilde 9. kareden sonrası "Daha fazla" ile açılır */
+.thumbCollapsed {
+  display: none;
+}
+
+.more {
+  grid-column: span 6;
+  width: 16rem;
+  margin: 4rem auto 0;
+  color: var(--color-ink-body);
+}
+
+.moreInner {
+  margin-inline: 2rem;
+  padding-block: 0.5rem;
+}
+
+@media (min-width: 650px) {
+  .section {
+    padding: 22rem 0 6.8rem;
+  }
+
+  .titleBox {
+    grid-column: span 12;
+    padding-bottom: 7rem;
+  }
+
+  .navBox {
+    grid-column: span 12;
+    margin-block: 4rem;
+  }
+
+  .thumb {
+    grid-column: span 4;
+    margin-bottom: 1.8rem;
+  }
+
+  .thumbCollapsed {
+    display: block;
+  }
+
+  .more {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .thumb {
+    grid-column: span 2;
+  }
+}

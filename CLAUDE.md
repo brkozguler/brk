@@ -7,7 +7,7 @@ API'si aynı tipleri besleyecek. Her oturuma `docs/PROGRESS.md` → "▶ BURADAN
 ## Tasarım referansı — Mākena, birebir
 
 Kullanıcı kararı (2026-10-11): **ana sayfa makenagolfandbeachclub.com ana sayfasının birebir kopyası**
-(header, menü, footer dahil). Ölçüler `docs/reference/MAKENA-FRONTEND-REVERSE-ENGINEERING.md`
+(header, menü, footer dahil); **galeri** de Mākena `/gallery` + `/gallery/{kategori}` birebir. Ölçüler `docs/reference/MAKENA-FRONTEND-REVERSE-ENGINEERING.md`
 (canlı DOM + bundle, 1440×900); kullanıcı bir canlı eleman gösterip "böyle olsun" derse o seçim
 spec'tir — önce ölç, ölçülen değere kur, sapmayı PROGRESS'e yaz. Yeni blok: önce referans doküman,
 sonra canlı ölçüm (`window.arcanusScrollTo(y)` QA kancası + `getBoundingClientRect`).
@@ -42,6 +42,11 @@ kod standartları); görsel sistem ve blok ölçüleri için Mākena referansı 
   (tek RAF, resize/tick/scroll servisleri, Lenis). Bileşen kendi rAF/resize dinleyicisini açmaz.
   Tüm GSAP kurulumu `gsap.matchMedia()` içinde, reduced-motion koşuluyla.
 - Carousel motoru `components/carousel/useDragCarousel.ts` (clamped / infinite).
+- Galeri: `blocks/GalleryGrid` (indeks) · `blocks/GalleryCategory` + `components/gallery/Lightbox`
+  (`<dialog>` + showModal, kaydırma kilidi, ← → Esc). Hero'suz sayfa `routes.ts` → `headerDark: true`
+  (Mākena is-black). Görünür breadcrumb yalnızca `PageContent.breadcrumb: true` ile.
+- Yer tutucu görsel: `node scripts/placeholders.mjs <set>` → `assets/images/<set>/…`; gerçek
+  fotoğraf aynı adla konur, betikteki set silinir.
 - SEO: `lib/seo.ts`, `lib/jsonld.ts`, `lib/sitemap.ts` + `app/sitemap*.xml/route.ts`.
 - Dağıtım: `deploy/htaccess/root.htaccess` + `deploy/redirects.csv` → `scripts/postbuild.mjs` → `out/`.
 - Sunucu gerektiren Next özellikleri (redirects/headers/proxy/ISR/server actions) kullanılmaz.

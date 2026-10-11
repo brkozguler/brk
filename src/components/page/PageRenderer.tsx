@@ -27,7 +27,8 @@ export function PageRenderer({ locale, pageKey, page }: Props) {
 
   const blocks = page.blocks.map((block, i) => renderBlock(block, i, locale));
   const heroFirst = page.blocks[0]?.type === 'hero';
-  const breadcrumb = pageKey !== 'home' ? <Breadcrumb locale={locale} pageKey={pageKey} /> : null;
+  // Görünür breadcrumb yalnızca içerik isterse; JSON-LD zinciri her iç sayfada var
+  const breadcrumb = pageKey !== 'home' && page.breadcrumb ? <Breadcrumb locale={locale} pageKey={pageKey} /> : null;
 
   return (
     <>

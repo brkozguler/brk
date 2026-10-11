@@ -124,6 +124,32 @@ export interface ExploreMoreBlock {
   links: ExploreLink[];
 }
 
+export interface GalleryGridItem {
+  page: PageKey;
+  label: string;
+  media: ImageRef;
+}
+
+/** Galeri indeksi: 4:3 kapak + eyebrow etiket, 3 kolon (GALLERY-02) */
+export interface GalleryGridBlock {
+  type: 'gallery_grid';
+  items: GalleryGridItem[];
+}
+
+export interface GalleryImage extends ImageRef {
+  /** Lightbox altındaki başlık; yoksa boş satır kalır (Mākena böyle) */
+  caption?: string;
+}
+
+/** Galeri kategorisi: başlık + önceki/sonraki + küçük görseller + lightbox (hero yok) */
+export interface GalleryCategoryBlock {
+  type: 'gallery_category';
+  title: string;
+  prev: PageKey;
+  next: PageKey;
+  images: GalleryImage[];
+}
+
 export type Block =
   | HeroBlock
   | IntroBlock
@@ -135,7 +161,9 @@ export type Block =
   | Feature5050Block
   | CardCarouselBlock
   | Listings5050Block
-  | ExploreMoreBlock;
+  | ExploreMoreBlock
+  | GalleryGridBlock
+  | GalleryCategoryBlock;
 
 /* ----------------------------------------------------------------- sayfa */
 
@@ -153,6 +181,11 @@ export interface PageMeta {
 export interface PageContent {
   meta: PageMeta;
   blocks: Block[];
+  /**
+   * Görünür breadcrumb. Mākena şablonlarında yok; BreadcrumbList JSON-LD her iç
+   * sayfada zaten var. Yalnızca açıkça istenen sayfada açılır.
+   */
+  breadcrumb?: boolean;
 }
 
 /** Bir dilde içerik yoksa o dilde sayfa üretilmez ve hreflang verilmez. */

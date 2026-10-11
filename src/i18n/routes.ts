@@ -27,6 +27,12 @@ export type PageKey =
   | 'about'
   | 'concept'
   | 'gallery'
+  | 'gallery/hotel'
+  | 'gallery/rooms'
+  | 'gallery/pools'
+  | 'gallery/restaurants'
+  | 'gallery/beach'
+  | 'gallery/activities'
   | 'offers'
   | 'offers/early-booking'
   | 'honeymoon'
@@ -44,6 +50,8 @@ export interface RouteDef {
   slug: Record<Locale, string>;
   /** Menü, footer ve breadcrumb etiketi. Sayfa başlığı içerik dosyasından gelir. */
   label: Record<Locale, string>;
+  /** Hero'suz, beyaz zeminle başlayan sayfa: header en tepede de koyu (Mākena is-black). */
+  headerDark?: boolean;
 }
 
 /** Rusça slug varsayılan olarak İngilizce slug'dır. */
@@ -138,6 +146,44 @@ export const routes: Record<PageKey, RouteDef> = {
   gallery: {
     slug: s('galeri', 'gallery', 'galerie'),
     label: s('Galeri', 'Gallery', 'Galerie', 'Галерея'),
+  },
+  // Galeri kategorileri — SEO haritasında yok; TR slug'ları CONTENT-TR §9.1, diğerleri
+  // haritadaki sözcük seçimleriyle (zimmer, strand, aktivitaeten) tutarlı.
+  'gallery/hotel': {
+    parent: 'gallery',
+    slug: s('otel', 'hotel', 'hotel'),
+    label: s('Otel', 'Hotel', 'Hotel', 'Отель'),
+    headerDark: true,
+  },
+  'gallery/rooms': {
+    parent: 'gallery',
+    slug: s('odalar', 'rooms', 'zimmer'),
+    label: s('Odalar', 'Rooms', 'Zimmer', 'Номера'),
+    headerDark: true,
+  },
+  'gallery/pools': {
+    parent: 'gallery',
+    slug: s('havuzlar', 'pools', 'pools'),
+    label: s('Havuzlar', 'Pools', 'Pools', 'Бассейны'),
+    headerDark: true,
+  },
+  'gallery/restaurants': {
+    parent: 'gallery',
+    slug: s('restoranlar', 'restaurants', 'restaurants'),
+    label: s('Restoranlar', 'Restaurants', 'Restaurants', 'Рестораны'),
+    headerDark: true,
+  },
+  'gallery/beach': {
+    parent: 'gallery',
+    slug: s('sahil', 'beach', 'strand'),
+    label: s('Sahil', 'Beach', 'Strand', 'Пляж'),
+    headerDark: true,
+  },
+  'gallery/activities': {
+    parent: 'gallery',
+    slug: s('aktiviteler', 'activities', 'aktivitaeten'),
+    label: s('Aktiviteler', 'Activities', 'Aktivitäten', 'Активности'),
+    headerDark: true,
   },
   offers: {
     slug: s('kampanyalar', 'offers', 'angebote'),

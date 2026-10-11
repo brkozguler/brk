@@ -1,6 +1,7 @@
 import { locales, type Locale } from '@/i18n/config';
 import type { PageKey } from '@/i18n/routes';
 import type { LocalizedPage, PageContent, PublishedMatrix } from '../types';
+import { gallery, galleryCategories } from './gallery';
 import { home } from './home';
 import { notFound } from './not-found';
 
@@ -11,6 +12,8 @@ import { notFound } from './not-found';
  */
 export const pages: Partial<Record<PageKey, LocalizedPage>> = {
   home,
+  gallery,
+  ...galleryCategories,
   'not-found': notFound,
 };
 
