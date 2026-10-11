@@ -43,8 +43,8 @@ Mākena ikili → Vogue. 4 oda kartı alan sırasıyla (24 · 38 · 48 · 72 m²
 | kart / kolon arası | 626 / 28 | 626 / 27,8 (2,9rem) | 345, tek kolon | 336,6, tek kolon |
 | görsel | 626 × 426 (sabit yükseklik) | 626 × 426 (aspect 626/426) | 345 × 245 | 336,6 × 239 (345/245) |
 | etiket üstü | 40 | 40,3 (4,2rem) | 40 | 40,4 |
-| satır arası | 80 | 79,7 (8,3rem) | 80 | 79,8 |
-| alt boşluk | 120 | 120 (8,3 + 4,2rem) | 120 | 120 (12,5rem) |
+| satır arası | 80 | 99,8 (10,4rem — kullanıcı: "biraz daha yukarıdan boşluk") | 80 | 79,8 |
+| alt boşluk | 120 | 120 (10,4 + 2,1rem) | 120 | 120 (12,5rem) |
 
 Vogue iki kolona 960'ta geçer, bizde kırılım 1024 (tablet tek kolon, görsel masaüstü oranı 626/426;
 Vogue'un tabletteki 693×245 sabit yüksekliği aşırı yatay olduğu için alınmadı). Değerler
@@ -55,9 +55,9 @@ Vogue'un tabletteki 693×245 sabit yüksekliği aşırı yatay olduğu için al�
 
 | Öğe | Vogue (1440) | Bizde |
 |---|---|---|
-| eyebrow | Playfair 15 px / 500 / 2,25 px · mt 40 · <960 gizli | `.eyebrow` (10,56 px / 500 / .22em) · mt 4,2rem · her boyutta görünür |
-| başlık | Playfair 20 px / 120 % · vurgu rengi · mt 8 | `.title-xs` (21,1 px) · marka rengi · mt .8rem · bağlantı |
-| açıklama | 15 px / 22,5 · mt 40 | `.body-m` (14,4 px / 1,6) · mt 4,2rem |
+| eyebrow | Playfair 15 px / 500 / 2,25 px · mt 40 · <960 gizli | **kaldırıldı** (kullanıcı, 2026-10-11); `detail.eyebrow` isteğe bağlı duruyor |
+| başlık | Playfair 20 px / 120 % · vurgu rengi · mt 8 | `.title-xs` (21,1 px) · marka rengi · mt 4,2rem (görselden sonra) · bağlantı |
+| açıklama | 15 px / 22,5 · mt 40 | `.body-m` (14,4 px / 1,6) · mt 2rem (kullanıcı: "arayı azalt") |
 | özellikler | 15 px / 500 · aralık 56 · ✦ 8×8 (li::after, −28 px) | `.label-s` 500 / lh 1,5 · 2,4 + ✦ .8 + 2,4rem · sarabilir |
 | düğme | 91 × 44, 12 px / 1,5 px, kenar %50 siyah, köşe 2 · mt 40 | `.btn` 14rem × 4,2rem, eyebrow, yazı takası · mt 4,2rem · "KEŞFET" (CONTENT-TR cta; Vogue "Detay") |
 | mobil aralıklar | 24 / 24 / ? / 32 / ? | 2,4 / .8 / 3,2 / 3,2 / 3,2rem |
@@ -191,7 +191,9 @@ Açık kalanlar:
   boşluk" → Vogue ölçüldü (1280 alan, kart 626, kolon 28, satır 80, görsel 626×426, etiket üstü 40,
   alt 120; <960 tek kolon 345×245) ve uygulandı → kullanıcı Vogue kartının içeriğini seçti ("bu
   şekilde yap ama bizim font ve font-size"): `detail` (eyebrow · title-xs · body-m · ✦'li label-s ·
-  KEŞFET). `gallery_grid` → `columns: 2`, `src/content/pages/rooms.ts` 4 dil. Oda detayları sıradaki iş.
+  KEŞFET) → kullanıcı: eyebrow "kaldır", açıklama "arayı azalt" (2rem), ikinci satıra "biraz daha
+  yukarıdan boşluk" (satır arası 10,4rem). `gallery_grid` → `columns: 2`, `src/content/pages/rooms.ts`
+  4 dil. Oda detayları sıradaki iş.
 - **2026-10-11 (gece, 2)** — Kullanıcı: "galeri sayfasını yapalım" + Mākena /gallery. Canlı sitede
   indeks, kategori ve lightbox 1440×900 + 375×812 ölçüldü (RE §17.6 doğrulandı; mobilde 8 kare +
   Load more, boş alt metin boşluğu, önceki dairesinde eksik köşe). Yeni: `gallery_grid` ve

@@ -61,18 +61,23 @@
   color: var(--color-ink-body);
 }
 
-/* Başlık Vogue'da vurgu renginde; bizde marka rengi */
+/* Başlık Vogue'da vurgu renginde; bizde marka rengi. Eyebrow yoksa görselden sonraki ilk satır. */
 .richTitle {
-  margin-top: 0.8rem;
+  margin-top: 2.4rem;
   color: var(--color-brand);
+}
+
+.richEyebrow + .richTitle {
+  margin-top: 0.8rem;
 }
 
 .richTitle a {
   display: inline-block;
 }
 
+/* Kullanıcı (2026-10-11): başlık–açıklama arası azaltıldı (Vogue 40 → 2rem) */
 .richText {
-  margin-top: 3.2rem;
+  margin-top: 2rem;
   color: var(--color-ink-body);
 }
 
@@ -110,11 +115,15 @@
 }
 
 @media (min-width: 1024px) {
-  .richEyebrow {
+  .richEyebrow,
+  .richTitle {
     margin-top: 4.2rem;
   }
 
-  .richText,
+  .richEyebrow + .richTitle {
+    margin-top: 0.8rem;
+  }
+
   .specs,
   .cta {
     margin-top: 4.2rem;
@@ -189,13 +198,14 @@
     column-gap: 2.9rem;
   }
 
+  /* Satır arası: Vogue 80 → kullanıcı "biraz daha yukarıdan boşluk" (2026-10-11) → 10,4rem (100 px) */
   .two .item,
   .two .item:last-child {
     grid-column: span 6;
-    margin-bottom: 8.3rem;
+    margin-bottom: 10.4rem;
   }
 
   .sectionTwo {
-    padding-bottom: 4.2rem;
+    padding-bottom: 2.1rem;
   }
 }
