@@ -1,0 +1,27 @@
+.nav {
+  padding: 1rem var(--pad-x) 0;
+  font-size: var(--fs-sm);
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.5rem;
+}
+
+.item + .item::before {
+  content: '/';
+  margin-inline-end: 0.5rem;
+  opacity: 0.4;
+}
+
+.item span {
+  opacity: 0.7;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+}

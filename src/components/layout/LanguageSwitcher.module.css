@@ -1,0 +1,25 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  font-size: var(--fs-sm);
+  opacity: 0.6;
+  transition: opacity var(--dur-fast) ease;
+}
+
+.link:hover,
+.link:focus-visible,
+.active {
+  opacity: 1;
+}
+
+.active {
+  text-decoration: underline;
+  text-underline-offset: 0.35em;
+}

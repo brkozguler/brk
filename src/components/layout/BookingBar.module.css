@@ -1,0 +1,29 @@
+.bar {
+  position: fixed;
+  inset: auto 0 0;
+  z-index: 30;
+  display: none;
+  height: var(--booking-bar-h);
+  padding: 0.6rem var(--pad-x) calc(0.6rem + env(safe-area-inset-bottom));
+  background: var(--c-white);
+  box-shadow: 0 -1px 0 rgb(31 42 44 / 12%);
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: var(--tap);
+  background: var(--c-ink);
+  color: var(--c-white);
+  border-radius: 999px;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 767px) {
+  .bar {
+    display: block;
+  }
+}

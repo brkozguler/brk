@@ -1,0 +1,54 @@
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  overflow-y: auto;
+  background: var(--bg);
+  color: var(--fg);
+  visibility: hidden;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) 1fr;
+  gap: var(--gutter);
+  min-height: 100%;
+  padding: calc(var(--header-h) + 6vh) var(--pad-x) 6vh;
+}
+
+.groupTitle {
+  margin-bottom: 1.5rem;
+  font-size: var(--fs-sm);
+  opacity: 0.6;
+}
+
+.mask {
+  display: block;
+  overflow: hidden;
+}
+
+.link {
+  display: block;
+  min-height: var(--tap);
+  padding-block: 0.25em;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: var(--fs-xl);
+  line-height: 1.2;
+}
+
+.aside {
+  align-self: end;
+  justify-self: end;
+}
+
+@media (max-width: 767px) {
+  .inner {
+    grid-template-columns: 1fr;
+    padding-bottom: calc(var(--booking-bar-h) + 2rem);
+  }
+
+  .aside {
+    justify-self: start;
+    margin-top: 2rem;
+  }
+}

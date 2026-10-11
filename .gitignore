@@ -1,0 +1,19 @@
+# bağımlılıklar
+/node_modules
+
+# next.js
+/.next/
+/out/
+
+# üretilen görseller (scripts/images.mjs); kaynaklar assets/images altında
+/public/img/
+
+# ortam değişkenleri
+.env*
+
+# araçlar
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+Thumbs.db
+npm-debug.log*

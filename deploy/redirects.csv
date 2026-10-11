@@ -1,0 +1,5 @@
+# Eski site adresleri → yeni adresler (301). Satır biçimi: eski-yol,yeni-yol
+# Her eski sayfa içerik ve dil olarak karşılık gelen yeni sayfaya gider; toptan ana sayfaya yönlendirme yapılmaz.
+# Mevcut sitenin URL envanteri çıkarıldığında doldurulacak. Örnek:
+# /konaklama,/tr/konaklama/
+# /en/accommodation,/en/rooms/

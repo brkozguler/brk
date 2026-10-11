@@ -1,0 +1,11 @@
+# Depoda LF; Windows'ta checkout'ta da LF (Prettier ve .editorconfig ile uyumlu)
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.avif binary
+*.ico binary
+*.woff2 binary
+*.mp4 binary
+*.webm binary

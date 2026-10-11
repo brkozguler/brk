@@ -1,0 +1,64 @@
+# Arcanus Hotels Sorgun — cPanel (Apache / LiteSpeed) kuralları
+# scripts/postbuild.mjs bu dosyayı out/.htaccess olarak kopyalar ve
+# deploy/redirects.csv içindeki eski URL yönlendirmelerini {{REDIRECTS}} yerine yazar.
+
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+AddDefaultCharset utf-8
+
+AddType image/avif .avif
+AddType image/webp .webp
+AddType font/woff2 .woff2
+AddType application/manifest+json .webmanifest
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # HTTPS ve www'suz tek adres (tek adımlı 301)
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+  # Kök adres Türkçe ana sayfaya gider (IP/dil başlığına göre yönlendirme yapılmaz)
+  RewriteRule ^$ /tr/ [R=301,L]
+
+  # Eski site adresleri (deploy/redirects.csv)
+  # {{REDIRECTS}}
+</IfModule>
+
+# Dizin isteklerinde sondaki eğik çizgiyi mod_dir tamamlar (/tr/konaklama → /tr/konaklama/)
+
+# Varsayılan 404; her dil klasöründeki .htaccess kendi dilini gösterir
+ErrorDocument 404 /tr/404/index.html
+
+<IfModule mod_headers.c>
+  # Güvenlik
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" "expr=%{HTTPS} == 'on'"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  # Statik çıktıda Next'in satır içi script'leri nonce alamaz; 'unsafe-inline' zorunludur.
+  # Analitik veya rezervasyon widget'ı eklenince script-src/connect-src/frame-src genişletilir.
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
+
+  # Önbellek: hash'li dosyalar bir yıl, HTML her seferinde doğrulanır
+  <FilesMatch "\.(js|css|woff2|avif|webp)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(svg|ico|png|jpe?g|mp4|webm|xml|txt|webmanifest)$">
+    Header set Cache-Control "public, max-age=86400"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+
+# Sıkıştırma (LiteSpeed Brotli'yi kendisi uygular; Apache'de modül varsa)
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/css text/plain text/xml application/javascript application/json application/xml image/svg+xml
+</IfModule>
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json application/xml image/svg+xml
+</IfModule>

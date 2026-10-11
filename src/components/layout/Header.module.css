@@ -1,0 +1,50 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: var(--header-h);
+  padding-inline: var(--pad-x);
+  color: var(--c-white);
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    color var(--dur-fast) ease;
+}
+
+.header[data-tone='dark'] {
+  color: var(--c-ink);
+}
+
+.hidden {
+  transform: translateY(-100%);
+}
+
+.menuBtn {
+  justify-self: start;
+  min-width: var(--tap);
+  min-height: var(--tap);
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.04em;
+}
+
+.logo {
+  display: block;
+  padding: 0.5rem 0.75rem;
+}
+
+.right {
+  justify-self: end;
+}
+
+@media (max-width: 767px) {
+  /* Mobilde rezervasyon butonu alttaki sabit çubukta */
+  .right {
+    display: none;
+  }
+}

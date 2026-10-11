@@ -1,0 +1,109 @@
+.footer {
+  padding: clamp(3rem, 6vw, 5rem) var(--pad-x) 2rem;
+}
+
+/* Masaüstünde içeriğin altından açılma efekti; globals.css'te main z-index: 1 */
+@media (min-width: 1024px) {
+  .footer {
+    position: sticky;
+    bottom: 0;
+    z-index: 0;
+  }
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(2, 1fr) auto;
+  gap: var(--gutter);
+}
+
+.brand {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+  align-content: start;
+}
+
+.logo {
+  display: block;
+}
+
+.address {
+  font-style: normal;
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+.contact {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  font-size: var(--fs-sm);
+}
+
+.groupTitle {
+  margin-bottom: 1rem;
+  font-size: var(--fs-sm);
+  opacity: 0.6;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  font-size: var(--fs-sm);
+  opacity: 0.85;
+  transition: opacity var(--dur-fast) ease;
+}
+
+.link:hover,
+.link:focus-visible {
+  opacity: 1;
+}
+
+.lang {
+  align-self: start;
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: clamp(2rem, 5vw, 4rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid rgb(255 255 255 / 15%);
+}
+
+.copy {
+  font-size: var(--fs-xs);
+  opacity: 0.7;
+}
+
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+}
+
+.legal .link {
+  font-size: var(--fs-xs);
+}
+
+@media (max-width: 1023px) {
+  .inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 767px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+}

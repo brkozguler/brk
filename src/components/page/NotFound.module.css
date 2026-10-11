@@ -1,0 +1,23 @@
+.wrap {
+  min-height: 70svh;
+  padding-top: calc(var(--header-h) + var(--section-y));
+  align-content: center;
+}
+
+.body {
+  grid-column: 2 / span 8;
+  display: grid;
+  justify-items: start;
+  gap: 1.5rem;
+}
+
+.code {
+  font-size: var(--fs-sm);
+  opacity: 0.6;
+}
+
+@media (max-width: 767px) {
+  .body {
+    grid-column: 1 / -1;
+  }
+}
