@@ -129,9 +129,9 @@ export function renderBlock(block: Block, index: number, locale: Locale): ReactN
     case 'gallery_grid': {
       const items = block.items.flatMap((item) => {
         const media = img(item.media);
-        return media ? [{ href: pagePath(locale, item.page), label: item.label, media }] : [];
+        return media ? [{ href: pagePath(locale, item.page), label: item.label, media, detail: item.detail }] : [];
       });
-      return <GalleryGrid key={key} items={items} columns={block.columns} />;
+      return <GalleryGrid key={key} items={items} columns={block.columns} ctaLabel={ui.explore} />;
     }
     case 'gallery_category': {
       const images = block.images.flatMap((ref) => {

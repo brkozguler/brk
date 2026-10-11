@@ -124,10 +124,20 @@ export interface ExploreMoreBlock {
   links: ExploreLink[];
 }
 
+/** Zengin kart içeriği (Vogue Hotel Supreme oda kartı): eyebrow + açıklama + özellik satırı + buton */
+export interface GalleryGridDetail {
+  eyebrow?: string;
+  text: string;
+  /** "24 m²" · "3 Kişi" · "Deniz manzaralı" — ✦ ile ayrılır */
+  specs: string[];
+}
+
 export interface GalleryGridItem {
   page: PageKey;
   label: string;
   media: ImageRef;
+  /** Varsa kart: görsel → eyebrow → başlık → metin → özellikler → KEŞFET */
+  detail?: GalleryGridDetail;
 }
 
 /** Galeri indeksi: 4:3 kapak + eyebrow etiket, 3 kolon (GALLERY-02) */

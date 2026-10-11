@@ -1,18 +1,23 @@
 import clsx from 'clsx';
 import { Picture } from '@/components/media/Picture';
 import { TransitionLink } from '@/components/transition/TransitionLink';
+import { Button } from '@/components/ui/Button';
 import type { ResolvedImage } from '@/lib/images';
+import type { GalleryGridDetail } from '@/content/types';
 import s from './GalleryGrid.module.css';
 
 export interface GalleryGridItemData {
   href: string;
   label: string;
   media: ResolvedImage;
+  detail?: GalleryGridDetail;
 }
 
 interface Props {
   items: GalleryGridItemData[];
   columns?: 2 | 3;
+  /** Zengin kartların buton etiketi (KEŞFET) */
+  ctaLabel?: string;
 }
 
 /**
@@ -26,24 +31,53 @@ interface Props {
  * `columns={2}` (Konaklama, kullanıcı kararı 2026-10-11: kart boyutu ve boşluk
  * voguehotelsupreme.com/odalar gibi): ≥1024 iki kart, 133,3rem (1280 px) ortalı alan, kart 626 px
  * (x 72,7 / 726,8 @1440), kolon arası 2,9rem (28), satır arası 8,3rem (80), görsel 626/426,
- * etiket üstü 4,2rem (40), alt boşluk 120; <1024 tek kolon, görsel 345/245. Kart içeriği Mākena
- * (görsel + eyebrow); Vogue'daki başlık/metin/özellik satırı istenirse eklenir.
+ * alt boşluk 120; <1024 tek kolon, görsel 345/245.
+ *
+ * `detail` (Vogue oda kartı, "bizim font ve font-size"): görsel → eyebrow (mt 4,2rem; Vogue 40) →
+ * başlık title-xs (mt .8rem; Vogue 20 px Playfair, 8) → açıklama body-m (mt 4,2rem) →
+ * özellikler label-s 500, ✦ ayraçlı (aralık 2,4 + .8 + 2,4 = 5,6rem; Vogue gap 56) → KEŞFET .btn
+ * (mt 4,2rem; Vogue 91×44 düz kenarlı, bizde 14rem × 4,2rem yazı takaslı). Mobil: 2,4 / .8 / 3,2 /
+ * 3,2 / 3,2rem. Vogue eyebrow'u <960 gizliyor, bizde görünür.
  */
-export function GalleryGrid({ items, columns = 3 }: Props) {
+export function GalleryGrid({ items, columns = 3, ctaLabel }: Props) {
   const two = columns === 2;
   return (
     <section className={clsx(s.section, two && s.sectionTwo)}>
       <ul className={clsx('site-max site-grid', s.list, two && s.two)}>
-        {items.map((item) => (
-          <li key={item.href} className={s.item}>
-            <TransitionLink href={item.href} className={clsx('group', s.link)}>
-              <div className={clsx('hoverable media-fill', s.media)}>
-                <Picture image={item.media} sizeKey={two ? 'galleryCardWide' : 'galleryCard'} />
-              </div>
-              <h2 className={clsx('eyebrow', s.label)}>{item.label}</h2>
-            </TransitionLink>
-          </li>
-        ))}
+        {items.map((item) =>
+          item.detail ? (
+            <li key={item.href} className={clsx('group', s.item, s.rich)}>
+              {/* Görsel bağlantısı başlıkla aynı hedef; klavye ve ekran okuyucu için tekrar değil */}
+              <TransitionLink href={item.href} className={s.mediaLink} tabIndex={-1} aria-hidden="true">
+                <div className={clsx('hoverable media-fill', s.media)}>
+                  <Picture image={item.media} sizeKey={two ? 'galleryCardWide' : 'galleryCard'} />
+                </div>
+              </TransitionLink>
+              {item.detail.eyebrow ? <p className={clsx('eyebrow', s.richEyebrow)}>{item.detail.eyebrow}</p> : null}
+              <h2 className={clsx('title-xs', s.richTitle)}>
+                <TransitionLink href={item.href}>{item.label}</TransitionLink>
+              </h2>
+              <p className={clsx('body-m', s.richText)}>{item.detail.text}</p>
+              <ul className={clsx('label-s', s.specs)} aria-label={item.label}>
+                {item.detail.specs.map((spec) => (
+                  <li key={spec} className={s.spec}>
+                    {spec}
+                  </li>
+                ))}
+              </ul>
+              {ctaLabel ? <Button href={item.href} label={ctaLabel} srLabel={item.label} className={s.cta} /> : null}
+            </li>
+          ) : (
+            <li key={item.href} className={s.item}>
+              <TransitionLink href={item.href} className={clsx('group', s.link)}>
+                <div className={clsx('hoverable media-fill', s.media)}>
+                  <Picture image={item.media} sizeKey={two ? 'galleryCardWide' : 'galleryCard'} />
+                </div>
+                <h2 className={clsx('eyebrow', s.label)}>{item.label}</h2>
+              </TransitionLink>
+            </li>
+          ),
+        )}
       </ul>
     </section>
   );

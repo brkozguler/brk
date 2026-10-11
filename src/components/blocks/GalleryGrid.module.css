@@ -39,6 +39,88 @@
   }
 }
 
+/* ------------------------------------------------------------- zengin kart (Vogue oda kartı) */
+.rich {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.mediaLink {
+  display: block;
+  width: 100%;
+}
+
+/* .two .media'nın 4,2rem alt boşluğunu ezer; boşluk eyebrow'un üstünde */
+.item.rich .media {
+  margin-bottom: 0;
+}
+
+.richEyebrow {
+  margin-top: 2.4rem;
+  color: var(--color-ink-body);
+}
+
+/* Başlık Vogue'da vurgu renginde; bizde marka rengi */
+.richTitle {
+  margin-top: 0.8rem;
+  color: var(--color-brand);
+}
+
+.richTitle a {
+  display: inline-block;
+}
+
+.richText {
+  margin-top: 3.2rem;
+  color: var(--color-ink-body);
+}
+
+.specs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem 2.4rem;
+  margin-top: 3.2rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--color-ink-soft);
+}
+
+.spec {
+  display: flex;
+  align-items: center;
+}
+
+/* ✦ ayraç — Vogue: 8×8 svg, önceki öğeden 24 px sonra (toplam aralık 56) */
+.spec + .spec::before {
+  content: '';
+  display: inline-block;
+  flex-shrink: 0;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-right: 2.4rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%232b2b2d' d='M4 0c.2 2.2 1.8 3.8 4 4-2.2.2-3.8 1.8-4 4-.2-2.2-1.8-3.8-4-4 2.2-.2 3.8-1.8 4-4Z'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+}
+
+.cta {
+  margin-top: 3.2rem;
+  color: var(--color-ink-body);
+}
+
+@media (min-width: 1024px) {
+  .richEyebrow {
+    margin-top: 4.2rem;
+  }
+
+  .richText,
+  .specs,
+  .cta {
+    margin-top: 4.2rem;
+  }
+}
+
 @media (min-width: 650px) {
   .section {
     padding: 8rem 0 2rem;

@@ -42,7 +42,8 @@ kod standartları); görsel sistem ve blok ölçüleri için Mākena referansı 
   (tek RAF, resize/tick/scroll servisleri, Lenis). Bileşen kendi rAF/resize dinleyicisini açmaz.
   Tüm GSAP kurulumu `gsap.matchMedia()` içinde, reduced-motion koşuluyla.
 - Carousel motoru `components/carousel/useDragCarousel.ts` (clamped / infinite).
-- Galeri: `blocks/GalleryGrid` (indeks; `columns: 2` = ikişer kart, Vogue Hotel Supreme ölçüleri — Konaklama) ·
+- Galeri: `blocks/GalleryGrid` (indeks; `columns: 2` + `detail` = Vogue Hotel Supreme oda kartı,
+  bizim tipografiyle — Konaklama) ·
   `blocks/GalleryCategory` + `components/gallery/Lightbox`
   (`<dialog>` + showModal, kaydırma kilidi, ← → Esc). Hero'suz sayfa `routes.ts` → `headerDark: true`
   (Mākena is-black). Görünür breadcrumb yalnızca `PageContent.breadcrumb: true` ile.

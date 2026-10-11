@@ -35,6 +35,7 @@ export interface UiStrings {
   previousGallery: string;
   nextGallery: string;
   galleryViewer: string;
+  explore: string;
 }
 
 const strings: Record<Locale, UiStrings> = {
@@ -68,6 +69,7 @@ const strings: Record<Locale, UiStrings> = {
     previousGallery: 'Önceki galeri',
     nextGallery: 'Sonraki galeri',
     galleryViewer: 'Galeri görüntüleyici',
+    explore: 'Keşfet',
   },
   en: {
     skipToContent: 'Skip to content',
@@ -99,6 +101,7 @@ const strings: Record<Locale, UiStrings> = {
     previousGallery: 'Previous gallery',
     nextGallery: 'Next gallery',
     galleryViewer: 'Gallery viewer',
+    explore: 'Explore',
   },
   de: {
     skipToContent: 'Zum Inhalt springen',
@@ -130,6 +133,7 @@ const strings: Record<Locale, UiStrings> = {
     previousGallery: 'Vorherige Galerie',
     nextGallery: 'Nächste Galerie',
     galleryViewer: 'Galerieansicht',
+    explore: 'Entdecken',
   },
   ru: {
     skipToContent: 'Перейти к содержанию',
@@ -161,6 +165,7 @@ const strings: Record<Locale, UiStrings> = {
     previousGallery: 'Предыдущая галерея',
     nextGallery: 'Следующая галерея',
     galleryViewer: 'Просмотр галереи',
+    explore: 'Подробнее',
   },
 };
 
