@@ -62,6 +62,10 @@ Vogue'un tabletteki 693×245 sabit yüksekliği aşırı yatay olduğu için al�
 | düğme | 91 × 44, 12 px / 1,5 px, kenar %50 siyah, köşe 2 · mt 40 · tek | `.btn` 14rem × 4,2rem, eyebrow, yazı takası · mt 4,2rem · **KEŞFET + REZERVASYON** (1,6rem ara; rezervasyon hedefi `bookingTarget`: motor adresi yoksa iletişim sayfası) |
 | mobil aralıklar | 24 / 24 / ? / 32 / ? | 2,4 / .8 / 3,2 / 3,2 / 3,2rem |
 
+**Intro** (kullanıcı, 2026-10-11: Mākena /experiences intro bloğu "konaklamaya ekle"): hero ve
+breadcrumb'dan sonra `intro` bloğu (HOME-02 ile aynı bileşen ve ölçüler: pt 12rem pb 9rem, 3–10. kolon,
+92rem, title-m); metin ROOMS-02 (TR onaylı, EN/DE/RU çeviri).
+
 Metinler CONTENT-TR ROOMS-03…06 (kişi sayısı kapasitenin üst sınırı: 3 · 4 · 5 · 7; manzara kısaltıldı);
 EN/DE/RU çeviri editör kontrolü bekliyor. Görsel bağlantısı `tabindex=-1 aria-hidden` (başlıkla aynı
 hedef), başlık ve düğme gerçek bağlantı. Hero alt metni Mākena galerisinde olmadığı için kullanılmadı.
@@ -196,8 +200,9 @@ Açık kalanlar:
   KEŞFET) → kullanıcı: eyebrow "kaldır", açıklama "arayı azalt" (2rem), ikinci satıra "biraz daha
   yukarıdan boşluk" (satır arası 10,4rem) → açıklama ve özellikler "biraz daha daralt" (max-w 50rem;
   özellik aralığı 1,6rem), "REZERVASYON diye bir buton daha" (bookingTarget) → Akra Didim breadcrumb'ı
-  "oluşturduğumuz tüm sayfalara" (`Breadcrumb` yeniden yazıldı, varsayılan açık). `gallery_grid` →
-  `columns: 2`, `src/content/pages/rooms.ts` 4 dil. Oda detayları sıradaki iş.
+  "oluşturduğumuz tüm sayfalara" (`Breadcrumb` yeniden yazıldı, varsayılan açık) → Mākena intro
+  bloğu konaklamaya (ROOMS-02 metni). `gallery_grid` → `columns: 2`, `src/content/pages/rooms.ts`
+  4 dil. Oda detayları sıradaki iş.
 - **2026-10-11 (gece, 2)** — Kullanıcı: "galeri sayfasını yapalım" + Mākena /gallery. Canlı sitede
   indeks, kategori ve lightbox 1440×900 + 375×812 ölçüldü (RE §17.6 doğrulandı; mobilde 8 kare +
   Load more, boş alt metin boşluğu, önceki dairesinde eksik köşe). Yeni: `gallery_grid` ve

@@ -36,6 +36,8 @@ const HERO_IMAGE = 'home/banner-scale';
 interface RoomsText {
   meta: PageMeta;
   hero: { eyebrow: string; title: string; alt: string };
+  /** Mākena intro bloğu (HOME-02 ölçüleri, kullanıcı 2026-10-11) — metin ROOMS-02 */
+  intro: string;
   rooms: Record<RoomKey, GalleryGridDetail>;
 }
 
@@ -47,6 +49,8 @@ const texts: Record<Locale, RoomsText> = {
         "24 m² Standart Oda'dan 72 m² Deluxe Aile Odası'na dört oda tipi. Deniz manzarası, jakuzili balkon ve aile suitleri seçenekleriyle.",
     },
     hero: { eyebrow: 'Konaklama', title: 'Odalar ve aile suitleri', alt: 'Arcanus Hotels Sorgun odaları' },
+    intro:
+      "Modern tasarım, ferah yaşam alanları ve özenle düşünülmüş detaylar. Arcanus Hotels Sorgun'un dört oda tipinde gün konforla başlıyor, huzurla tamamlanıyor.",
     rooms: {
       'rooms/standard-room': {
         text: 'Modern tasarımın yalın konforla buluştuğu Standart Odalar, balkonundan uzanan bahçe ve Akdeniz manzarasıyla dinlendirici bir konaklama sunuyor.',
@@ -73,6 +77,8 @@ const texts: Record<Locale, RoomsText> = {
         'Four room types, from the 24 m² Standard Room to the 72 m² Deluxe Family Room, with sea views, jacuzzi balconies and family suites.',
     },
     hero: { eyebrow: 'Rooms', title: 'Rooms and family suites', alt: 'Rooms at Arcanus Hotels Sorgun' },
+    intro:
+      'Modern design, generous living spaces and carefully considered details. In the four room types at Arcanus Hotels Sorgun, the day begins in comfort and ends in peace.',
     rooms: {
       'rooms/standard-room': {
         text: 'Standard Rooms pair modern design with simple comfort; the balcony looks out over the garden and the Mediterranean for a restful stay.',
@@ -99,6 +105,8 @@ const texts: Record<Locale, RoomsText> = {
         'Vier Zimmertypen vom 24 m² Standardzimmer bis zum 72 m² Deluxe-Familienzimmer, mit Meerblick, Whirlpool-Balkon und Familiensuiten.',
     },
     hero: { eyebrow: 'Zimmer', title: 'Zimmer und Familiensuiten', alt: 'Zimmer im Arcanus Hotels Sorgun' },
+    intro:
+      'Modernes Design, großzügige Wohnräume und sorgfältig durchdachte Details. In den vier Zimmertypen des Arcanus Hotels Sorgun beginnt der Tag mit Komfort und endet in Ruhe.',
     rooms: {
       'rooms/standard-room': {
         text: 'Die Standardzimmer verbinden modernes Design mit schlichtem Komfort; vom Balkon blickt man auf den Garten und das Mittelmeer.',
@@ -125,6 +133,8 @@ const texts: Record<Locale, RoomsText> = {
         'Четыре типа номеров — от стандартного номера 24 м² до семейного номера Делюкс 72 м²: вид на море, балконы с джакузи и семейные люксы.',
     },
     hero: { eyebrow: 'Номера', title: 'Номера и семейные люксы', alt: 'Номера Arcanus Hotels Sorgun' },
+    intro:
+      'Современный дизайн, просторные жилые зоны и продуманные до мелочей детали. В четырёх типах номеров Arcanus Hotels Sorgun день начинается с комфорта и завершается покоем.',
     rooms: {
       'rooms/standard-room': {
         text: 'Стандартные номера сочетают современный дизайн и простой комфорт; с балкона открывается вид на сад и Средиземное море.',
@@ -158,6 +168,7 @@ function build(locale: Locale): PageContent {
         titleLines: [t.hero.title],
         media: { id: HERO_IMAGE, alt: t.hero.alt },
       },
+      { type: 'intro', text: t.intro, wide: true },
       {
         type: 'gallery_grid',
         columns: 2,
