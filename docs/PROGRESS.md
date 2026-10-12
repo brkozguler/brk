@@ -257,7 +257,7 @@ Açık kalanlar:
    - Rezervasyon motoru adresi → `site.bookingUrl`
    - Eski site URL envanteri → `deploy/redirects.csv`
    - Analitik / üçüncü parti → CSP + çerez onayı
-   - GitHub repo adı (remote yok)
+   - ~~GitHub repo adı~~ → `origin` = https://github.com/brkozguler/brk (2026-10-12, `main`)
 6. Sayfa geçiş perdesi, "bu sayfa Almanca da mevcut" bandı, çerez onayı, front-end review
    (NVDA/VoiceOver, klavye, gerçek cihaz, Lighthouse — yukarıdaki açık kalanlar listesi).
 
